@@ -17,8 +17,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
+    <%= form.label :category %>
+    <%= form.select :category_id, @categories.map { |u| ["#{u.name}", u.id] }, { prompt: 'Velg kategori' } %>
+
   </div>
 
   <div class="actions">
