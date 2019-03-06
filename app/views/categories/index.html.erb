@@ -1,0 +1,15 @@
+<%= link_to 'Accounts', accounts_path %>
+
+
+<% @categories.each do |category| %>
+  <h3><%= category.name %></h3>
+  <div style="margin-left: 20px;">
+    <% SubCategory.where(category_id: category.id).each do |sub| %>
+      <%= sub.name %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

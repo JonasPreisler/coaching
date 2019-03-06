@@ -1,0 +1,8 @@
+<%= link_to 'Sign up', new_account_registration_path %> - <%= link_to 'Sign in', new_account_session_path %> - <%= link_to 'Log out', destroy_account_session_path, method: :delete %><br><br>
+<%= link_to 'Kategorier', categories_path %>
+<hr>
+<% @accounts.each do |acc| %>
+	<%= acc.email %> - <%= 'Online' if acc.online? %>
+	<%= 'Offline' if !acc.online? %>
+	<br><br>
+<% end %>
