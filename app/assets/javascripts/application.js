@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require jquery-sparkline/jquery.sparkline.min
 //= require jquery-toast-plugin/dist/jquery.toast.min
-//= require raphael/raphael-min
+//= require raphael-min
 //= require morris.js06/morris.min
 //= require activestorage
 //= require turbolinks
