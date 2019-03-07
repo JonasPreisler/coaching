@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Message</title>
+    <title>Veiledning</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,17 +12,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav.png">
+    <title>Veiledning</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="skin-default fixed-layout">
-    <%= render('/layouts/header') %>
-    <%= render('/layouts/sidebar') %>
-    <% if notice %><p class="notice"><%= notice %></p><% end %>
-    <% if alert %><p class="alert"><%= alert %></p><% end %>
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
@@ -37,6 +33,11 @@
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
     <div id="main-wrapper">
+      <%= render('/layouts/header') %>
+      <%= render('/layouts/sidebar') %>
+      <% if notice %><p class="notice"><%= notice %></p><% end %>
+      <% if alert %><p class="alert"><%= alert %></p><% end %>
+
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
