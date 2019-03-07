@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
 	get '/accounts', to: 'accounts#index'
   devise_for :accounts
   resources :sub_categories
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   get '/terapeuter', to: 'pages#terapeuter'
   root to: 'categories#index'
   get '/accounts/online', to: 'accounts#online'
+  mount ActionCable.server => '/cable'
 end
