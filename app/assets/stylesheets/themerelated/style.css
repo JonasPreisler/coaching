@@ -13621,3 +13621,27 @@ File: scss
     text-align: center;
     margin-top: 10px;
     overflow: hidden; } }
+
+
+@media only screen and (min-width: 765px) {
+  .mobile {
+    display: none;
+  }
+}
+@media only screen and (max-width: 765px) {
+  .desktop {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1178px) {
+  .logo_mobile {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1178px) {
+  .logo_desktop {
+    display: none;
+  }
+}
+
+.sidebar-nav > ul > li > a i { font-size: 18px; }
