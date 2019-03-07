@@ -17,10 +17,10 @@
 //= require jquery-sparkline/jquery.sparkline.min
 //= require jquery-toast-plugin/dist/jquery.toast.min
 //= require raphael-min
-//= require morris.js06/morris.min
+//= require morris.min
 //= require activestorage
 //= require turbolinks
-//= require flot/dist/es5/jquery.flot
+//= require flot/jquery.flot
 //= require jquery.flot.tooltip/js/jquery.flot.tooltip.min
 //= require easy-pie-chart/dist/jquery.easypiechart.min
 //= require easy-pie-chart/dist/easypiechart.min
