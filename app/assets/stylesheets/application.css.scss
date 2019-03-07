@@ -10,10 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require morrisjs/morris
- *= require toast-master/css/jquery.toast
- *= require vectormap/jquery-jvectormap-2.0.2
- *= require themify-icons/ie7/ie7
+ *= require jquery-ui
+ *= require morris.js06/morris
+ *= require jquery-toast-plugin/dist/jquery.toast.min
  */
 
-@import "themerelated/style.scss";
+@import "bootstrap";
+@import "themerelated/style";
