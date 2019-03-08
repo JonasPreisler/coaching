@@ -12,8 +12,9 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require popper
+//= require popper.min
 //= require bootstrap
+//= require uglifier
 //= require jquery-sparkline/jquery.sparkline.min
 //= require jquery-toast-plugin/dist/jquery.toast.min
 //= require raphael-min
