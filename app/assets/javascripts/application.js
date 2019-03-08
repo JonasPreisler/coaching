@@ -13,7 +13,7 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
-//= require jquery-sparkline/jquery.sparkline.min
+//= require sparkline.min
 //= require jquery-toast-plugin/dist/jquery.toast.min
 //= require raphael-min
 //= require morris.js06/morris.min
