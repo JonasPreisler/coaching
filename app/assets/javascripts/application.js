@@ -10,10 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
-//= require sparkline.min
+//= require jquery-sparkline/jquery.sparkline.min
 //= require jquery-toast-plugin/dist/jquery.toast.min
 //= require raphael-min
 //= require morris.js06/morris.min
