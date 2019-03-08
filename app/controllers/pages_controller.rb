@@ -2,9 +2,10 @@ class PagesController < ApplicationController
 
 	def home
 		@accounts = Account.all
+    @categories = Category.all
 	end
 
-	def terapeuter
+	def veiledere
 	end
 
 	def contact1

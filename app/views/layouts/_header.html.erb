@@ -8,14 +8,14 @@
     <!-- Logo -->
     <!-- ============================================================== -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
+      <%= link_to root_path, class: 'navbar-brand' do %>
         <!-- Logo icon --><b>
         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
         <!-- Dark Logo icon -->
         <img src="/assets/logo.png" alt="homepage" class="dark-logo logo_desktop" style="width: 100%" />
         <img src="/assets/fav.png" alt="homepage" class="dark-logo logo_mobile" style="width: 100%" />
         <!-- Light Logo icon -->
-      </a>
+      <% end %>
     </div>
     <!-- ============================================================== -->
     <!-- End Logo -->
@@ -43,17 +43,23 @@
       <ul class="navbar-nav my-lg-0">
 
         <li class="nav-item">
-          <% if !account_signed_in? %>
-            <%= link_to new_account_session_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-              Logg inn
+          <% unless account_signed_in? %>
+            <% unless current_or_guest_account %>
+              <%= link_to new_account_session_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
+                Logg inn
+              <% end %>
+              <%= link_to ny_veileder_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
+                Ny veileder
+              <% end %>
+              <%= link_to new_account_registration_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
+                Registrer
+              <% end %>
+              <%= link_to accounts_path, method: :get, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
+              Gjest bruker
+              <% end %>
+              <% else %>
+              <div class="nav-link dropdown-toggle waves-effect waves-dark"> Velkommen gjest!</div>
             <% end %>
-            <%= link_to new_account_registration_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-              Registrer
-            <% end %>
-          <% else %>
-            <%= link_to destroy_account_session_path(current_account), method: :delete, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-              Logg ut
-           <% end %>
          <% end %>
         </li>
         <!-- ============================================================== -->
