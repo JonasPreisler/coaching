@@ -52,16 +52,12 @@
         <div class="tab-content">
           <% @categories.each do |cat| %>
             <div class="tab-pane active" id="<%= cat.id %>" role="tabpanel">
-              <% @sub_categories.where(category_id: cat.id).each do |sub_cat| %>
+              <% cat.sub_categories.each do |sub_cat| %>
                 <h3><%= sub_cat.name %></h3>
               <% end %>
             </div>
           <% end %>
         </div>
-
-
-
-
       </div>
   </div>
 </div>
