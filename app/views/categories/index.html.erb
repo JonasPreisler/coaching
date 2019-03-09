@@ -1,54 +1,67 @@
-<%= render('/layouts/preloader') %>
-<% if false %>
-  <%= link_to 'Accounts', accounts_path %>
-
-
-  <% @categories.each do |category| %>
-    <h3><%= category.name %></h3>
-    <div style="margin-left: 20px;">
-      <% SubCategory.where(category_id: category.id).each do |sub| %>
-        <%= sub.name %><br>
-      <% end %>
-    </div>
-  <% end %>
-
-  <br>
-
-  <%= link_to 'New Category', new_category_path %>
-  <br>
-  <%= link_to 'New Sub Category', new_sub_category_path %>
-<% end %>
-  
-  <!-- ============================================================== -->
-  <!-- End Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Info box -->
-  <!-- ============================================================== -->
-
+<div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Vertical Tab</h4>
+                                <h6 class="card-subtitle">Use default tab with class <code>vtabs & tabs-vertical</code></h6>
+                                <!-- Nav tabs -->
+                                <div class="vtabs">
+                                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home4" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Home</span> </a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Profile</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Messages</span></a> </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="home4" role="tabpanel">
+                                            <div class="p-20">
+                                                <h3>Best Clean Tab ever</h3>
+                                                <h4>you can use it with the small code</h4>
+                                                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane p-20" id="profile4" role="tabpanel">2</div>
+                                        <div class="tab-pane p-20" id="messages4" role="tabpanel">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 <div class="card">
   <div class="card-body">
       <h4 class="card-title">Kategorier</h4>
       <h6 class="card-subtitle">Velg en kategori</h6>
       <!-- Nav tabs -->
       <div class="vtabs">
-          <ul class="nav nav-tabs tabs-vertical" role="tablist">
-              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home4" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Kat 1</span> </a> </li>
-              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile4" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Kat 2</span></a> </li>
-              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages4" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Kat 3</span></a> </li>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-              <div class="tab-pane active" id="home4" role="tabpanel">
-                  <div class="p-20">
-                      <h3>Underkategorier</h3>
-                      <h4>som vi kan </h4>
-                      <p>vise hér  :)</p>
-                  </div>
-              </div>
-              <div class="tab-pane p-20" id="profile4" role="tabpanel">Flere Underkategorier</div>
-              <div class="tab-pane p-20" id="messages4" role="tabpanel">Endnu flere Underkategorier</div>
-          </div>
+
+
+
+
+        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+          <% @categories.each do |cat| %>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#<%= cat.id %>" role="tab">
+                <span class="hidden-sm-up">
+                  <i class="ti-home"></i>
+                </span>
+                <span class="hidden-xs-down">
+                  <%= cat.name %>
+                </span>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="tab-content">
+          <% @categories.each do |cat| %>
+            <div class="tab-pane active" id="<%= cat.id %>" role="tabpanel">
+              <% @sub_categories.where(category_id: cat.id).each do |sub_cat| %>
+                <h3><%= sub_cat.name %></h3>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+
+
+
       </div>
   </div>
 </div>
@@ -88,11 +101,11 @@
     <div class="col-lg-3 col-md-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">NOE ANNET</h5>
+                <h5 class="card-title">ANTAL KONTOER</h5>
                 <div class="d-flex no-block align-items-center m-t-20 m-b-20">
                     <div id="sparklinedash3"></div>
                     <div class="ml-auto">
-                        <h2 class="text-info"><i class="ti-arrow-up"></i> <span class="counter">6011</span></h2>
+                        <h2 class="text-info"><i class="ti-arrow-up"></i> <span class="counter"><%= Account.count %></span></h2>
                     </div>
                 </div>
             </div>
