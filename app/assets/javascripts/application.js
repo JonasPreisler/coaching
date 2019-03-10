@@ -12,16 +12,7 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require popper
 //= require bootstrap
-//= require jquery-sparkline/jquery.sparkline.min
-//= require jquery-toast-plugin/dist/jquery.toast.min
-//= require raphael-min
-//= require morris.min
 //= require activestorage
 //= require turbolinks
-//= require flot/jquery.flot
-//= require jquery.flot.tooltip/js/jquery.flot.tooltip.min
-//= require easy-pie-chart/dist/jquery.easypiechart.min
-//= require easy-pie-chart/dist/easypiechart.min
 //= require_tree .
