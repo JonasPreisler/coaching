@@ -5,6 +5,13 @@ class PagesController < ApplicationController
     @categories = Category.all
 	end
 
+	def mobil
+	end
+	def mobil2
+	end
+	def home_mobile
+	end
+
 	def veiledere
 	end
 

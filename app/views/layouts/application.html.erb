@@ -19,8 +19,8 @@
   </head>
 
   <body>
-    <%= render('/layouts/header') %>
-    <div class="container">
+    <div class="<%= 'container' unless controller.action_name == 'mobil2' || 'home_mobile' %><%= 'background' if controller.action_name == 'mobil2' %>">
+      <%= render('/layouts/header_mobile') %>
       <%#= render('/layouts/sidebar') %>
       <% if notice %><p class="notice"><%= notice %></p><% end %>
       <% if alert %><p class="alert"><%= alert %></p><% end %>

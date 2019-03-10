@@ -1,0 +1,46 @@
+<div class="row all_categories">
+    <div style="overflow: auto;height: 450px;padding: 10px;">
+        <% @categories.each do |cat| %>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="category_mobile" onclick="myFunction('cat<%= cat.id %>');">
+                    <i class="fa fa-user-o" aria-hidden="true"></i><br>
+                    <span class="cat-title"> <%= cat.name %></span>
+                </div>
+                <div id="cat<%= cat.id %>" style="display: none;">
+                    <% cat.sub_categories.each do |sub| %>
+                        <div class="sub_category">
+                            <%= sub.name %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+  <div class="row">
+    <div class="col-md-9" style="background: #fff;">
+        <div class="row">
+            <div style="overflow: auto;height: 450px;background: #fff;">
+                <% @categories.each do |cat| %>
+                    <% cat.sub_categories.each do |sub_cat| %>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="card">
+                              <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
+                              <div class="card-body">
+
+                                <span class="info-box"><strong>Fornavn Etternavn</strong></span>
+                                <div class="info-box-display">I'm a block element.</div>
+                                <br>
+                                <%= image_tag('/stars.png') %> <span class="text-muted" style="font-size: 12px;">(15)</span>
+                              
+                              </div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
