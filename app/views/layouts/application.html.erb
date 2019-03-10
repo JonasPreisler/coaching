@@ -19,18 +19,20 @@
   </head>
 
   <body>
-    <div class="<%= 'container' unless controller.action_name == 'mobil2' || 'home_mobile' %><%= 'background' if controller.action_name == 'mobil2' %>">
-      <%= render('/layouts/header_mobile') %>
+    <div class="<%= 'background' if controller.action_name == 'mobil2' %>">
+      <%= render('/layouts/header_mobile', class: 'mobile') %>
+      <%= render('/layouts/header', class: 'desktop') %>
       <%#= render('/layouts/sidebar') %>
       <% if notice %><p class="notice"><%= notice %></p><% end %>
       <% if alert %><p class="alert"><%= alert %></p><% end %>
 
-      <%= yield %>
+      <span class="<%= 'container' if controller.action_name != 'mobil2' || 'home_mobile' %>">
+        <%= yield %>
+      </span>
 
       <footer class="footer">
         © 2019 Veiledning | Viachat
       </footer>
-
     </div>
   </body>
 </html>

@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="all_categories_container">
+  <div class="categories_header_text"><%= @category.name %></div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+		<span class="row all_categories container">
+		    <div style="overflow: auto;height: 450px;padding: 10px;">
+		        <% @sub_categories.each do |cat| %>
+		            <%= link_to sub_category_path(cat) do %>
+		              <div class="col-md-6 col-sm-6 col-xs-6">
+		                    <div class="sub_category_mobile"">
+		                        <i class="fa fa-user-o" aria-hidden="true"></i><br>
+		                        <span class="cat-title"> <%= cat.name %></span>
+		                    </div>
+		                </div>
+		            <% end %>
+		        <% end %>
+		    </div>
+		</span>
+</div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+

@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 	def mobil2
 	end
 	def home_mobile
+		@sub_categories = SubCategory.all.limit(6)
 	end
 
 	def veiledere

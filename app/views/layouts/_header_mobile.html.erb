@@ -1,14 +1,14 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default mobile">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="float: left;">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="mobile" style="padding-top: 10px;">Hjem</span>
+      <%= link_to root_path do %> <%= image_tag('/logo.png', class: 'logo', style: 'width: 25%;') %><% end %>
       <image src="/veileder.jpg" type="button" class="collapsed user-image-toggle" data-toggle="collapse" data-target="#user-dropdown" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -22,31 +22,16 @@
         <li><i class="fa fa-home" aria-hidden="true"></i> Hjem</li>
         <li><i class="fa fa-user" aria-hidden="true"></i> Veiledere</li>
         <li><i class="fa fa-info-circle" aria-hidden="true"></i> Om</li>
-        <li class="nav-item">
-          <% unless account_signed_in? %>
-            <% unless current_or_guest_account %>
-              <%= link_to new_account_session_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-                Logg inn
-              <% end %>
-              <%= link_to ny_veileder_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-                Ny veileder
-              <% end %>
-              <%= link_to new_account_registration_path, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-                Registrer
-              <% end %>
-              <%= link_to accounts_path, method: :get, class: 'nav-link dropdown-toggle waves-effect waves-dark' do %>
-              Gjest bruker
-              <% end %>
-              <% else %>
-              <div class="nav-link dropdown-toggle waves-effect waves-dark"> Velkommen gjest!</div>
-            <% end %>
-         <% end %>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <div class="button">
-            <%= link_to "Logg inn", new_account_session_path, class: 'button' %>
+            <%= link_to 'Registrer veileder', new_tutor_registration_path, class: 'button' %>
+          </div>
+        </li><br>
+        <li>
+          <div class="button">
+            <%= link_to "Logg inn", new_account_session_path, class: 'button'  %>
           </div>
         </li>
       </ul>

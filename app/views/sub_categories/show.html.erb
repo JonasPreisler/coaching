@@ -1,1 +1,29 @@
-ff
+<div class="all_categories_container">
+  <h4 class="categories_header_text"><%= @sub_category.name %></h4>
+  <center>Vi fandt 17 veiledere!</center>
+	<span class="row all_categories sub_category_page">
+    <div style="overflow: auto;height: 450px;">
+      <% @sub_categories.each do |cat| %>
+        <%= link_to sub_category_path(cat) do %>
+
+          <div class="col-md-3 col-sm-4 col-xs-6">
+            <div class="card">
+              <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
+              <div class="card-body">
+
+                <span class="info-box"><strong>Fornavn Etternavn</strong></span>
+                <div class="info-box-display">I'm a block element.</div>
+                <br>
+                <%= image_tag('/stars.png') %>
+                <span class="text-muted" style="font-size: 12px;">(15)</span>
+              
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+	</span>
+</div>
+
