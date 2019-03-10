@@ -16,3 +16,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function myFunction(id) {
+  var x = document.getElementById(id);
+  $(x).slideToggle();
+  $(x).siblings('.togglable-tr').hide();
+}

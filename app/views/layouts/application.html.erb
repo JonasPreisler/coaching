@@ -9,8 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <%= action_cable_meta_tag %>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav.png">
@@ -20,33 +18,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body class="skin-default fixed-layout">
-<!-- ============================================================== -->
-<!-- Preloader - style you can find in spinners.css -->
-<!-- ============================================================== -->
-    
-      
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
-    <div id="main-wrapper">
-      <%#= render('/layouts/header') %>
+  <body>
+    <%= render('/layouts/header') %>
+    <div class="container">
       <%#= render('/layouts/sidebar') %>
       <% if notice %><p class="notice"><%= notice %></p><% end %>
       <% if alert %><p class="alert"><%= alert %></p><% end %>
 
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-      <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
-        <div class="container-fluid">
-            <%#= render('/layouts/breadcrumb') %>
-            <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
+
       <footer class="footer">
         © 2019 Veiledning | Viachat
       </footer>

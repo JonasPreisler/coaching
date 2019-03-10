@@ -1,47 +1,21 @@
-  <!-- ============================================================== -->
-  <!-- Topbar header - style you can find in pages.scss -->
-  <!-- ============================================================== -->
-
-<header class="topbar">
-  <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-    <!-- ============================================================== -->
-    <!-- Logo -->
-    <!-- ============================================================== -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <%= link_to root_path, class: 'navbar-brand' do %>
-        <!-- Logo icon --><b>
-        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-        <!-- Dark Logo icon -->
-        <img src="/assets/logo.png" alt="homepage" class="dark-logo logo_desktop" style="width: 100%" />
-        <img src="/assets/fav.png" alt="homepage" class="dark-logo logo_mobile" style="width: 100%" />
-        <!-- Light Logo icon -->
-      <% end %>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path do %> <%= image_tag('/logo.png', class: 'logo') %><% end %>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Logo -->
-    <!-- ============================================================== -->
-    <div class="navbar-collapse">
-      <!-- ============================================================== -->
-      <!-- toggle and nav items -->
-      <!-- ============================================================== -->
-      <ul class="navbar-nav mr-auto">
-        <!-- This is  -->
-        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
-        <!-- ============================================================== -->
-        <!-- Search -->
-        <!-- ============================================================== -->
-        <li class="nav-item">
-          <form class="app-search d-none d-md-block d-lg-block">
-            <input type="text" class="form-control" placeholder="Søg">
-          </form>
-        </li>
-      </ul>
-      <!-- ============================================================== -->
-      <!-- User profile and search -->
-      <!-- ============================================================== -->
-      <ul class="navbar-nav my-lg-0">
 
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><i class="fa fa-home" aria-hidden="true"></i> Hjem</li>
+        <li><i class="fa fa-user" aria-hidden="true"></i> Veiledere</li>
+        <li><i class="fa fa-info-circle" aria-hidden="true"></i> Om</li>
         <li class="nav-item">
           <% unless account_signed_in? %>
             <% unless current_or_guest_account %>
@@ -62,10 +36,14 @@
             <% end %>
          <% end %>
         </li>
-        <!-- ============================================================== -->
-        <!-- End mega menu -->
-        <!-- ============================================================== -->
       </ul>
-    </div>
-  </nav>
-</header>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div class="button">
+            <%= link_to "Logg inn", new_account_session_path, class: 'button' %>
+          </div>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,119 @@
+body {
+	background: #f1faf9 !important;
+	font-family: poppins !important;
+}
+h2, h3, h4, h5, h6, a {
+	color: #58C9B9 !important; 
+}
+
+.home_list {
+	background: #fff;
+	padding: 2rem;
+	margin: 10px;
+	padding-bottom: 20px;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  box-shadow:         0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	}
+	img {
+		width: 100%;
+	}
+}
+
+
+.navbar-default {
+	background: none !important;
+	border: none !important;
+	padding: 10px;
+	.logo {
+		padding-right: 30px;
+	}
+}
+.navbar-nav {
+	padding: 15px;
+}
+.navbar-nav > li {
+	padding-right: 30px;
+}
+
+.navbar-nav > li > a {
+	padding: 0 !important;
+}
+
+.category {
+	padding: 10px;
+	border-radius: 5px;
+	background: #58C9B9;
+	color: #fff;
+	margin-bottom: 10px;
+	cursor: pointer;
+  -moz-box-shadow:    0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  -webkit-box-shadow: 0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  box-shadow:         0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  transition: .2s;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  background: #3d8c81;
+	}
+}
+
+.sub_category {
+	padding: 5px;
+	border-radius: 5px;
+	background: #58a1c9;
+	color: #fff;
+	margin-bottom: 10px;
+	margin-left: 50px;
+	cursor: pointer;
+  -moz-box-shadow:    0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  -webkit-box-shadow: 0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  box-shadow:         0 5px 10px 0 rgba(35, 80, 74,.11),0 3px 5px 0 rgba(35, 80, 74,.08);
+  transition: .2s;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	}
+}
+.card {
+	margin: 10px;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	}
+}
+
+.card-body {
+	padding: 10px;
+	background: #f3f2f2;
+}
+
+.button {
+	text-decoration: none !important;
+	background: #519D9E;
+	color: #fff !important;
+	padding: 10px;
+	border-radius: 3px;
+	transition: .2s;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	}
+}
+.info-box-display {
+	 display: none;
+}
+.info-box {
+	cursor: pointer;
+}
+.info-box:hover + .info-box-display {
+    display: block;
+    position: absolute;
+    background: #f3f2f2;
+    width: 200px; 
+}
