@@ -1,10 +1,19 @@
+@font-face {font-family: "Agency FB";
+    src: url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.eot");
+    src: url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/596e78c7d8f0d85090a9af4e8e19076c.svg#Agency FB") format("svg");
+}
+
 body {
-  font-family: 'Agency FB Bold' !important;
+  font-family: 'Agency FB' !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: #081758 !important; 
-  font-family: 'Agency FB Bold' !important;
+  font-family: 'Agency FB' !important;
   font-weight: 900 !important;
   margin: 0;
 }
@@ -155,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button {
-  font-family: 'Agency FB Bold' !important;
+  font-family: 'Agency FB' !important;
 	text-decoration: none !important;
 	font-size: 20px;
 	background: #B2B6B7;
@@ -234,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 500;
 }
 .landing-side-text {
-  font-family: 'Agency FB Bold' !important;
+  font-family: 'Agency FB' !important;
 	background: #081758;
 	color: #fff;
 	border-radius: 14px 0 0px 14px;
