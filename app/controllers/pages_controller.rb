@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 	end
 	def mobil2
 	end
-	def home_mobile
+	def landing_page
 		@sub_categories = SubCategory.all.limit(6)
 	end
 

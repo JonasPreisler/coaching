@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/veiledere', to: 'pages#veiledere'
   get '/mobil', to: 'pages#mobil'
   get '/mobil2', to: 'pages#mobil2'
-  root to: 'pages#home_mobile'
+  root to: 'pages#landing_page'
   get '/accounts/online', to: 'accounts#online'
   mount ActionCable.server => '/cable'
 

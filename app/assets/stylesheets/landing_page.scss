@@ -1,0 +1,75 @@
+.home {
+	padding-left: 20px;
+	padding-right: 20px;
+	.col-sm-4, .col-md-4 {
+		.box {
+			height: 100px;
+			background: #B2B6B7;
+			border-radius: 20px;
+			margin: 8px;
+			padding: 17px;
+			-webkit-box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.75);
+			box-shadow: 7px 7px 5px 0px rgba(0,0,0,0.75);
+			h2 {
+				margin-bottom: 8px;
+				text-align: center;
+				color: #081758;
+			}
+			p {
+				text-align: center !important;
+				font-size: 14px;
+			}
+		}
+	}
+	.col-md-3, .col-sm-4, .col-xs-6 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	hr {
+		border-color: #ccc
+	}
+	.header {
+		h2 {
+			position: absolute;
+			top: 0px;
+			right: 20px;
+			font-size: 34px;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	.side-headers {
+		width: 100%; margin-top: 20%;
+	}
+	.landing-side-text {
+	  font-family: 'Agency FB' !important;
+		background: #081758;
+		color: #fff;
+		border-radius: 14px 0 0px 14px;
+		padding: 6px 40px 6px 40px;
+		font-size: 24px;
+		font-weight: 300;
+		margin-bottom: 20px;
+		@media only screen and (min-width: 400px) {
+			margin-left: 20%;
+		}
+		@media only screen and (max-width: 400px) {
+			margin-left: 30%;
+		}
+	}
+}
+
+
+.landing-tutors {
+	.col-xs-6 {
+		padding: 5px;
+	}
+}
+
+.landing-text {
+	margin: 50px;
+	font-size: 20px;
+	font-weight: 500;
+}

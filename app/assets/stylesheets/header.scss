@@ -1,0 +1,44 @@
+.navbar-default {
+	background: none !important;
+	border: none !important;
+	padding: 10px;
+	.logo {
+		padding-right: 30px;
+	}
+}
+.navbar-nav {
+	padding: 15px;
+}
+.navbar-nav > li {
+	padding-right: 10px;
+	font-size: 10px;
+}
+
+.navbar-nav > li > a {
+	padding: 0 !important;
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.navbar-default .navbar-toggle {
+	border: none;
+}
+
+.desktop {
+	.navbar-collapse {
+		.navbar-left {
+			a {
+				color: #1c1c1c !important;
+			}
+		}
+	}
+}
+
+.user-image-toggle {
+	width: 40px;
+	border-radius: 90px;
+	float: right;
+	cursor: pointer;
+}
