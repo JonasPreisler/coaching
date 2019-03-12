@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'devise-guests', '~> 0.7.0'
+gem 'friendly_id'
+gem 'bootstrap-toggle-rails'
 
 
 group :development, :test do

@@ -13,6 +13,7 @@
 //= require jquery3
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-toggle
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -22,3 +23,8 @@ function myFunction(id) {
   $(x).slideToggle();
   $(x).siblings('.togglable-tr').hide();
 }
+
+
+$(document).on('ready page:change', function() {
+  $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
+});

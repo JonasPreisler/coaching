@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_152656) do
+ActiveRecord::Schema.define(version: 2019_03_12_064223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 2019_03_11_152656) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -54,6 +67,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_152656) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_sub_categories_on_slug", unique: true
   end
 
   create_table "tutors", force: :cascade do |t|
@@ -70,8 +85,13 @@ ActiveRecord::Schema.define(version: 2019_03_11_152656) do
     t.integer "sub_category_id"
     t.text "description"
     t.string "phone"
+    t.string "channel_key"
+    t.string "slug"
+    t.boolean "anonymous"
+    t.boolean "gdpr"
     t.index ["email"], name: "index_tutors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_tutors_on_slug", unique: true
   end
 
 end

@@ -1,10 +1,15 @@
-<div class="container">
-	<div id="messages">
-		<%= render @messages %>
-	</div>
-
-	<form>
-		<label>Sig noget</label><br>
-		<input type="text" data-behavior="room_speaker">
-	</form>
+<div id="messages">
+	<%= render @messages %>
 </div>
+
+<form>
+	<label>Sig noget</label><br>
+	<input type="text" data-behavior="room_speaker">
+</form>
+
+
+<% @tutors.each do |acc| %>
+	<%= acc.email %> <br>
+<% end %><%= current_tutor.appear %>
+
+

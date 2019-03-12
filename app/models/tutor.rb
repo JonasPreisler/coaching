@@ -7,5 +7,9 @@ class Tutor < ApplicationRecord
          :recoverable, :rememberable, :validatable
 	belongs_to :sub_category
   validates_presence_of :email, :sub_category_id, :first_name, :last_name
-
+  extend FriendlyId
+  def full_name
+  	first_name + ('-') + last_name
+  end
+  friendly_id :full_name, use: :slugged
 end

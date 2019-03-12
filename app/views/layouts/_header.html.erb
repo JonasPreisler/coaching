@@ -19,16 +19,24 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <div class="button">
-            <%= link_to 'REGISTRER NY RÅDGIVER', new_tutor_registration_path, class: 'button' %>
-          </div>
+          <% unless current_tutor %>
+            <div class="button">
+              <%= link_to 'REGISTRER NY RÅDGIVER', new_tutor_registration_path %>
+            </div>
+          <% end %>
         </li>
         <li>
-          <div class="button">
-            <%= link_to "LOGG INN", new_account_session_path, class: 'button'  %>
-          </div>
+          <% unless current_tutor %>
+            <div class="button">
+              <%= link_to "LOGG INN", new_account_session_path  %>
+            </div>
+          <% else %>
+            <div class="button">
+              <%= link_to 'LOGG UTT', destroy_tutor_session_path, method: :delete %>
+            </div>
+          <% end %>
         </li>
       </ul>
     </div>
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>

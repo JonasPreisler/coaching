@@ -1,4 +1,5 @@
-<h2>Sign up</h2>
+<div class="form-card">
+<h2>Registrer som rådgiver</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -8,39 +9,58 @@
   </div>
 
 
-  <div class="field">
-    <div class="row">
-      <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
         <%= f.label :fornavn %><br />
         <%= f.text_field :first_name, required: true, autofocus: true, autocomplete: "fornavn" %>
       </div>
-      <div class="col-md-6">
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
         <%= f.label :etternavn %><br />
         <%= f.text_field :last_name, required: true %>
       </div>
     </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, required: true, autocomplete: "email" %>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, required: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <%= f.label :telefon %>
+        <%= f.number_field :phone %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :passord %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> tegn minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :passord_bekreftelse %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div><br>
+  
+  <%= f.check_box :anonymous, required: true, 'data-toggle': 'toggle' %><br><br>
+
+  Jeg godtar vilkårene som er sammenhengende med GDPR<br>
+  <%= f.check_box :gdpr, required: true, 'data-toggle': 'toggle' %><br><br>
+
 
   <div class="actions">
-    <%= f.submit "Sign up", class: 'btn btn-primary' %>
+    <%= f.submit "Meld dig på", class: 'button-blue' %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

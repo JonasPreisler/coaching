@@ -12,7 +12,7 @@
     <link href="//db.onlinewebfonts.com/c/596e78c7d8f0d85090a9af4e8e19076c?family=Agency+FB" rel="stylesheet" type="text/css"/>
     <%= action_cable_meta_tag %>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav.png">
     <title>Veiledning</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -27,9 +27,9 @@
       <% if notice %><p class="notice"><%= notice %></p><% end %>
       <% if alert %><p class="alert"><%= alert %></p><% end %>
 
-      <span class="<%= 'container' if controller.action_name != 'mobil2' || 'home_mobile' %>">
+      <div class="<%= action_name %> <%= 'container' unless action_name == 'landing_page' %>">
         <%= yield %>
-      </span>
+      </div>
 
       <footer class="footer">
         © 2019 Veiledning | Viachat
