@@ -18,23 +18,37 @@
         <li><%= link_to 'Melding', rooms_show_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% unless tutor_signed_in? %>
+          <li>
+            <%= link_to new_tutor_registration_path do %>
+              <div class="button">REGISTRER NY RÅDGIVER</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_account_session_path do  %>
+              <div class="button">LOGG IN</div>
+            <% end %>
+          </li> 
+        <% else %>
+          <li>
+            <%= link_to destroy_tutor_session_path, method: :delete do %>
+              <div class="button">LOGG UT</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to raadgiver_path(current_tutor) do %>
+              <div class="button">
+                DIN PROFIL
+              </div>
+            <% end %>
+          </li>
+        <% end %>
         <li>
-          <% unless current_tutor %>
-            <div class="button">
-              <%= link_to 'REGISTRER NY RÅDGIVER', new_tutor_registration_path %>
+          <%#= link_to ring_path do %>
+            <div class="call_button">
+              <i class="fa fa-phone" aria-hidden="true"></i> RING
             </div>
-          <% end %>
-        </li>
-        <li>
-          <% unless current_tutor %>
-            <div class="button">
-              <%= link_to "LOGG INN", new_account_session_path  %>
-            </div>
-          <% else %>
-            <div class="button">
-              <%= link_to 'LOGG UTT', destroy_tutor_session_path, method: :delete %>
-            </div>
-          <% end %>
+          <%# end %>
         </li>
       </ul>
     </div>

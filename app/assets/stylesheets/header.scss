@@ -42,3 +42,23 @@
 	float: right;
 	cursor: pointer;
 }
+
+.call_button {
+	font-size: 20px;
+	padding: 5px 25px 6px 19px;
+	border-radius: 3px;
+	border: 1px solid #B2B6B7;
+	color: #081758;
+	transition: .2s;
+	&:hover {
+	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+	}
+	a {
+		color: #081758;
+		&:hover {
+			  text-decoration: none;
+		}
+	}
+}

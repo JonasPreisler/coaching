@@ -1,8 +1,12 @@
+<div class="modal fade left">
+    ...
+</div>
+
 <span class="home">
 
-	<div class="row header">
+	<span class="row header">
 		<div class="col-md-6 col-sm-6">
-			<%= image_tag('/people.png', style: 'position: relative;', class: 'desktop', style: 'margin-top: 80px;') %>
+			<%= image_tag('/people.png', class: 'desktop', style: 'position: relative;margin-top: 80px;') %>
 			<%= image_tag('/people.png', class: 'mobile', style: 'margin-top: 100px;') %>
 			<h2>
 				Er du i tvil?
@@ -25,28 +29,28 @@
 				<div class="landing-side-text">
 					SE HVEM SOM ER ONLINE
 				</div>
-			</div>
-		</div>
-	</div>
 
-
-	<span class="row">
-		<div class="col-md-4 col-sm-4">
-			<div class="box">
-				<h2>HJEN OG FAMILIE</h2>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-4">
-			<div class="box">
-				<h2>ERNÆRING</h2>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-4">
-			<div class="box">
-				<h2>HELSE</h2>
+				<div class="landing-side-text">
+					SØK OM JOBB
+				</div>
 			</div>
 		</div>
 	</span>
+
+
+	<span class="row categories">
+		<% @categories.each do |cat| %>
+			<div class="col-md-4 col-sm-4">
+				<div class="box">
+					<h2><%= cat.name %></h2>
+				</div>
+			</div>
+		<% end %>
+	</span>
+
+
+	<%= render('/pages/landing_page_carousel') %>
+
 
 	<div class="container">
 		<span style="background: #fff;" class="landing-tutors">

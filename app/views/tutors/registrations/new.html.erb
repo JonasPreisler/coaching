@@ -50,11 +50,18 @@
     <%= f.label :passord_bekreftelse %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div><br>
-  
-  <%= f.check_box :anonymous, required: true, 'data-toggle': 'toggle' %><br><br>
 
-  Jeg godtar vilkårene som er sammenhengende med GDPR<br>
-  <%= f.check_box :gdpr, required: true, 'data-toggle': 'toggle' %><br><br>
+  <%= f.check_box :anonymous %>
+
+  Vil du være <span class="info-box">ANONYM</span> for ikke-brukere?
+  <div class="info-box-display">Ditt navn vil vises som "anonymt" og bildet ditt vil ikke vises for brukere som ikke er innlogget.</div>
+
+  <%#= f.check_box :anonymous, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Offentlig", 'data-off': "<i class='fa fa-user-secret'></i> Anonym", 'data-width': "120", 'data-style': 'slow' %><br>
+
+  <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR
+  <%#= f.check_box :gdpr, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Accepter", 'data-off': "<i class='fa fa-user-secret'></i> Nei takk", 'data-width': "120", 'data-style': 'slow' %><br><br>
+
+
 
 
   <div class="actions">

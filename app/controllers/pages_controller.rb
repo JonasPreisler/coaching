@@ -9,8 +9,11 @@ class PagesController < ApplicationController
 	end
 	def mobil2
 	end
+	def ring
+	end
 	def landing_page
 		@sub_categories = SubCategory.all.limit(6)
+    @tutors = Tutor.all.limit(15)
 	end
 
 	def veiledere

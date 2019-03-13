@@ -65,12 +65,13 @@ a {
 	font-size: 12px;
 }
 
-.fa {
- margin-bottom: 10px;
- font-size: 26px !important;
- color: #444;
+.category_mobile {
+	.fa {
+	 margin-bottom: 10px;
+	 font-size: 26px !important;
+	 color: #444;
+	}
 }
-
 .all_categories {
 	.col-xs-6, .col-sm-6, .col-md-6 {
 		padding: 5px;
@@ -91,12 +92,11 @@ a {
 }
 
 .button {
-  font-family: 'Agency FB' !important;
 	text-decoration: none !important;
 	font-size: 20px;
 	background: #B2B6B7;
 	color: #081758 !important;
-	padding: 7px 25px 7px 25px;
+	padding: 11px 25px 11px 25px;
 	border-radius: 3px;
 	transition: .2s;
 	&:hover {
@@ -133,12 +133,16 @@ a {
 }
 .info-box {
 	cursor: pointer;
+	color: #584908;
 }
 .info-box:hover + .info-box-display {
     display: block;
     position: absolute;
-    background: #f3f2f2;
-    width: 200px; 
+    background: #584908;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 .background {
@@ -196,3 +200,5 @@ a {
   left: 3px;
   color: #009C4D;
 }
+
+.slow .toggle-group { transition: left 0.7s; -webkit-transition: left 0.7s; }

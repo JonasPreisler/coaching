@@ -9,4 +9,15 @@
 		padding: 7px;
 		font-size: 16px;
 	}
+	input[type="checkbox"] {
+		width: 3% !important;
+	}
+	.btn-primary {
+		background-color: #584908;
+		border-color: #1c1c1c;
+		color: #fff;
+		.fa {
+			color: #fff;
+		}
+	}
 }

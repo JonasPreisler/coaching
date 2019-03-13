@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     post '/logg-in', to: 'tutors/sessions#create'
     get '/veileder/ny', to: 'tutors/registrations#new'
     post '/veileder/ny', to: 'tutors/registrations#create'
+    get '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
+  get '/ring', to: 'pages#ring'
 end
