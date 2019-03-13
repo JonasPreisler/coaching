@@ -1,13 +1,10 @@
 class Tutor < ApplicationRecord
-  after_create :send_admin_mail
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #after_create :send_admin_mail
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-	belongs_to :sub_category
-  validates_presence_of :email, :sub_category_id, :first_name, :last_name
+  has_many :tutors_categories
+  validates_presence_of :email, :first_name, :last_name
   extend FriendlyId
   def full_name
   	first_name + ('-') + last_name

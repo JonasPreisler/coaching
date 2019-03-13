@@ -25,5 +25,7 @@ module Veiledning
     	enable_starttls_auto: true
     }
 
+    config.exceptions_app = self.routes
+
   end
 end

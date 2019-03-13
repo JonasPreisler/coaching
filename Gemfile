@@ -27,6 +27,7 @@ gem 'devise'
 gem 'devise-guests', '~> 0.7.0'
 gem 'friendly_id'
 gem 'bootstrap-toggle-rails'
+gem 'rails_admin'
 
 
 group :development, :test do
@@ -54,5 +55,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-ui-rails'
+
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'redis', '~> 4.1'

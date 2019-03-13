@@ -10,11 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-toggle
 //= require bootstrap-select
+//= require bootstrap/modal
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -30,3 +31,15 @@ $(document).on('ready page:change', function() {
   $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
 });
 
+document.addEventListener("turbolinks:load", function() {
+	$('.selectpicker').selectpicker({
+  });
+});
+
+
+
+document.addEventListener("turbolinks:load", function() {
+    $('.select2-dropdown').select2();
+    $('b[role="presentation"]').hide();
+    $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
+});

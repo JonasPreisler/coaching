@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :tutors_categories
   resources :products
   get 'rooms/show'
 	get '/accounts', to: 'accounts#index'
@@ -27,4 +29,8 @@ Rails.application.routes.draw do
   resources :tutors
   get '/ikke-godkendt', to: 'tutors#ikke_godkendt'
   put '/ikke-godkendt', to: 'tutors#ikke_godkendt'
+
+  get "/404", :to => "errors#not_found", :via => :all
+  get "/500", :to => "errors#internal_server_error", :via => :all
+
 end

@@ -5,7 +5,9 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.select :sub_category_id, SubCategory.all.order('name ASC').map { |u| [u.name, u.id] }, { prompt: 'Velg kategori*' }, { :required => true, class: 'selectpicker' } %>
+
+    <%= f.label :Kategorier %><br />
+    <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
   </div>
 
 

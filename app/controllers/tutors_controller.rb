@@ -36,6 +36,7 @@ class TutorsController < ApplicationController
 	def show
 	end
 
+
 	private
 
     def set_tutor

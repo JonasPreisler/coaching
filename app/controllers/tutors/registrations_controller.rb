@@ -5,14 +5,21 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @sub_categories = SubCategory.all.order('name ASC')
+    super
+  end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if (resource).save
+      params[:sub_category_ids].each do |sub|
+        TutorsCategory.create!([{tutor_id: self.id, sub_category_id: sub}])
+      end
+    end
+  end
+
+
 
   # GET /resource/edit
   # def edit
