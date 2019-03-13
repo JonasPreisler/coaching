@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     get '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
   get '/ring', to: 'pages#ring'
+  resources :tutors
+  get '/ikke-godkendt', to: 'tutors#ikke_godkendt'
+  put '/ikke-godkendt', to: 'tutors#ikke_godkendt'
 end

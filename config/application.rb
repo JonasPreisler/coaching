@@ -13,10 +13,17 @@ module Veiledning
     config.load_defaults 5.2
 
     config.assets.initialize_on_precompile = false
+    config.action_mailer.default_url_options = { host: "vehiclecsv.herokuapp.com" }
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    ActionMailer::Base.smtp_settings = {
+    	address: "send.one.com",
+    	domain: "jonaspreisler.com",
+    	port: 587,
+    	user_name: "bestdealerchat@jonaspreisler.com", #ENV["GMAIL_USERNAME"]
+    	password: "password", #ENV["GMAIL_PASSWORD"]
+    	authentication: :login,
+    	enable_starttls_auto: true
+    }
+
   end
 end
