@@ -17,7 +17,6 @@
 //= require bootstrap-toggle
 //= require bootstrap-select
 //= require select2
-//= require bootstrap/modal
 //= require activestorage
 //= require_tree .
 
