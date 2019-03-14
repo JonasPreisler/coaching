@@ -44,9 +44,9 @@ document.addEventListener("turbolinks:load", function() {
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
 });
 
-$( document ).ready(function() {
+document.addEventListener("turbolinks:load", function() {
   $( ".select2-dropdown" ).select2({
-      theme: "bootstrap"
+    theme: "bootstrap";
   });
 });
 
