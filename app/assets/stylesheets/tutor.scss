@@ -1,0 +1,55 @@
+.sub_category_tag {
+	background: #0c6087;
+	padding: 5px 10px 5px 10px;
+	border-radius: 5px;
+	display: inline-grid;
+	transition: .2s;
+	h4 {
+		color: #fff;
+		margin: 0;
+	}
+	&:hover {
+		background: #083f58;
+	}
+}
+
+.tutor-profile {
+	background: #e7e6e6;
+	padding: 15px;
+	border-radius: 10px;
+	img {
+		width: 100%;
+		border-radius: 5px;
+	}
+	.col-xs-4 {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	}
+}
+
+.product {
+	background: #584908;
+	padding: 10px 20px 10px 20px;
+	color: #fff;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 18px;
+	transition: .2s;
+  -moz-box-shadow:    0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+  box-shadow:         0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	&:hover {
+	  -moz-box-shadow:    0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+	  -webkit-box-shadow: 0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+	  box-shadow:         0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+	}
+}
+
+.online {
+	color: #175808;
+	font-size: 20px;
+}

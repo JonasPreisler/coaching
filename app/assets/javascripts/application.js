@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require bootstrap-toggle
 //= require bootstrap-select
-//= require bootstrap/modal
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -37,9 +36,15 @@ document.addEventListener("turbolinks:load", function() {
 });
 
 
-
 document.addEventListener("turbolinks:load", function() {
     $('.select2-dropdown').select2();
     $('b[role="presentation"]').hide();
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
+});
+
+$( document ).ready(function() {
+ $('body').on('shown.bs.modal', '#modal-window', function (e) {
+  var category_id = $(e.relatedTarget).data('category-id');
+  $('#display_category_id').val(category_id);
+ });
 });

@@ -21,6 +21,19 @@
 			}
 		}
 	}
+	.pad15 {
+		margin: 10px;
+		padding: 10px;
+		background: #e7e6e6;
+		border-radius: 5px;
+		img {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		a {
+			font-size: 18px;
+		}
+	}
 	.col-md-3, .col-sm-4, .col-xs-6 {
 		padding-left: 0;
 		padding-right: 0;
@@ -75,3 +88,20 @@
 	font-weight: 500;
 }
 
+.modal-dialog {
+	width: 100% !important;
+}
+.modal-content {
+	padding: 30px;
+}
+.modal.fade {
+  left: 100%;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+          transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.fade.in {
+  left: 20%;
+}

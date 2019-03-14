@@ -28,6 +28,9 @@ gem 'devise-guests', '~> 0.7.0'
 gem 'friendly_id'
 gem 'bootstrap-toggle-rails'
 gem 'rails_admin'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 
 group :development, :test do

@@ -1,9 +1,11 @@
 class Tutor < ApplicationRecord
   after_create :send_admin_mail
+  mount_uploader :image, TutorUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :tutors_categories
+  has_many :sub_categories, through: :tutors_categories
   validates_presence_of :email, :first_name, :last_name
   extend FriendlyId
   def full_name

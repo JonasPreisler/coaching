@@ -4,12 +4,14 @@
       <div class="MultiCarousel-inner">
       	<% @tutors.each do |tutor| %>
           <div class="item">
-              <div class="pad15">
-                  <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
-                  <%= tutor.first_name %> <%= tutor.last_name %>
-                  <%= image_tag('/stars.png') %>
+            <div class="pad15">
+              <%= link_to tutor_path(tutor) do %>
+                <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
+                <%= tutor.first_name %> <%= tutor.last_name %>
+                <%= image_tag('/stars.png') %>
                 <span class="text-muted" style="font-size: 12px;">(15)</span>
-              </div>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>

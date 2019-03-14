@@ -1,0 +1,77 @@
+<div class="tutor-profile">
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<h1><% if @tutor.anonymous %><%= 'Anonym rådgiver' %><% else %><%= @tutor.first_name %> <%= @tutor.last_name %><% end %></h1>
+			<hr>
+			<div class="row">
+				<div class="col-md-2">
+					Status
+				</div>
+				<div class="col-md-10">
+					<span class="online">ONLINE</span>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-2">
+					Kategorier:
+				</div>
+				<div class="col-md-10">
+					<% @tutor.sub_categories.each do |sub| %>
+						<%= link_to sub_category_path(sub) do %>
+							<div class="sub_category_tag">
+								<h4><%= sub.name %></h4>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-2">
+					Anmeldelser
+				</div>
+				<div class="col-md-10">
+					Stjerner hér
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-2">
+					Produkter
+				</div>
+				<div class="col-md-10">
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="product box">
+								10 min<br>
+								300 kr
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="product">
+								20 min<br>
+								500 kr
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="product">
+								30 min<br>
+								600 kr
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<% if @tutor.anonymous %>
+				<%= image_tag('/anonymous.jpg') %>
+			<% else %>
+				<%= image_tag(@tutor.image.url(:profile_picture)) if @tutor.image? %>
+				<%= image_tag('/default.png') if !@tutor.image? %>
+			<% end %>
+		</div>
+	</div>
+
+</div>

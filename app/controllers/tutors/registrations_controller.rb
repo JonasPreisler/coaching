@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Tutors::RegistrationsController < Devise::RegistrationsController
+  after_action :create_sub_categories , only: :create
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -10,14 +11,12 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  def create
-    super
-    if (resource).save
+  private
+    def create_sub_categories
       params[:sub_category_ids].each do |sub|
-        TutorsCategory.create!([{tutor_id: self.id, sub_category_id: sub}])
+        TutorsCategory.create!([{tutor_id: @tutor.id, sub_category_id: sub}])
       end
     end
-  end
 
 
 

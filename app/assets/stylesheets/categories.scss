@@ -3,3 +3,11 @@
 	font-weight: 600;
 	padding-top: 20px;
 }
+
+.categories {
+	a {
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+}

@@ -4,10 +4,20 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
 
-    <%= f.label :Kategorier %><br />
-    <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <%= f.file_field :profile_picture %>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+
+        <%= f.label :Kategorier %><br />
+        <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
+      </div>
+    </div>
   </div>
 
 

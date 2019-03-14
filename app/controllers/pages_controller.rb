@@ -16,12 +16,6 @@ class PagesController < ApplicationController
     @tutors = Tutor.all.limit(15)
 	end
 
-  def modal
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
 	def veiledere
 	end
