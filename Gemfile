@@ -63,3 +63,4 @@ gem 'jquery-ui-rails'
 
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'redis', '~> 4.1'
+gem "select2-rails"

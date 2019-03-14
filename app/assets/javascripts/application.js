@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap
 //= require bootstrap-toggle
 //= require bootstrap-select
+//= require select2
+//= require bootstrap/modal
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 function myFunction(id) {
@@ -40,6 +42,12 @@ document.addEventListener("turbolinks:load", function() {
     $('.select2-dropdown').select2();
     $('b[role="presentation"]').hide();
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
+});
+
+$( document ).ready(function() {
+  $( ".select2-dropdown" ).select2({
+      theme: "bootstrap"
+  });
 });
 
 $( document ).ready(function() {
