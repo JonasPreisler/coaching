@@ -46,7 +46,7 @@ document.addEventListener("turbolinks:load", function() {
 
 document.addEventListener("turbolinks:load", function() {
   $( ".select2-dropdown" ).select2({
-    theme: "bootstrap";
+    theme: "bootstrap"
   });
 });
 
