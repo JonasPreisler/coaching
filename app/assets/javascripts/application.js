@@ -32,28 +32,27 @@ $(document).on('ready page:change', function() {
   $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
 });
 
-$( document ).ready(function() {
-
-  document.addEventListener("DOMContentLoaded", function() {
-    $('.selectpicker').selectpicker({
-    });
+document.addEventListener("turbolinks:load", function() {
+	$('.selectpicker').selectpicker({
   });
+});
 
-  document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("turbolinks:load", function() {
     $('.select2-dropdown').select2();
     $('b[role="presentation"]').hide();
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
-  });
+});
 
-  document.addEventListener("DOMContentLoaded", function() {
-    $( ".select2-dropdown" ).select2({
-      theme: "bootstrap"
-    });
+document.addEventListener("turbolinks:load", function() {
+  $( ".select2-dropdown" ).select2({
+    theme: "bootstrap"
   });
+});
 
-  $('body').on('shown.bs.modal', '#modal-window', function (e) {
-    var category_id = $(e.relatedTarget).data('category-id');
-    $('#display_category_id').val(category_id);
-  });
-
+$( document ).ready(function() {
+ $('body').on('shown.bs.modal', '#modal-window', function (e) {
+  var category_id = $(e.relatedTarget).data('category-id');
+  $('#display_category_id').val(category_id);
+ });
 });
