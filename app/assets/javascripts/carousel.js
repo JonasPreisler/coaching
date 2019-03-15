@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("turbolinks:load", function() {
     var itemsMainDiv = ('.MultiCarousel');
     var itemsDiv = ('.MultiCarousel-inner');
     var itemWidth = "";

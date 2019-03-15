@@ -13,11 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
 //= require bootstrap
+//= require bootstrap.min
 //= require bootstrap-toggle
 //= require bootstrap-select
+
 //= require jquery.raty
+//= require modal
+
 //= require activestorage
+
+//= require carousel
+
+//= require select2
+//= require select2.min
+
+//= require cable
 //= require_tree .
 
 function myFunction(id) {
@@ -26,12 +38,20 @@ function myFunction(id) {
   $(x).siblings('.togglable-tr').hide();
 }
 
-
 $(document).on('ready page:change', function() {
   $('input[type="checkbox"].toggle').bootstrapToggle(); // assumes the checkboxes have the class "toggle"
 });
 
 document.addEventListener("turbolinks:load", function() {
-	$('.selectpicker').selectpicker({
-  });
+	$('.selectpicker').selectpicker();
+
+    $('b[role="presentation"]').hide();
+
+    $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
+    $( ".select2-dropdown" ).select2();
+
+    $('body').on('shown.bs.modal', '#modal-window', function (e) {
+        var category_id = $(e.relatedTarget).data('category-id');
+        $('#display_category_id').val(category_id);
+    });
 });
