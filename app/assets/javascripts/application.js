@@ -34,18 +34,18 @@ $(document).on('ready page:change', function() {
 
 $( document ).ready(function() {
 
-  document.addEventListener("turbolinks:load", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     $('.selectpicker').selectpicker({
     });
   });
 
-  document.addEventListener("turbolinks:load", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     $('.select2-dropdown').select2();
     $('b[role="presentation"]').hide();
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
   });
 
-  document.addEventListener("turbolinks:load", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     $( ".select2-dropdown" ).select2({
       theme: "bootstrap"
     });
