@@ -1,0 +1,7 @@
+<%= form_for ([@tutor,@review]) do |f| %>
+  <label>Rating:</label>
+	<div id="rating-form">
+	</div>
+  <%= f.text_field :comment %>
+  <%= f.submit 'Add review', class: 'btn btn-primary' %>
+<% end %>

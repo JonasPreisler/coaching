@@ -32,7 +32,7 @@
 					Anmeldelser
 				</div>
 				<div class="col-md-10">
-					Stjerner hér
+					<span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i><%= @tutor.reviews.count %> anmeldelser</i></span>
 				</div>
 			</div>
 			<hr>
@@ -75,3 +75,4 @@
 	</div>
 
 </div>
+<%= render('reviews/form') %>

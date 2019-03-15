@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tutors_categories
   resources :products
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
     get '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
   get '/ring', to: 'pages#ring'
-  resources :tutors
+  resources :tutors do
+    resources :reviews
+  end
   get '/ikke-godkendt', to: 'tutors#ikke_godkendt'
   put '/ikke-godkendt', to: 'tutors#ikke_godkendt'
 

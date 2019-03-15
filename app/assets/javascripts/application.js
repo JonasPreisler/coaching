@@ -17,6 +17,7 @@
 //= require bootstrap-toggle
 //= require bootstrap-select
 //= require select2
+//= require jquery.raty
 //= require activestorage
 //= require_tree .
 

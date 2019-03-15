@@ -1,5 +1,6 @@
 class TutorsController < ApplicationController
   before_action :set_tutor, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_approved, only: [:show]
 
 	def index
 		if params[:approved] == "false"
@@ -34,10 +35,21 @@ class TutorsController < ApplicationController
   end
 
 	def show
+    if @tutor.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @tutor.reviews.average(:rating).round(2)
+    end
 	end
 
 
 	private
+
+    def check_if_approved
+      if @tutor.approved == false
+        redirect_to root_path
+      end
+    end
 
     def set_tutor
       @tutor = Tutor.friendly.find(params[:id])

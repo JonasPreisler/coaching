@@ -12,6 +12,7 @@ class Tutor < ApplicationRecord
   	first_name + ('-') + last_name
   end
   friendly_id :full_name, use: :slugged
+  has_many :reviews
 
   def active_for_authentication? 
     super && approved? 
