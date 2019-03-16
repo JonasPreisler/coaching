@@ -1,20 +1,23 @@
+<script type="text/javascript" charset="utf-8">
+    function openModal(identifier){
+        $("#modal-window-"+$(identifier).data('id')).modal()
+    }
+</script>
 
-	<span class="row categories">
-		<% @categories.each do |cat| %>
+<span class="row categories">
+		<% Category.all.each do |cat| %>
 			<div class="col-md-4 col-sm-4">
-				<%= link_to category_path(cat), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', data: {category_id: cat.id}} do %>
-					<div class="box">
+					<div class="box" data-id="<%= cat.id %>" onclick= "openModal(this);">
 						<h2><%= cat.name %></h2>
 					</div>
-				<% end %>
 			</div>
 
-			<div id="modal-window" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div id="modal-window-<%= cat.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 
 						<h4 class="card-title"><%= cat.name %></h4>
-						  <!-- Nav tabs -->
+            <!-- Nav tabs -->
 						  <div class="vtabs">
 						    <ul class="nav nav-tabs tabs-vertical" role="tablist">
 						      <% cat.sub_categories.each do |sub| %>
@@ -44,11 +47,11 @@
 																		<%= image_tag('/anonymous.jpg') %>
 																	<% else %>
 																		<%= image_tag(tutor.image.url(:profile_picture)) if tutor.image? %>
-																		<%= image_tag('/default.png') if !tutor.image? %>
+                                    <%= image_tag('/default.png') if !tutor.image? %>
 																	<% end %>
-									                <%= tutor.first_name %> <%= tutor.last_name %>
-									                <%= image_tag('/stars.png') %>
-									                <span class="text-muted" style="font-size: 12px;">(15)</span>
+                                  <%= tutor.first_name %> <%= tutor.last_name %>
+                                  <%= image_tag('/stars.png') %>
+                                  <span class="text-muted" style="font-size: 12px;">(15)</span>
 									              <% end %>
 									            </div>
 									          </div>
@@ -66,4 +69,4 @@
 			</div>
 
 		<% end %>
-	</span>
+</span>
