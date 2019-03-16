@@ -94,6 +94,22 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # number of complex assets.
+  config.assets.debug = true
+
+  # Suppress logger output for asset requests.
+  config.assets.quiet = true
+  # Disable Rails's static asset server (Apache or nginx will already do this)  
+
+  # Compress JavaScripts and CSS  
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed  
+  config.assets.compile = true
+
+  # Generate digests for assets URLs  
+  config.assets.digest = true
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
