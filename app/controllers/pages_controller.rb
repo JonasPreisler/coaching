@@ -16,6 +16,10 @@ class PagesController < ApplicationController
     @tutors = Tutor.all.limit(15)
 	end
 
+	def thank_you_pending
+		
+	end
+
 
 	def veiledere
 	end

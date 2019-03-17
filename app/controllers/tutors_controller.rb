@@ -12,17 +12,6 @@ class TutorsController < ApplicationController
 
   def edit
   end
-  def update
-    respond_to do |format|
-      if @tutor.update(tutor_params)
-        format.html { redirect_to @tutor, notice: 'tutor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tutor }
-      else
-        format.html { render :edit }
-        format.json { render json: @tutor.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   def ikke_godkendt
     @unapproved_tutors = Tutor.where(approved: false)
@@ -40,8 +29,8 @@ class TutorsController < ApplicationController
     else
       @average_review = @tutor.reviews.average(:rating).round(2)
     end
+    @documents = Document.where(tutor_id: @tutor)
 	end
-
 
 	private
 

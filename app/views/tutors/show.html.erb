@@ -1,6 +1,6 @@
 <div class="tutor-profile">
 	<div class="row">
-		<div class="col-md-6 col-sm-6">
+		<div class="col-md-8 col-sm-8">
 			<h1><% if @tutor.anonymous %><%= 'Anonym rådgiver' %><% else %><%= @tutor.first_name %> <%= @tutor.last_name %><% end %></h1>
 			<hr>
 			<div class="row">
@@ -23,6 +23,17 @@
 								<h4><%= sub.name %></h4>
 							</div>
 						<% end %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-2">
+					Dokumenter
+				</div>
+				<div class="col-md-10">
+					<% @documents.each do |doc| %>
+						<%= link_to 'Download dokument', download: document_path(doc) %>
 					<% end %>
 				</div>
 			</div>
@@ -64,15 +75,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-sm-6">
+		<div class="col-md-4 col-sm-4">
 			<% if @tutor.anonymous %>
 				<%= image_tag('/anonymous.jpg') %>
 			<% else %>
-				<%= image_tag(@tutor.image.url(:profile_picture)) if @tutor.image? %>
-				<%= image_tag('/default.png') if !@tutor.image? %>
+					<%= image_tag @tutor.profile_picture.url(:profile_picture) if @tutor.profile_picture? %>
+					<%= image_tag('/default.png') if !@tutor.profile_picture %>
 			<% end %>
 		</div>
 	</div>
-
 </div>
+
+<br>
+
 <%= render('reviews/form') %>

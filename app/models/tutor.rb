@@ -1,6 +1,6 @@
 class Tutor < ApplicationRecord
   after_create :send_admin_mail
-  mount_uploader :image, TutorUploader
+  mount_uploader :profile_picture, TutorUploader
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

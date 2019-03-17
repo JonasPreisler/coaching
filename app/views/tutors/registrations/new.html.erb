@@ -89,9 +89,7 @@
     </div>
     <div class="col-md-6 col-sm-6">
       <div class="field">
-        <%= f.fields_for :documents do %>
-          <%= render '/tutors/registrations/documents_fields', f: f %>
-        <% end %>
+        <%= f.fields_for :documents %>
         <%= f.link_to_add 'Legg til dokument', :documents %>
 
       </div>
@@ -109,7 +107,9 @@
   <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR
   <%#= f.check_box :gdpr, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Accepter", 'data-off': "<i class='fa fa-user-secret'></i> Nei takk", 'data-width': "120", 'data-style': 'slow' %><br><br>
 
+  <%= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>
 
+  <%#= f.check_box :business_type, :'data-toggle'=>"toggle" %>
 
 
   <div class="actions">

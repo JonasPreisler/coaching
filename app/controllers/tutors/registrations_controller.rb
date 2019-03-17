@@ -18,7 +18,13 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
       end
     end
 
+  def after_sign_up_path_for(resource)
+    redirect_to tak_vent_path
+  end
 
+  def after_inactive_sign_up_path_for(resource)
+    redirect_to tak_vent_path
+  end
 
   # GET /resource/edit
   # def edit

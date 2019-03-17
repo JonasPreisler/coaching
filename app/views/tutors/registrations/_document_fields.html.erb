@@ -1,0 +1,12 @@
+<div class="input-group">
+  <span class="input-group-btn">
+    <span class="btn btn-small button btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Dokument</span>
+    <%= f.file_field :file, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+  </span>
+  <span class="form-control"></span>
+    <div class="input-group-addon">
+    	<%= f.link_to_remove "<i class='fa fa-minus-square-o' aria-hidden='true'></i>".html_safe%>
+    </div>	
+  </span>
+</div> 
+<br>

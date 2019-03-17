@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_03_17_110021) do
     t.string "profile_picture"
     t.string "nickname"
     t.string "job_title"
+    t.integer "business_type", default: 0
     t.index ["approved"], name: "index_tutors_on_approved"
     t.index ["email"], name: "index_tutors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true

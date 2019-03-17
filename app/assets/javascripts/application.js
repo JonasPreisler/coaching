@@ -49,3 +49,5 @@ document.addEventListener("turbolinks:load", function() {
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
     $( ".select2-dropdown" ).select2();
 });
+
+

@@ -34,8 +34,11 @@ Rails.application.routes.draw do
   end
   get '/ikke-godkendt', to: 'tutors#ikke_godkendt'
   put '/ikke-godkendt', to: 'tutors#ikke_godkendt'
+  get '/tak-vent', to: 'pages#thank_you_pending'
 
   get "/404", :to => "errors#not_found", :via => :all
   get "/500", :to => "errors#internal_server_error", :via => :all
+
+
 
 end
