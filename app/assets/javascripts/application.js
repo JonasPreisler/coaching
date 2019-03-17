@@ -27,7 +27,7 @@
 //= require carousel
 
 //= require select2
-
+//= require jquery_nested_form
 //= require cable
 //= require_tree .
 

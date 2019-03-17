@@ -31,6 +31,7 @@ gem 'rails_admin'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem "nested_form"
 
 
 

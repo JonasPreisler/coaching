@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tutors Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Document</th>
+      <th>Tutor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutors_documents.each do |tutors_document| %>
+      <tr>
+        <td><%= tutors_document.document_id %></td>
+        <td><%= tutors_document.tutor_id %></td>
+        <td><%= link_to 'Show', tutors_document %></td>
+        <td><%= link_to 'Edit', edit_tutors_document_path(tutors_document) %></td>
+        <td><%= link_to 'Destroy', tutors_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutors Document', new_tutors_document_path %>

@@ -4,11 +4,30 @@
 	padding: 10px;
 	.logo {
 		padding-right: 30px;
-		width: 180px;
+		width: 220px;
 	}
 }
 .navbar-nav {
 	padding: 15px;
+	li div {
+		text-decoration: none !important;
+		font-size: 20px;
+		background: #B2B6B7;
+		color: #081758 !important;
+		padding: 11px 20px 11px 20px;
+		border-radius: 3px;
+		transition: .2s;
+		&:hover {
+		  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+		  -webkit-box-shadow: 0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+		  box-shadow:         0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);
+		}
+		a {
+			color: #081758;
+			&:hover {
+				  text-decoration: none;
+			}
+		}}
 }
 .navbar-nav > li {
 	padding-right: 10px;
@@ -27,15 +46,6 @@
 	border: none;
 }
 
-.desktop {
-	.navbar-collapse {
-		.navbar-left {
-			a {
-				color: #1c1c1c !important;
-			}
-		}
-	}
-}
 
 .user-image-toggle {
 	width: 40px;
@@ -46,10 +56,11 @@
 
 .call_button {
 	font-size: 20px;
-	padding: 5px 25px 6px 19px;
+	padding: 5px 20px 6px 14px !important;
 	border-radius: 3px;
 	border: 1px solid #B2B6B7;
-	color: #081758;
+	color: #081758 !important;
+	background: none !important;
 	transition: .2s;
 	&:hover {
 	  -moz-box-shadow:    0 15px 30px 0 rgba(35, 80, 74,.11),0 5px 15px 0 rgba(35, 80, 74,.08);

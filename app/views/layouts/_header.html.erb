@@ -12,32 +12,42 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'Hjem', root_path %></li>
-        <li><%= link_to 'Kategorier', categories_path %></li>
-        <li><%= link_to 'Melding', rooms_show_path %></li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to root_path do %>
+              <div>HJEM</div>
+            <% end %>
+        </li>
+        <li>
+          <%= link_to categories_path do %>
+              <div>KATEGORIER</div>
+            <% end %>
+        </li>
+        <li>
+          <%= link_to rooms_show_path do %>
+            <div>MELDING</div>
+          <% end %>
+        </li>
         <% unless tutor_signed_in? %>
           <li>
             <%= link_to new_tutor_registration_path do %>
-              <div class="button">REGISTRER NY RÅDGIVER</div>
+              <div>REGISTRER NY RÅDGIVER</div>
             <% end %>
           </li>
           <li>
             <%= link_to new_account_session_path do  %>
-              <div class="button">LOGG IN</div>
+              <div>LOGG IN</div>
             <% end %>
           </li> 
         <% else %>
           <li>
             <%= link_to destroy_tutor_session_path, method: :delete do %>
-              <div class="button">LOGG UT</div>
+              <div>LOGG UT</div>
             <% end %>
           </li>
           <li>
             <%= link_to raadgiver_path(current_tutor) do %>
-              <div class="button">
+              <div>
                 DIN PROFIL
               </div>
             <% end %>

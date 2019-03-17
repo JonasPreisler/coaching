@@ -6,7 +6,10 @@ class Tutor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tutors_categories
   has_many :sub_categories, through: :tutors_categories
-  validates_presence_of :email, :first_name, :last_name
+  has_many :documents
+  accepts_nested_attributes_for :documents, allow_destroy: true,
+                                 reject_if: ->(attrs) { attrs['file'].blank? }
+  validates_presence_of :email, :first_name, :last_name, :job_title
   extend FriendlyId
   def full_name
   	first_name + ('-') + last_name

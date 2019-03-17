@@ -1,37 +1,40 @@
 <div class="form-card">
 <h2>Registrer som rådgiver</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= nested_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <hr>
 
   <div class="row">
     <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.file_field :profile_picture %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-
-        <%= f.label :Kategorier %><br />
-        <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
         <%= f.label :fornavn %><br />
         <%= f.text_field :first_name, required: true, autofocus: true, autocomplete: "fornavn" %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <%= f.label :etternavn %><br />
+          <%= f.text_field :last_name, required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <%= f.label :Kategorier %><br />
+      <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <%= f.label :kallenavn %><br />
+        <%= f.text_field :nickname %>
       </div>
     </div>
     <div class="col-md-6 col-sm-6">
       <div class="field">
-        <%= f.label :etternavn %><br />
-        <%= f.text_field :last_name, required: true %>
+        <%= f.label :stillingstittel %><br />
+        <%= f.text_field :job_title, required: true %>
       </div>
     </div>
   </div>
@@ -49,19 +52,52 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
 
-  <div class="field">
-    <%= f.label :passord %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> tegn minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="field">
+        <%= f.label :passord %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> tegn minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+
+      <div class="field">
+        <%= f.label :passord_bekreftelse %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div><br>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :passord_bekreftelse %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div><br>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <span class="btn btn-small button btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Profil bilde</span>
+            <%= f.file_field :profile_picture, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+          </span>
+          <span class="form-control"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="field">
+        <%= f.fields_for :documents do %>
+          <%= render '/tutors/registrations/documents_fields', f: f %>
+        <% end %>
+        <%= f.link_to_add 'Legg til dokument', :documents %>
+
+      </div>
+    </div>
+  </div>
+  <hr>
 
   <%= f.check_box :anonymous %>
 

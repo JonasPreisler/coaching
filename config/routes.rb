@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tutors_documents
+  resources :documents
   resources :reviews
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tutors_categories
