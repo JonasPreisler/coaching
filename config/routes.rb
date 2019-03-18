@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   get "/404", :to => "errors#not_found", :via => :all
   get "/500", :to => "errors#internal_server_error", :via => :all
-get "home/download_pdf"
+  get "home/download_pdf"
 
 
 end

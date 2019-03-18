@@ -14,8 +14,8 @@
 
       <% if tutor_signed_in? %>
         <span type="button" class="collapsed user-image-toggle" data-toggle="collapse" data-target="#user-dropdown" aria-expanded="false">
-          <%= image_tag @current_tutor.profile_picture.url(:profile_picture), class: 'user-image-toggle' if @current_tutor.profile_picture? %>
-          <%= image_tag('/default.png', class: 'user-image-toggle') if !@current_tutor.profile_picture %>
+          <%= image_tag current_tutor.profile_picture.url(:profile_picture), class: 'user-image-toggle' if current_tutor.profile_picture? %>
+          <%= image_tag('/default.png', class: 'user-image-toggle') if !current_tutor.profile_picture %>
         </span>
       <% end %>
       <% if account_signed_in? %>
