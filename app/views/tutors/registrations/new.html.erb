@@ -153,9 +153,7 @@
                               $("#modal-window").modal()
                           }
                       </script>
-                    <div onclick="openModal(this);" data-id="">
-                      <%= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>
-                    </div>
+                    <%= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>
                       <%#= f.check_box :business_type, :'data-toggle'=>"toggle" %>
 
                           <div id="modal-window" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
