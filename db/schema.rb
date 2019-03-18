@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_110021) do
+ActiveRecord::Schema.define(version: 2019_03_18_114039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,19 @@ ActiveRecord::Schema.define(version: 2019_03_17_110021) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.integer "tutor_id"
+    t.string "name"
+    t.string "address"
+    t.string "contact_person_first_name"
+    t.string "contact_person_last_name"
+    t.string "account_number"
+    t.string "company_type"
+    t.string "organization_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -111,6 +124,8 @@ ActiveRecord::Schema.define(version: 2019_03_17_110021) do
     t.string "nickname"
     t.string "job_title"
     t.integer "business_type", default: 0
+    t.boolean "private"
+    t.boolean "company"
     t.index ["approved"], name: "index_tutors_on_approved"
     t.index ["email"], name: "index_tutors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true

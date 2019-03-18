@@ -1,0 +1,19 @@
+.submit-button {
+	background: #081758;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+	color: #fff;
+	transition: .2s;
+	&:hover {
+		background: #202e68;
+	}
+}
+
+.company-button {
+	width: 100% !important;
+	border: none;
+	border-radius: 5px;
+	padding: 7px;
+	font-size: 16px;
+}

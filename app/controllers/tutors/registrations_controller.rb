@@ -16,6 +16,7 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
       params[:sub_category_ids].each do |sub|
         TutorsCategory.create!([{tutor_id: @tutor.id, sub_category_id: sub}])
       end
+      Company.create!([{organization_number: params[:organization_number], name: params[:company_name], address: params[:company_address], contact_person_first_name: params[:contact_person_first_name], contact_person_last_name: params[:contact_person_last_name], tutor_id: @tutor.id}])
     end
 
   def after_sign_up_path_for(resource)
@@ -23,7 +24,7 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_inactive_sign_up_path_for(resource)
-    redirect_to tak_vent_path
+    #redirect_to tak_vent_path
   end
 
   # GET /resource/edit

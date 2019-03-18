@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @company.tutor_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
+  <strong>Contact person first name:</strong>
+  <%= @company.contact_person_first_name %>
+</p>
+
+<p>
+  <strong>Contact person last name:</strong>
+  <%= @company.contact_person_last_name %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @company.account_number %>
+</p>
+
+<p>
+  <strong>Company type:</strong>
+  <%= @company.company_type %>
+</p>
+
+<p>
+  <strong>Organization number:</strong>
+  <%= @company.organization_number %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
