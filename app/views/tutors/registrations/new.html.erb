@@ -142,11 +142,11 @@
         
          <div class="navbar">
             <div class="navbar-inner">
-                  <ul class="nav nav-pills">
-                     <li class="active"><a href="#step1" data-toggle="tab" data-step="1">Step 1</a></li>
-                     <li><a href="#step2" data-toggle="tab" data-step="2">Step 2</a></li>
-                     <li><a href="#step3" data-toggle="tab" data-step="3">Step 3</a></li>
-                  </ul>
+              <ul class="nav nav-pills">
+                 <li class="active" ><a href="#step1" data-toggle="tab" data-step="1" id="step-1">Step 1</a></li>
+                 <li><a href="#step2" id="step-2" data-toggle="tab" data-step="2">Step 2</a></li>
+                 <li><a href="#step3" id="step-3" data-toggle="tab" data-step="3">Step 3</a></li>
+              </ul>
             </div>
          </div>
          <div class="tab-content">
@@ -157,20 +157,20 @@
                   <h2>Organisasjonsnummer</h2>
 
                   <br>
-                  <input name="organization_number" class="form-control input-lg">
+                  <input name="organization_number" class="form-control input-lg" id="org-numbr">
               </div>
-              <a class="btn btn-default next" href="#">Continue</a>
+              <a class="btn btn-default next" id="step1next" >Continue</a>
             </div>
             <div class="tab-pane fade" id="step2">
                <div class="well" style="font-size: 24px;">
                 <h2>Selskapsform</h2>
-                  <input type="radio" name="company_type" value="ENK"> ENK<br>
-                    <input type="radio" name="company_type" value="ANS"> ANS<br>
-                    <input type="radio" name="company_type" value="AS"> AS<br>  
-                    <input type="radio" name="company_type" value="PRIVAT"> PRIVAT<br>  
+                  <input type="radio" name="company_type" value="ENK" class="company_type_radio"> ENK<br>
+                    <input type="radio" name="company_type" value="ANS" class="company_type_radio" > ANS<br>
+                    <input type="radio" name="company_type" value="AS" class="company_type_radio" > AS<br>  
+                    <input type="radio" name="company_type" value="PRIVAT" class="company_type_radio"> PRIVAT<br>  
 
                </div>
-               <a class="btn btn-default next" href="#">Continue</a>
+               <a class="btn btn-default next" id="step2next">Continue</a>
             </div>
             <div class="tab-pane fade" id="step3">
               <div class="well">
@@ -193,14 +193,13 @@
                  <%= submit_tag 'Registrer som rådgiver', class: 'submit-button' %>
 
               </div>
-               <a class="btn btn-default next" href="#">Continue</a>
             </div>
          </div>
         </div>
-        <div class="modal-footer">
+       <!--  <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
           <button class="btn btn-primary">Save changes</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -210,3 +209,61 @@
 
 <%= render "devise/shared/links" %>
 </div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#step1next").attr("disabled", "disabled");
+    $("#step2next").attr("disabled", "disabled");
+    $("#step-2").addClass('not-active');
+    $("#step-3").addClass('not-active');
+  });
+  
+  $("#org-numbr").on("keyup",function(){
+    $("#step1next").attr("disabled", false);
+    $("#step-2").removeClass('not-active');
+  });
+  $(".company_type_radio").on("click",function(){
+    $("#step2next").attr("disabled", false);
+    $("#step-3").removeClass('not-active');
+  });
+
+  $("#step1next").on("click", function(){
+      orgValue = $('#org-numbr').val();
+      if(orgValue !=""){
+        $("#step-2").click();
+      }else{
+        alert("Please fill step parameters.");
+      }
+  });
+
+
+  $("#step2next").on("click", function(){
+      company_type = $("input[name='company_type']:checked").val();
+      if(company_type != undefined){
+        $("#step-3").click();
+      }else{
+        alert("Please fill step parameters.");
+      }
+  });
+
+
+     
+  // });
+  // $("#step2next").on("click", function(){
+  //   if ($("#step2next").attr("disabled") == 'disabled'){
+  //     alert("fill required field");
+  //    }else{
+  //     $("#step-3").click();
+  //    }
+  // });
+  // $('#step-2').click( function() {
+  // if( $(this).attr('rel') == 'disabled' ) { return; }
+  //   return false; // so your '#' href doesn't get used
+  // } );
+
+  // $('#step-3').click( function() {
+  // if( $(this).attr('rel') == 'disabled' ) { return; }
+  //   // do stuff here when not disabled
+  //   return false; // so your '#' href doesn't get used
+  // });
+
+</script>
