@@ -5,7 +5,7 @@
 </script>
 
 <span class="row categories">
-		<% Category.all.each do |cat| %>
+		<% Category.all.order('name ASC').each do |cat| %>
 			<div class="col-md-4 col-sm-4">
 					<div class="box" data-id="<%= cat.id %>" onclick= "openModal(this);">
 						<h2><%= cat.name %></h2>
@@ -20,23 +20,38 @@
             <!-- Nav tabs -->
 						  <div class="vtabs">
 						    <ul class="nav nav-tabs tabs-vertical" role="tablist">
-						      <% cat.sub_categories.each do |sub| %>
-						        <li class="nav-item">
+						      <% cat.sub_categories.order('name ASC').each do |sub| %>
+					      		<div class="col-md-2 col-sm-2 col-xs-6 desktop">
+							          <a class="nav-link" data-toggle="tab" href="#<%= sub.name %>" role="tab">
+							        <li class="nav-item">
+							            <span class="hidden-sm-up">
+							              <i class="ti-home"></i>
+							            </span>
+							            <span class="hidden-xs-down">
+							              <%= truncate(sub.name, length: 20) %>
+							            </span>
+							        </li>
+							          </a>
+							      </div>
+					      		<div class="col-xs-4 col-sm-6 col-md-6 mobile">
 						          <a class="nav-link" data-toggle="tab" href="#<%= sub.name %>" role="tab">
-						            <span class="hidden-sm-up">
-						              <i class="ti-home"></i>
-						            </span>
-						            <span class="hidden-xs-down">
-						              <%= sub.name %>
-						            </span>
+								        <li class="nav-item">
+							            <span class="hidden-sm-up">
+							              <i class="ti-home"></i>
+							            </span>
+							            <span class="hidden-xs-down">
+							              <%= truncate(sub.name, length: 16) %>
+							            </span>
+								        </li>
 						          </a>
-						        </li>
+							      </div>
 						      <% end %>
 						    </ul>
 
 						    <div class="tab-content">
 						      <% cat.sub_categories.each do |sub_cat| %>
 						        <div class="tab-pane" id="<%= sub_cat.name %>" role="tabpanel">
+						        	<div class="sub-cat-name"><%= sub_cat.name %></div>
 						        	<div class="row">
 							        	<% sub_cat.tutors.each do |tutor| %>
 							        		<div class="col-md-4 col-sm-4 col-xs-6">

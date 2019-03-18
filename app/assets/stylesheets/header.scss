@@ -4,11 +4,22 @@
 	padding: 10px;
 	.logo {
 		padding-right: 30px;
-		width: 220px;
+		@media only screen and (min-width: 400px) {
+			width: 220px;
+		}
+		@media only screen and (max-width: 400px) {
+			width: 150px;
+		}
 	}
+}
+.navbar-default .navbar-collapse {
+	z-index: 1;
+	margin-left: -25px;
+	margin-right: -25px !important;
 }
 .navbar-nav {
 	padding: 15px;
+	margin: 0;
 	li div {
 		text-decoration: none !important;
 		font-size: 20px;
@@ -44,6 +55,9 @@
 
 .navbar-default .navbar-toggle {
 	border: none;
+	@media only screen and (max-width: 400px) {
+		float: left
+	}
 }
 
 
@@ -77,5 +91,11 @@
 .mobile-nav {
 	li {
 	margin-bottom: 10px;
+	}
+}
+
+#navbar-desktop {
+	li {
+		margin-bottom: 10px;
 	}
 }

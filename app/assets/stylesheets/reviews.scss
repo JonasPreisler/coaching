@@ -1,3 +1,11 @@
-// Place all the styles related to the Reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.review-comment {
+	margin: 10px 0 10px 0;
+}
+
+.review-rating, .average-review-rating, #rating-form {
+	width: 110px !important;
+}
+
+.average-review-count {
+	padding-top: 4px;
+}
