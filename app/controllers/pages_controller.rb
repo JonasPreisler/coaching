@@ -1,5 +1,16 @@
 class PagesController < ApplicationController
 
+  def contract
+  end
+
+	def download_contract
+    send_file(
+      "#{Rails.root}/public/kontrakt.pdf",
+      filename: "snakk-med-kontrakt.pdf",
+      type: "application/pdf"
+    )
+  end
+
 	def home
 		@accounts = Account.all
     @categories = Category.all

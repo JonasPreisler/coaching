@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     post '/veileder/ny', to: 'tutors/registrations#create'
     get '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
+  get 'kontrakt', to: 'pages#contract'
+  get 'download-kontrakt', to: 'pages#download_contract'
   get '/ring', to: 'pages#ring'
   resources :tutors do
     resources :reviews
@@ -39,7 +41,7 @@ Rails.application.routes.draw do
 
   get "/404", :to => "errors#not_found", :via => :all
   get "/500", :to => "errors#internal_server_error", :via => :all
-
+get "home/download_pdf"
 
 
 end
