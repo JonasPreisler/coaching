@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :find_tutor
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_account!, only: [:new, :edit]
+  before_action :authenticate_account!, only: [:new, :create, :edit, :update]
 
   def index
     @reviews = @tutor.reviews

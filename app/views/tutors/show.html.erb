@@ -43,7 +43,15 @@
 					Anmeldelser
 				</div>
 				<div class="col-md-10">
+<<<<<<< HEAD
 					<span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i class="average-review-count"><%= @tutor.reviews.count %> anmeldelser</i></span>
+=======
+					<span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i>
+          <%= link_to tutor_reviews_path(@tutor.id) do %>
+            <%= @tutor.reviews.count %> anmeldelser
+          <% end %>
+          </i></span>
+>>>>>>> caae74c89b1cf95854f67d78ee7ba544af455c77
 				</div>
 			</div>
 			<hr>

@@ -10,14 +10,6 @@
 <% end %><br>
 
 <script type="text/javascript" charset="utf-8">
-    $('.review-rating').raty({
-        readOnly: true,
-        score: function() {
-            return $(this).attr('data-score');
-        },
-        path: '/assets/'
-    });
-
     $('#rating-form').raty({
         path: '/assets/',
         scoreName: 'review[rating]'
