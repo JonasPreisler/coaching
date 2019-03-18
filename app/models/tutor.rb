@@ -12,6 +12,8 @@ class Tutor < ApplicationRecord
                                  reject_if: ->(attrs) { attrs['file'].blank? }
   validates_presence_of :email, :first_name, :last_name, :job_title
   extend FriendlyId
+  after_update_commit {AppearanceBroadcastJob.perform_later self}
+
   def full_name
   	first_name + ('-') + last_name
   end

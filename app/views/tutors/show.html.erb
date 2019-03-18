@@ -1,97 +1,97 @@
 <div class="tutor-profile">
-	<div class="row">
-		<div class="col-md-8 col-sm-8">
-			<h1><% if @tutor.anonymous %><%= 'Anonym rådgiver' %><% else %><%= @tutor.first_name %> <%= @tutor.last_name %><% end %></h1>
-			<hr>
-			<div class="row">
-				<div class="col-md-2">
-					Status
-				</div>
-				<div class="col-md-10">
-					<span class="online">ONLINE</span>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-2">
-					Kategorier:
-				</div>
-				<div class="col-md-10">
-					<% @tutor.sub_categories.each do |sub| %>
-						<%= link_to sub_category_path(sub) do %>
-							<div class="sub_category_tag">
-								<h4><%= sub.name %></h4>
-							</div>
-						<% end %>
-					<% end %>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-2">
-					Dokumenter
-				</div>
-				<div class="col-md-10">
-					<% @documents.each do |doc| %>
-						<%= link_to 'Download dokument', download: document_path(doc) %>
-					<% end %>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-2">
-					Anmeldelser
-				</div>
-				<div class="col-md-10">
-<<<<<<< HEAD
-					<span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i class="average-review-count"><%= @tutor.reviews.count %> anmeldelser</i></span>
-=======
-					<span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i>
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <h1><% if @tutor.anonymous %><%= 'Anonym rådgiver' %><% else %><%= @tutor.first_name %> <%= @tutor.last_name %><% end %></h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          Status
+        </div>
+        <div class="col-md-10">
+          <% if @tutor.online? %>
+            <span id="tutor-<%= @tutor.id %>-status" class="online">ONLINE</span>
+          <% else %>
+            <span id="tutor-<%= @tutor.id %>-status" class="offline">OFFLINE</span>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          Kategorier:
+        </div>
+        <div class="col-md-10">
+          <% @tutor.sub_categories.each do |sub| %>
+            <%= link_to sub_category_path(sub) do %>
+              <div class="sub_category_tag">
+                <h4><%= sub.name %></h4>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          Dokumenter
+        </div>
+        <div class="col-md-10">
+          <% @documents.each do |doc| %>
+            <%= link_to 'Download dokument', download: document_path(doc) %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          Anmeldelser
+        </div>
+        <div class="col-md-10">
+          <span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i>
           <%= link_to tutor_reviews_path(@tutor.id) do %>
             <%= @tutor.reviews.count %> anmeldelser
           <% end %>
           </i></span>
->>>>>>> caae74c89b1cf95854f67d78ee7ba544af455c77
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-md-2">
-					Produkter
-				</div>
-				<div class="col-md-10">
-					<div class="row">
-						<div class="col-xs-4">
-							<div class="product box">
-								10 min<br>
-								300 kr
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product">
-								20 min<br>
-								500 kr
-							</div>
-						</div>
-						<div class="col-xs-4">
-							<div class="product">
-								30 min<br>
-								600 kr
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-4">
-			<% if @tutor.anonymous %>
-				<%= image_tag('/anonymous.jpg') %>
-			<% else %>
-					<%= image_tag @tutor.profile_picture.url(:profile_picture) if @tutor.profile_picture? %>
-					<%= image_tag('/default.png') if !@tutor.profile_picture %>
-			<% end %>
-		</div>
-	</div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+          Produkter
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="product box">
+                10 min<br>
+                300 kr
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="product">
+                20 min<br>
+                500 kr
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="product">
+                30 min<br>
+                600 kr
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <% if @tutor.anonymous %>
+        <%= image_tag('/anonymous.jpg') %>
+      <% else %>
+        <%= image_tag @tutor.profile_picture.url(:profile_picture) if @tutor.profile_picture? %>
+        <%= image_tag('/default.png') if !@tutor.profile_picture %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <br>

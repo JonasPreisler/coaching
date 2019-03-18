@@ -1,9 +1,14 @@
 class AppearanceChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    member = Tutor.where(id: current_tutor.id).first
+    return unless member
+    member.update_attributes(online: true)
+    stream_from "appearance_tutor"
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    member = Tutor.where(id: current_tutor.id).first
+    return unless member
+    member.update_attributes(online: false)
   end
 end
