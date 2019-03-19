@@ -12,24 +12,26 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
-      asign_sub_categories if params[:sub_category_ids]
+      if @tutor.persisted?
+        asign_sub_categories if params[:sub_category_ids]
 
-      create_company
+        create_company
+      end
     end
   end
 
   private
 
   def asign_sub_categories
-    params[:sub_category_ids].each { |id| @tutor.tutors_categories.build(sub_category_id: id) }
+    params[:sub_category_ids].each { |id| @tutor.tutors_categories.create(sub_category_id: id) }
   end
 
   def create_company
-    @tutor.build_company(organization_number:       params[:organization_number],
-                         name:                      params[:company_name],
-                         address:                   params[:company_address],
-                         contact_person_first_name: params[:contact_person_first_name],
-                         contact_person_last_name:  params[:contact_person_last_name])
+    @tutor.create_company(organization_number:       params[:organization_number],
+                          name:                      params[:company_name],
+                          address:                   params[:company_address],
+                          contact_person_first_name: params[:contact_person_first_name],
+                          contact_person_last_name:  params[:contact_person_last_name])
   end
 
   protected
