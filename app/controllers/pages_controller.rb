@@ -28,7 +28,6 @@ class PagesController < ApplicationController
 	end
 
 	def thank_you_pending
-		
 	end
 
 

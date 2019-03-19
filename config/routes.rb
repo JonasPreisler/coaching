@@ -23,11 +23,11 @@ Rails.application.routes.draw do
 
   devise_for :tutors, path: 'tutors', controllers: { sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }
   devise_scope :tutor do
-    get '/logg-in', to: 'tutors/sessions#new'
-    post '/logg-in', to: 'tutors/sessions#create'
-    get '/veileder/ny', to: 'tutors/registrations#new'
-    post '/veileder/ny', to: 'tutors/registrations#create'
-    get '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
+    get  '/logg-in',       to: 'tutors/sessions#new'
+    post '/logg-in',       to: 'tutors/sessions#create'
+    get  '/veileder/ny',   to: 'tutors/registrations#new'
+    post '/veileder/ny',   to: 'tutors/registrations#create'
+    get  '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
   get 'kontrakt', to: 'pages#contract'
   get 'download-kontrakt', to: 'pages#download_contract'
