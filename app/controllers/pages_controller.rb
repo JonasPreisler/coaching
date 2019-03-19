@@ -24,7 +24,7 @@ class PagesController < ApplicationController
 	end
 	def landing_page
 		@sub_categories = SubCategory.all.limit(6)
-    @tutors = Tutor.all.limit(15)
+    @tutors = Tutor.where('approved = ? AND online = ?', true, true).limit(15)
 	end
 
 	def thank_you_pending

@@ -4,7 +4,7 @@ class TutorsController < ApplicationController
 
 	def index
 		if params[:approved] == "false"
-      @tutors = Tutor.where(approved: false)
+      @tutors = Tutor.where('approved = ? AND online = ?', false, true)
     else
       @tutors = Tutor.all
     end

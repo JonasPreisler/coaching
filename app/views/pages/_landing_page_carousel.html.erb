@@ -7,7 +7,17 @@
             <div class="pad15">
               <%= link_to tutor_path(tutor) do %>
                 <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
+                
+                <div class="bubble">
+                  <span class="bubble-outer-dot">
+                  <span class="bubble-inner-dot"></span>
+                  </span>
+                </div>
+
                 <%= tutor.first_name %> <%= tutor.last_name %>
+
+                
+                <br>
                 <%= image_tag('/stars.png') %>
                 <span class="text-muted" style="font-size: 12px;">(15)</span>
               <% end %>
