@@ -9,7 +9,7 @@ module ApplicationCable
     private
 
     def find_verified_user
-      (current_tutor = env['warden'].user('tutor')) ? current_tutor : reject_unauthorized_connection
+      (current_tutor = env['warden'].user) ? current_tutor : reject_unauthorized_connection
     end
   end
 end
