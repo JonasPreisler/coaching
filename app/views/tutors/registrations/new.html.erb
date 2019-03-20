@@ -1,194 +1,124 @@
-<script type="text/javascript" charset="utf-8">
-    function openCompanyModal(identifier){
-        $("#modal-window").modal()
-    }
-</script>
-
 <div class="form-card">
 
-<%= nested_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= nested_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render 'devise/shared/error_messages', resource: resource %>
 
-
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="row">
-        <div class="col-md-6 col-sm-6">
-        <%= f.label :fornavn %><br />
-        <%= f.text_field :first_name, required: true, autofocus: true, autocomplete: "fornavn" %>
-        </div>
-        <div class="col-md-6 col-sm-6">
-          <%= f.label :etternavn %><br />
-          <%= f.text_field :last_name, required: true %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <%= f.label :Kategorier %><br />
-      <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.label :kallenavn %><br />
-        <%= f.text_field :nickname %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.label :stillingstittel %><br />
-        <%= f.text_field :job_title, required: true %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, required: true, autocomplete: "email" %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.label :telefon %>
-        <%= f.number_field :phone %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-
-      <div class="field">
-        <%= f.label :passord %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> tegn minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-
-      <div class="field">
-        <%= f.label :passord_bekreftelse %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div><br>
-    </div>
-  </div>
-
-
-  <hr>
-
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <span class="btn btn-small button btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Profil bilde</span>
-            <%= f.file_field :profile_picture, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
-          </span>
-          <span class="form-control"></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-      <div class="field">
-        <%= f.fields_for :documents %>
-        <%= f.link_to_add 'Legg til dokument', :documents %>
-
-      </div>
-    </div>
-  </div>
-  <hr>
-
-  <%= f.check_box :anonymous %>
-
-  Vil du være <span class="info-box">ANONYM</span> for ikke-brukere?
-  <div class="info-box-display">Ditt navn vil vises som "anonymt" og bildet ditt vil ikke vises for brukere som ikke er innlogget.</div>
-
-  <%#= f.check_box :anonymous, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Offentlig", 'data-off': "<i class='fa fa-user-secret'></i> Anonym", 'data-width': "120", 'data-style': 'slow' %><br>
-
-  <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR
-  <%#= f.check_box :gdpr, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Accepter", 'data-off': "<i class='fa fa-user-secret'></i> Nei takk", 'data-width': "120", 'data-style': 'slow' %><br><br>
-
-  <%#= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>
-  <%#= f.check_box :business_type, :'data-toggle'=>"toggle" %>
-
-
-  <div class="actions">
     <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6">
-        <%= f.submit 'PRIVAT', class: 'submit-button' %>
+      <div class="col-md-6 col-sm-6">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+          <%= f.label :fornavn %><br />
+          <%= f.text_field :first_name, required: true, autofocus: true, autocomplete: "fornavn" %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <%= f.label :etternavn %><br />
+            <%= f.text_field :last_name, required: true %>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-6">
-        <div onclick="openCompanyModal(this);" class='submit-button company-button' style="cursor: pointer;"><i class="fa fa-building" aria-hidden="true"></i> BEDRIFT</div>
+      <div class="col-md-6 col-sm-6">
+        <%= f.label :Kategorier %><br />
+        <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <%= f.label :kallenavn %><br />
+          <%= f.text_field :nickname %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <%= f.label :stillingstittel %><br />
+          <%= f.text_field :job_title, required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, required: true, autocomplete: "email" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <%= f.label :telefon %>
+          <%= f.number_field :phone %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
 
+        <div class="field">
+          <%= f.label :passord %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> tegn minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
 
-  <%= render('/tutors/modal_bedrift') %>
+        <div class="field">
+          <%= f.label :passord_bekreftelse %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div><br>
+      </div>
+    </div>
 
-<% end %>
+    <hr>
 
-<%= render "devise/shared/links" %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-small button btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Profil bilde</span>
+              <%= f.file_field :profile_picture, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+            </span>
+            <span class="form-control"></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="field">
+          <%= f.fields_for :documents %>
+          <%= f.link_to_add 'Legg til dokument', :documents %>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <%= f.check_box :anonymous %>
+
+    Vil du være <span class="info-box">ANONYM</span> for ikke-brukere?
+    <div class="info-box-display">Ditt navn vil vises som "anonymt" og bildet ditt vil ikke vises for brukere som ikke er innlogget.</div>
+
+    <%#= f.check_box :anonymous, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Offentlig", 'data-off': "<i class='fa fa-user-secret'></i> Anonym", 'data-width': "120", 'data-style': 'slow' %><br>
+
+    <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR
+    <%#= f.check_box :gdpr, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Accepter", 'data-off': "<i class='fa fa-user-secret'></i> Nei takk", 'data-width': "120", 'data-style': 'slow' %><br><br>
+
+    <%#= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>
+    <%#= f.check_box :business_type, :'data-toggle'=>"toggle" %>
+
+    <div class="actions">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <%= f.submit 'PRIVAT', class: 'submit-button' %>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <div  class='submit-button company-button' id='tutors-registration-submit-as-company' style="cursor: pointer;"><i class="fa fa-building" aria-hidden="true"></i> BEDRIFT</div>
+        </div>
+      </div>
+    </div>
+
+    <%= render('/tutors/modal_bedrift') %>
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#step1next").attr("disabled", "disabled");
-    $("#step2next").attr("disabled", "disabled");
-    $("#step-2").addClass('not-active');
-    $("#step-3").addClass('not-active');
-  });
-  
-  $("#org-numbr").on("keyup",function(){
-    $("#step1next").attr("disabled", false);
-    $("#step-2").removeClass('not-active');
-  });
-  $(".company_type_radio").on("click",function(){
-    $("#step2next").attr("disabled", false);
-    $("#step-3").removeClass('not-active');
-  });
-
-  $("#step1next").on("click", function(){
-      orgValue = $('#org-numbr').val();
-      if(orgValue !=""){
-        $("#step-2").click();
-      }else{
-        alert("Please fill step parameters.");
-      }
-  });
-
-
-  $("#step2next").on("click", function(){
-      company_type = $("input[name='company_type']:checked").val();
-      if(company_type != undefined){
-        $("#step-3").click();
-      }else{
-        alert("Please fill step parameters.");
-      }
-  });
-
-
-     
-  // });
-  // $("#step2next").on("click", function(){
-  //   if ($("#step2next").attr("disabled") == 'disabled'){
-  //     alert("fill required field");
-  //    }else{
-  //     $("#step-3").click();
-  //    }
-  // });
-  // $('#step-2').click( function() {
-  // if( $(this).attr('rel') == 'disabled' ) { return; }
-  //   return false; // so your '#' href doesn't get used
-  // } );
-
-  // $('#step-3').click( function() {
-  // if( $(this).attr('rel') == 'disabled' ) { return; }
-  //   // do stuff here when not disabled
-  //   return false; // so your '#' href doesn't get used
-  // });
-
-</script>
