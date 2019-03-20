@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Tutors::RegistrationsController < Devise::RegistrationsController
-  after_action :create_sub_categories , only: :create
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -11,21 +10,39 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  private
-    def create_sub_categories
-      params[:sub_category_ids].each do |sub|
-        TutorsCategory.create!([{tutor_id: @tutor.id, sub_category_id: sub}])
-      end
-      Company.create!([{organization_number: params[:organization_number], name: params[:company_name], address: params[:company_address], contact_person_first_name: params[:contact_person_first_name], contact_person_last_name: params[:contact_person_last_name], tutor_id: @tutor.id}])
-    end
+  def create
+    super do
+      if @tutor.persisted?
+        asign_sub_categories if params[:sub_category_ids]
 
-  def after_sign_up_path_for(resource)
-    redirect_to tak_vent_path
+        create_company
+      end
+    end
   end
+
+  private
+
+  def asign_sub_categories
+    params[:sub_category_ids].each { |id| @tutor.tutors_categories.create(sub_category_id: id) }
+  end
+
+  def create_company
+    @tutor.create_company(organization_number:       params[:organization_number],
+                          name:                      params[:company_name],
+                          address:                   params[:company_address],
+                          contact_person_first_name: params[:contact_person_first_name],
+                          contact_person_last_name:  params[:contact_person_last_name])
+  end
+
+  protected
 
   def after_inactive_sign_up_path_for(resource)
-    #redirect_to tak_vent_path
+    tak_vent_path
   end
+
+  # def after_sign_up_path_for(resource)
+  #   tak_vent_path
+  # end
 
   # GET /resource/edit
   # def edit
@@ -51,8 +68,6 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
-
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
@@ -61,11 +76,6 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
   # end
 
   # The path used after sign up for inactive accounts.

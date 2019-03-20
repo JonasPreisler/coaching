@@ -1,3 +1,3 @@
 class Company < ApplicationRecord
-	belongs_to :tutor
+	belongs_to :tutor, autosave: true
 end
