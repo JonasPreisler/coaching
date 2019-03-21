@@ -7,11 +7,6 @@ $(document).ready(function(){
     $('#step-3').addClass('not-active');
   }
 
-  function companyButtonListener() {
-    $('#tutors-registration-submit-as-company').on('click', function(){
-      openCompanyModal($(this));
-    });
-  }
 
   function openCompanyModal(identifier){
     $('#modal-window').modal();
@@ -75,9 +70,13 @@ $(document).ready(function(){
   // });
 
   setInitialModalState();
-  companyButtonListener();
   organisationNumberInputListener();
   submitModalFirstStepListener();
   companyRadionListener();
   submitModalSecondStepListener();
 });
+
+$(document).on("click", 'form#new_tutor #tutors-registration-submit-as-company', function(){
+  openCompanyModal($(this));
+});
+
