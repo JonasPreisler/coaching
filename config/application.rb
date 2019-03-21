@@ -30,6 +30,8 @@ module Veiledning
     }
 
     config.exceptions_app = self.routes
+    config.action_cable.mount_path = '/websocket'
+
 
   end
 end

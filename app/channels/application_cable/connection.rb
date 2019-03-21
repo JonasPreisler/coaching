@@ -9,7 +9,14 @@ module ApplicationCable
     private
 
     def find_verified_user
-      (current_tutor = env['warden'].user) ? current_tutor : reject_unauthorized_connection
+      verified_user = Tutor.find_by(id: cookies.signed['tutor.id'])
+
+      if verified_user && cookies.signed['tutor.expires_at'] > Time.now
+        verified_user
+      else
+        reject_unauthorized_connection
+      end
     end
+
   end
 end
