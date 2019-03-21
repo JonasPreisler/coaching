@@ -8,8 +8,13 @@
 </form>
 
 
-<% @tutors.each do |acc| %>
-	<%= acc.email %> <br>
+<% @tutors.each do |tutor| %>
+	    <% if tutor.online %>
+          <%= image_tag "green-dot.png", id: "#{tutor.id}-status", size:"30x20", class: "active" %>
+        <% else %>
+          <%= image_tag "grey-dot.png", id: "#{tutor.id}-status",size:"20x20", class: "inactive" %>
+        <% end %>
+	<%= tutor.email %> <br>
 <% end %><%#= current_tutor.appear %>
 
 

@@ -2,7 +2,7 @@ class AppearanceBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(tutor)
-    ActionCable.server.broadcast "appearance_tutor", render_json(tutor)
+    ActionCable.server.broadcast "appearance_channel", render_json(tutor)
   end
 
   private
