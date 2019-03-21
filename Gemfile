@@ -32,8 +32,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem "nested_form"
-
-
+gem 'devise-i18n'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

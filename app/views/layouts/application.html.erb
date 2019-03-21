@@ -13,7 +13,7 @@
     <%= action_cable_meta_tag %>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/fav.png">
-    <title>Veiledning</title>
+    <title>SnakkMed</title>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -22,6 +22,7 @@
 
   <body>
     <div class="<%= 'background' if controller.action_name == 'mobil2' %>">
+      <%= render('/layouts/header_admin') if tutor_signed_in? && current_tutor.admin? %>
       <%= render('/layouts/header_mobile', class: 'mobile') %>
       <%= render('/layouts/header', class: 'desktop') %>
       <%#= render('/layouts/sidebar') %>
@@ -34,6 +35,7 @@
 
       <footer class="footer">
         <%= link_to 'Tutor logg inn', new_tutor_session_path unless tutor_signed_in? %>
+        <hr>
         © 2019 SnakkMed.no | Viachat
       </footer>
     </div>

@@ -1,6 +1,6 @@
 <% @unapproved_tutors.each do |ut| %>
 	<%= ut.email %><%= ut.first_name %> <%= ut.last_name %><br>
-	<%= form_tag('/ikke-godkendt', method: :get) do |f| %>
+	<%= form_tag('/venter-pa-godkjenning', method: :get) do |f| %>
 	  <%= hidden_field_tag :id, ut.id %>
 	  <%= hidden_field_tag :approved, true %>
 	  <%= submit_tag "Godkend (#{ut.created_at.strftime('%b %d')})".html_safe, class: 'button-blue' %><br>

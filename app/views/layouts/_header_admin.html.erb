@@ -1,0 +1,16 @@
+<div class="header-admin">
+  <nav class="navbar-transparent navbar-default-transparent">
+
+	  <div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to 'Rådgivere', venter_pa_godkjenning_path %></li>
+			  <li class="dropdown pending_tutors_dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"><% if @tutors_pending.any? %><div class="pending-notification"><%= @tutors_pending.count %></div><% end %></a>
+			    <ul class="dropdown-menu">
+			      <li><%= render('/tutors/pending_tutors_dropdown') %></li>
+			    </ul>
+			  </li>
+			</ul>
+		</div>
+	</nav>
+</div>

@@ -12,7 +12,7 @@
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-desktop">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right main-navbar">
         <li>
           <%= link_to root_path do %>
               <div>HJEM</div>
@@ -28,7 +28,7 @@
             <div>MELDING</div>
           <% end %>
         </li>
-        <% unless tutor_signed_in? %>
+        <% unless tutor_signed_in? || account_signed_in? %>
           <li>
             <%= link_to new_tutor_registration_path do %>
               <div>REGISTRER NY RÅDGIVER</div>
@@ -41,15 +41,24 @@
           </li> 
         <% else %>
           <li>
-            <%= link_to destroy_tutor_session_path, method: :delete do %>
-              <div>LOGG UT</div>
+            <% if tutor_signed_in? %>
+              <%= link_to destroy_tutor_session_path, method: :delete do %>
+                <div>LOGG UT</div>
+              <% end %>
+            <% end %>
+            <% if account_signed_in? %>
+              <%= link_to destroy_account_session_path, method: :delete do %>
+                <div>LOGG UT</div>
+              <% end %>
             <% end %>
           </li>
           <li>
-            <%= link_to raadgiver_path(current_tutor) do %>
-              <div>
-                DIN PROFIL
-              </div>
+            <% if tutor_signed_in? %>            
+              <%= link_to raadgiver_path(current_tutor) do %>
+                <div>
+                  DIN PROFIL
+                </div>
+              <% end %>
             <% end %>
           </li>
         <% end %>

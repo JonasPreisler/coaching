@@ -1,0 +1,56 @@
+.header-admin {
+	background: #f3f3f2;
+	padding: 3px;
+}
+
+.pending-notification {
+  background: #ff3f00;
+  border-radius: 90px;
+  padding: 0 7px 0 7px;
+  font-size: 11px;
+  color: #fff;
+}
+
+.pending_tutors_dropdown {
+  .dropdown-menu {
+    background: #494949 !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    color: #1c1c1c !important;
+  }
+  .pending_tutors_dropdown_content {
+    background: #3a3a3a;
+    .header {
+      background: #5F5F5F;
+      padding: 10px;
+      color: #f3f2f2;
+    }
+    .pending_tutors_dropdown_inner {
+      width: 440px;
+      padding: 10px;
+      background: #fff;
+    }
+    .dropdown-menu {
+      border: none;
+    }
+  }
+  .pending-details {
+    display: inline-flex;
+    color: #73A6C1;
+    margin-left: 13px;
+    p {
+      margin-right: 10px;
+    }
+  }
+  hr {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+	.tutor_pending_small {
+	  height: 10px;
+	  width: 10px;
+	  background-color: #CF1A24;
+	  border-radius: 50%;
+	  display: inline-block;
+	}
+}

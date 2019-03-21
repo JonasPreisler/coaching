@@ -8,18 +8,3 @@
   </span><br><br>
   <% if current_account %><%= f.text_area :comment, style: 'width: 100%' %><% else %><div style="background: #f3f2f2;width: 100%;padding: 30px;">Du må være <%= link_to 'logget inn', new_account_session_path %> for å legge til en anmeldelse.</div><% end %>
 <% end %><br>
-
-<script type="text/javascript" charset="utf-8">
-    $('#rating-form').raty({
-        path: '/assets/',
-        scoreName: 'review[rating]'
-    });
-
-    $('.average-review-rating').raty({
-        readOnly: true,
-        path: '/assets/',
-        score: function() {
-            return $(this).attr('data-score');
-        }
-    });
-</script>

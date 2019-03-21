@@ -1,9 +1,73 @@
+<div class="categories">
+  <div class="row">
+    <% Category.all.order('name ASC').each do |cat| %>
+      <div class="col-md-3 col-sm-3">
+          <div data-id="<%= cat.id %>">
+            <h2><%= cat.name %></h2>
+          </div>
+      </div>
+
+      <div class="col-md-9 col-sm-9">
+        <h4 class="card-title"><%= cat.name %></h4>
+        <div class="vtabs">
+          <div class="row">
+            <% cat.sub_categories.order('name ASC').each do |sub| %>
+              <a class="nav-link" data-toggle="tab" href="#<%= sub.name %>" role="tab">
+                <li class="nav-item">
+                  <span class="hidden-sm-up">
+                    <i class="ti-home"></i>
+                  </span>
+                  <span class="hidden-xs-down">
+                    <%= truncate(sub.name, length: 20) %>
+                  </span>
+                </li>
+              </a>
+            <% end %>
+          </ul>
+
+          <div class="tab-content">
+            <% cat.sub_categories.each do |sub_cat| %>
+              <div class="tab-pane" id="<%= sub_cat.name %>" role="tabpanel">
+                <div class="sub-cat-name"><%= sub_cat.name %></div>
+                <div class="row">
+                  <% sub_cat.tutors.each do |tutor| %>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                      <div class="item">
+                        <div class="pad15">
+                          <%= link_to tutor_path(tutor) do %>
+                            <% if tutor.anonymous %>
+                              <%= image_tag('/anonymous.jpg') %>
+                            <% else %>
+                              <%= image_tag tutor.profile_picture.url(:profile_picture) if tutor.profile_picture? %>
+                              <%= image_tag('/default.png') if !tutor.profile_picture? %>
+                            <% end %>
+                            <%= tutor.first_name %> <%= tutor.last_name %>
+                            <%= image_tag('/stars.png') %>
+                            <span class="text-muted" style="font-size: 12px;">(15)</span>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
 <span class="row all_categories container">
     <div style="overflow: auto;height: 450px;padding: 10px;">
         <% @categories.each do |cat| %>
             <%= link_to category_path(cat) do %>
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="category_mobile"">
+              <div class="col-md-4 col-sm-4">
+                    <div class="category">
                         <i class="fa fa-user-o" aria-hidden="true"></i><br>
                         <span class="cat-title"> <%= cat.name %></span>
                     </div>
@@ -12,10 +76,6 @@
         <% end %>
     </div>
 </span>
-
-
-
-
 
 <div class="card">
   <div class="card-body">

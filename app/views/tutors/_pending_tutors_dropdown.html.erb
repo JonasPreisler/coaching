@@ -1,0 +1,21 @@
+<div class="pending_tutors_dropdown_content">
+
+	<div class="header">
+		Godkjenning
+		<%= link_to '<i class="fa fa-arrow-right" aria-hidden="true"></i>'.html_safe, venter_pa_godkjenning_path, style: 'float: right;' %>
+	</div>
+	<div class="pending_tutors_dropdown_inner">
+		<% @tutors_pending.each do |pending| %>
+		  <div class="tutor_pending_small"></div> <strong>Godkjenningsforespørgsel fra <%= pending.full_name %></strong>
+		  <span style="float: right;"><%= pending.created_at.strftime('%m.%d.%Y') %></span><br>
+		  <div class="pending-details">
+		    <p><%= pending.full_name %></p>
+		  </div>
+		  <hr>
+		<% end %>
+	  <div class="paginate">
+	    <%#= paginate @pending_tutors %>
+		</div>
+	</div>
+
+</div>

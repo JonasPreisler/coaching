@@ -1,8 +1,0 @@
-.modal{left: 0 !important;}
-
-.not-active {
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  color: black;
-}

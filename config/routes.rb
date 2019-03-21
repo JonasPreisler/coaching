@@ -35,8 +35,8 @@ Rails.application.routes.draw do
   resources :tutors do
     resources :reviews
   end
-  get '/ikke-godkendt', to: 'tutors#ikke_godkendt'
-  put '/ikke-godkendt', to: 'tutors#ikke_godkendt'
+  get '/venter-pa-godkjenning', to: 'tutors#tutors_pending_approval'
+  put '/venter-pa-godkjenning', to: 'tutors#tutors_pending_approval'
   get '/tak-vent', to: 'pages#thank_you_pending'
 
   get "/404", :to => "errors#not_found", :via => :all

@@ -1,4 +1,4 @@
-<div class="review-rating" data-score="<%= review.rating %>"></div>
+<div class="review-header"><div class="review-rating" data-score="<%= review.rating %>"></div> <p>af <%= review.account.first_name %></p></div>
 
 <div class="review-comment"><%= review.comment %></div>
 
@@ -11,12 +11,11 @@
 
 
 <script type="text/javascript" charset="utf-8">
-    $('.review-rating').raty({
-        readOnly: true,
-        score: function() {
-            return $(this).attr('data-score');
-        },
-        path: '/assets/'
-    });
-
+$('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+        return $(this).attr('data-score');
+    },
+    path: '/assets/'
+});
 </script>

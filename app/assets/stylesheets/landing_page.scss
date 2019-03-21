@@ -29,9 +29,11 @@
 		padding: 10px;
 		background: #e7e6e6;
 		border-radius: 5px;
-		img {
-			width: 100%;
-			margin-bottom: 10px;
+		.carousel-profile-picture {
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+			}
 		}
 		a {
 			font-size: 18px;

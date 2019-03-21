@@ -3,9 +3,18 @@
 }
 
 .review-rating, .average-review-rating, #rating-form {
-	width: 110px !important;
+	width: 120px !important;
 }
 
 .average-review-count {
 	padding-top: 4px;
+}
+
+.review-header {
+	display: inline-flex;
+	color: #777;
+	p {
+		margin-left: 20px;
+		margin-top: 2px;
+	}
 }

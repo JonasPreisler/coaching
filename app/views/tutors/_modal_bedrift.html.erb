@@ -76,3 +76,47 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+function openCompanyModal(identifier){
+    $("#modal-window").modal()
+}
+
+
+$(document).ready(function(){
+  $("#step1next").attr("disabled", "disabled");
+  $("#step2next").attr("disabled", "disabled");
+  $("#step-2").addClass('not-active');
+  $("#step-3").addClass('not-active');
+});
+
+$("#org-numbr").on("keyup",function(){
+  $("#step1next").attr("disabled", false);
+  $("#step-2").removeClass('not-active');
+});
+$(".company_type_radio").on("click",function(){
+  $("#step2next").attr("disabled", false);
+  $("#step-3").removeClass('not-active');
+});
+
+$("#step1next").on("click", function(){
+    orgValue = $('#org-numbr').val();
+    if(orgValue !=""){
+      $("#step-2").click();
+    }else{
+      alert("Vennligst fyll ut alle feltene.");
+    }
+});
+
+
+$("#step2next").on("click", function(){
+    company_type = $("input[name='company_type']:checked").val();
+    if(company_type != undefined){
+      $("#step-3").click();
+    }else{
+      alert("Vennligst fyll ut alle feltene.");
+    }
+});
+
+</script>

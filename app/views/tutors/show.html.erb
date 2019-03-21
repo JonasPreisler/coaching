@@ -18,6 +18,21 @@
       <hr>
       <div class="row">
         <div class="col-md-2">
+          Anmeldelser
+        </div>
+        <div class="col-md-10">
+          <span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div>
+            <i>
+            <%= link_to tutor_reviews_path(@tutor.id) do %>
+              <%= @tutor.reviews.count %> anmeldelser
+            <% end %>
+            </i>
+          </span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
           Kategorier:
         </div>
         <div class="col-md-10">
@@ -41,47 +56,6 @@
           <% end %>
         </div>
       </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-2">
-          Anmeldelser
-        </div>
-        <div class="col-md-10">
-          <span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= @average_review %>"></div> <i>
-          <%= link_to tutor_reviews_path(@tutor.id) do %>
-            <%= @tutor.reviews.count %> anmeldelser
-          <% end %>
-          </i></span>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-2">
-          Produkter
-        </div>
-        <div class="col-md-10">
-          <div class="row">
-            <div class="col-xs-4">
-              <div class="product box">
-                10 min<br>
-                300 kr
-              </div>
-            </div>
-            <div class="col-xs-4">
-              <div class="product">
-                20 min<br>
-                500 kr
-              </div>
-            </div>
-            <div class="col-xs-4">
-              <div class="product">
-                30 min<br>
-                600 kr
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="col-md-4 col-sm-4">
       <% if @tutor.anonymous %>
@@ -96,6 +70,27 @@
 
 <br>
 
-<%= render('reviews/form') %>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <%= render('reviews/form') %>
 
-<%= render @tutor.reviews %>
+    <%= render @tutor.reviews.order('created_at DESC').page(params[:page]) %>
+    <div class="paginate" style="font-size: 16px">
+      <%= paginate @reviews %>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="product">
+      10 min
+      300 kr
+    </div>
+    <div class="product">
+      20 min
+      500 kr
+    </div>
+    <div class="product">
+      30 min
+      600 kr
+    </div>
+  </div>
+</div>

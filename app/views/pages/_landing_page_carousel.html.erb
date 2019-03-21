@@ -3,10 +3,17 @@
 		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
       <div class="MultiCarousel-inner">
       	<% @tutors.each do |tutor| %>
-          <div class="item">
-            <div class="pad15">
-              <%= link_to tutor_path(tutor) do %>
-                <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
+          <%= link_to tutor_path(tutor) do %>
+            <div class="item">
+              <div class="pad15">
+                <div class="carousel-profile-picture">
+                  <% if tutor.anonymous %>
+                    <%= image_tag('/anonymous.jpg') %>
+                  <% else %>
+                    <%= image_tag tutor.profile_picture.url(:profile_picture) if tutor.profile_picture? %>
+                    <%= image_tag('/default.png') if !tutor.profile_picture %>
+                  <% end %>
+                </div>
                 
                 <div class="bubble">
                   <span class="bubble-outer-dot">
@@ -18,11 +25,12 @@
 
                 
                 <br>
-                <%= image_tag('/stars.png') %>
-                <span class="text-muted" style="font-size: 12px;">(15)</span>
-              <% end %>
+                <% if tutor.reviews.any? %><span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= tutor.reviews.average(:rating).round(2) %>"></div></span>
+                <span class="text-muted" style="font-size: 12px;">(<%= tutor.reviews.count %>)</span>
+                <% else %><span class="text-muted">Ingen anmeldelser endnu.</span><% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
       <button class="btn leftLst"><</button>

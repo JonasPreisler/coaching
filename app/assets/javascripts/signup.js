@@ -12,10 +12,10 @@ $(document).ready(function(){
     
     //update progress
     var step = $(e.target).data('step');
-    var percent = (parseInt(step) / 4) * 100;
+    var percent = (parseInt(step) / 3) * 100;
     
     $('.progress-bar').css({width: percent + '%'});
-    $('.progress-bar').text("Step " + step + " of 4");
+    $('.progress-bar').text("Trinn " + step + " 3");
     
     //e.relatedTarget // previous tab
     

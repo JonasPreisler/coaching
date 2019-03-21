@@ -14,6 +14,8 @@ module Veiledning
 
     config.paths['app/views'] << "app/views/devise"
 
+    config.i18n.default_locale = :nb
+
     config.assets.initialize_on_precompile = true
     config.action_mailer.default_url_options = { host: "vehiclecsv.herokuapp.com" }
 

@@ -12,3 +12,4 @@ sub_categories3 = SubCategory.create!([{ name: 'Lege', category_id: 3 }, { name:
 #sub_categories11 = SubCategory.create([{ name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }, { name: '', category_id: 11 }])
 #sub_categories12 = SubCategory.create([{ name: '', category_id: 12 }, { name: '', category_id: 12 }, { name: '', category_id: 12 }])
 
+#admins = Tutor.create!([{first_name: 'Jones', last_name: 'Presley', email: 'jonas.preisler@gmail.com', password: 'testtest', password_confirmation: 'testtest', admin: true}, {first_name: 'Roy', last_name: 'Soraa', email: 'roysacer@live.no', password: 'testtest', password_confirmation: 'testtest', admin: true}])
