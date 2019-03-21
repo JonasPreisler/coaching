@@ -1,0 +1,94 @@
+<div class="tutor-settings">
+  <%= form_for @tutor do |f| %>
+
+    <%= f.submit 'Lagre profil', class: 'settings-button' %>
+    <br>
+    <div class="row">
+      <div class="col-md-8 col-sm-8">
+        <br>
+        <h3>
+          <% if @tutor.anonymous %>
+            <%= 'Anonym rådgiver' %>
+          <% else %>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <%= f.text_field :first_name, placeholder: "#{@tutor.first_name}" %>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <%= f.text_field :last_name, placeholder: "#{@tutor.last_name}" %>
+              </div>
+            </div>
+          <% end %>
+        </h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-2">
+            Kategorier:
+          </div>
+          <div class="col-md-10">
+            <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
+            <% @tutor.sub_categories.each do |sub| %>
+              <%= link_to sub_category_path(sub) do %>
+                <div class="sub_category_tag">
+                  <h4><%= sub.name %></h4>
+                </div>
+                <%= link_to 'Slett', tutors_category_path(TutorsCategory.find_by('sub_category_id = ? AND tutor_id = ?', sub.id, @tutor).id), method: :delete %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2">
+            Dokumenter
+          </div>
+          <div class="col-md-10">
+            <% @documents.each do |doc| %>
+              <%= link_to 'Download dokument', download: document_path(doc) %>
+            <%= link_to 'Slett', document_path(doc), method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 edit-profile-picture">
+        <% if @tutor.anonymous %>
+          <%= image_tag('/anonymous.jpg') %>
+        <% else %>
+          <%= image_tag @tutor.profile_picture.url(:profile_picture) if @tutor.profile_picture? %>
+          <%= image_tag('/default.png') if !@tutor.profile_picture %>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-small button btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Endre profilbilde</span>
+              <%= f.file_field :profile_picture, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+            </span>
+            <span class="form-control"></span>
+          </div>
+          <br>
+        <% end %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="product">
+          10 min
+          300 kr
+        </div>
+        <div class="product">
+          20 min
+          500 kr
+        </div>
+        <div class="product">
+          30 min
+          600 kr
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<%= form_with(model: available_hour, local: true) do |form| %>
+  <% if available_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(available_hour.errors.count, "error") %> prohibited this available_hour from being saved:</h2>
+
+      <ul>
+      <% available_hour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from %>
+    <%= form.datetime_select :from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to %>
+    <%= form.datetime_select :to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tutor_id %>
+    <%= form.number_field :tutor_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

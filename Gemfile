@@ -34,6 +34,10 @@ gem 'fog'
 gem "nested_form"
 gem 'devise-i18n'
 gem 'kaminari'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

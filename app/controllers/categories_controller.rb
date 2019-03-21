@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @accounts = Account.all
+    #@online_tutors = Tutor.where('approved = ? AND online = ?', true, true)
+    #@sub_categories = SubCategory.joins(:tutor).group("sub_categories.tutor_id").order("count(sub_categories.tutor_id) desc")
+    @sub_categories = SubCategory.left_joins(:tutors)
+                      .group(:id)
+                      .order('COUNT(tutors.id) DESC')
   end
 
   def new

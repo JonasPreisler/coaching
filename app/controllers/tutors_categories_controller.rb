@@ -56,7 +56,7 @@ class TutorsCategoriesController < ApplicationController
   def destroy
     @tutors_category.destroy
     respond_to do |format|
-      format.html { redirect_to tutors_categories_url, notice: 'Tutors category was successfully destroyed.' }
+      format.html { redirect_to indstillinger_path, notice: 'Kategori ble fjernet.' }
       format.json { head :no_content }
     end
   end

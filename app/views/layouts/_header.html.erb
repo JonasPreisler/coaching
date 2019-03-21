@@ -23,11 +23,6 @@
               <div>KATEGORIER</div>
             <% end %>
         </li>
-        <li>
-          <%= link_to rooms_show_path do %>
-            <div>MELDING</div>
-          <% end %>
-        </li>
         <% unless tutor_signed_in? || account_signed_in? %>
           <li>
             <%= link_to new_tutor_registration_path do %>
@@ -39,36 +34,46 @@
               <div>LOGG IN</div>
             <% end %>
           </li> 
-        <% else %>
           <li>
-            <% if tutor_signed_in? %>
-              <%= link_to destroy_tutor_session_path, method: :delete do %>
-                <div>LOGG UT</div>
-              <% end %>
-            <% end %>
-            <% if account_signed_in? %>
-              <%= link_to destroy_account_session_path, method: :delete do %>
-                <div>LOGG UT</div>
-              <% end %>
-            <% end %>
+            <%#= link_to ring_path do %>
+              <div class="call_button">
+                <i class="fa fa-phone" aria-hidden="true"></i> RING
+              </div>
+            <%# end %>
           </li>
-          <li>
-            <% if tutor_signed_in? %>            
+        <% else %>
+          <% if tutor_signed_in? %>
+            <li>
+              <%= link_to indstillinger_path do %>
+                <div>INDSTILLINGER</div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to rooms_show_path do %>
+                <div>SUPPORT</div>
+              <% end %>
+            </li>
+            <li>
               <%= link_to raadgiver_path(current_tutor) do %>
                 <div>
                   DIN PROFIL
                 </div>
               <% end %>
-            <% end %>
-          </li>
+            </li>
+            <li>
+              <%= link_to destroy_tutor_session_path, method: :delete do %>
+                <div>LOGG UT</div>
+              <% end %>
+            </li>
+          <% end %>
+          <% if account_signed_in? %>
+            <li>
+              <%= link_to destroy_account_session_path, method: :delete do %>
+                <div>LOGG UT</div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
-        <li>
-          <%#= link_to ring_path do %>
-            <div class="call_button">
-              <i class="fa fa-phone" aria-hidden="true"></i> RING
-            </div>
-          <%# end %>
-        </li>
       </ul>
     </div>
 

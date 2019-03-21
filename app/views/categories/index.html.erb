@@ -1,3 +1,6 @@
+<% @sub_categories.each do |sss| %>
+<%= sss.name %> <%= TutorsCategory.where(sub_category_id: sss.id).count %><br>
+<% end %>
 <div class="categories">
   <div class="row">
     <% Category.all.order('name ASC').each do |cat| %>
@@ -11,17 +14,11 @@
         <h4 class="card-title"><%= cat.name %></h4>
         <div class="vtabs">
           <div class="row">
-            <% cat.sub_categories.order('name ASC').each do |sub| %>
-              <a class="nav-link" data-toggle="tab" href="#<%= sub.name %>" role="tab">
-                <li class="nav-item">
-                  <span class="hidden-sm-up">
-                    <i class="ti-home"></i>
-                  </span>
-                  <span class="hidden-xs-down">
-                    <%= truncate(sub.name, length: 20) %>
-                  </span>
-                </li>
-              </a>
+            <% cat.sub_categories.left_joins(:tutors).group(:id).order('COUNT(tutors.id) DESC').each do |sub| %>
+            <div class="sub-category-container">
+              <span class="sub-categry-title"><%= sub.name %></span>
+              <%= TutorsCategory.where(sub_category_id: sub.id).count %>
+            </div>
             <% end %>
           </ul>
 

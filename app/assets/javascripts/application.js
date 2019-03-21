@@ -19,6 +19,12 @@
 //= require bootstrap-toggle
 //= require bootstrap-select
 
+//= require Chart.bundle
+//= require chartkick
+
+//= require moment 
+//= require fullcalendar
+
 //= require jquery.raty
 //= require modal
 
@@ -49,5 +55,4 @@ document.addEventListener("turbolinks:load", function() {
     $('.select2-selection__arrow').append('<i class="fa fa-arrow-down"></i>');
     $( ".select2-dropdown" ).select2();
 });
-
 

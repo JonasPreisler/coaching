@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :available_hours
   resources :companies
   resources :tutors_documents
   resources :documents
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   resources :tutors do
     resources :reviews
   end
+  get '/indstillinger', to: 'settings#index'
   get '/venter-pa-godkjenning', to: 'tutors#tutors_pending_approval'
   put '/venter-pa-godkjenning', to: 'tutors#tutors_pending_approval'
   get '/tak-vent', to: 'pages#thank_you_pending'
@@ -42,6 +44,4 @@ Rails.application.routes.draw do
   get "/404", :to => "errors#not_found", :via => :all
   get "/500", :to => "errors#internal_server_error", :via => :all
   get "home/download_pdf"
-
-
 end
