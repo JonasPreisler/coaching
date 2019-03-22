@@ -71,16 +71,22 @@ $( document ).on('turbolinks:load', function() {
     var brregApiUrl = 'https://data.brreg.no/enhetsregisteret/api/enheter/' + organisationNumber;
 
     $.get(brregApiUrl, function(data) {
-      validOrganisationNumberEvent();
+      validOrganisationNumberEvent(data);
     })
       .error(function(error) {
         invalidOrganisationNumberEvent();
       })
   }
 
-  function validOrganisationNumberEvent() {
+  function validOrganisationNumberEvent(data) {
     $('#org-numbr').parent().addClass('has-success');
     $('#org-numbr').parent().removeClass('has-error');
+
+    var companyType = data['organisasjonsform']['kode'];
+    $('input[name=company_type][value=' + companyType + ']').attr('checked', 'checked');
+
+    var companyName = data['navn'];
+    $('input#company-name').val(companyName);
   }
 
   function invalidOrganisationNumberEvent() {
