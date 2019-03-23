@@ -41,3 +41,19 @@
     </div>
   </body>
 </html>
+
+
+<script type="text/javascript">
+  $("[data-toggle=dropdown]").prop('onclick', null).off('click');
+  $("[data-toggle=dropdown]").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let el = $(this);
+    let expanded = el.attr("aria-expanded") || false;
+    if (!expanded) {
+        $(this).dropdown('toggle');
+    }
+
+    el.attr("aria-expanded", !expanded);
+  })
+</script>
