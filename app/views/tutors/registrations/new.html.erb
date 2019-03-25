@@ -86,7 +86,10 @@
       <div class="col-md-6 col-sm-6">
         <div class="field">
           <%= f.fields_for :documents %>
-          <%= f.link_to_add 'Legg til dokument', :documents %>
+          <%= f.link_to_add 'Legg til dokument', :documents %><br>
+          <%= f.fields_for :active_hours %>
+          <%= f.link_to_add 'Add active hours', :active_hours %>
+
         </div>
       </div>
     </div>

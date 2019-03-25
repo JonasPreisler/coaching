@@ -26,8 +26,7 @@
       <%= render('/layouts/header_mobile', class: 'mobile') %>
       <%= render('/layouts/header', class: 'desktop') %>
       <%#= render('/layouts/sidebar') %>
-      <% if notice %><p class="notice"><%= notice %></p><% end %>
-      <% if alert %><p class="alert"><%= alert %></p><% end %>
+      <%= custom_bootstrap_flash %>
 
       <div class="<%= action_name %> <%= 'container' unless action_name == 'landing_page' %>">
         <%= yield %>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :available_hours
+  resources :active_hours
   resources :companies
   resources :tutors_documents
+  resources :bookings
   resources :documents
   resources :reviews
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

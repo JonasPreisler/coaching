@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2019_03_25_141229) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
 
-  create_table "available_hours", force: :cascade do |t|
-    t.datetime "from"
-    t.datetime "to"
+  create_table "active_hours", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
     t.integer "tutor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,5 +1,5 @@
-json.array!(@available_hours) do |hour|   
+json.array!(@active_hours) do |hour|   
   json.start hour.from   
   json.end hour.to   
-  json.url available_hour_url(available_hour, format: :html) 
+  json.url active_hour_url(active_hour, format: :html) 
 end

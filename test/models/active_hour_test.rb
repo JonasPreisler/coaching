@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AvailableHourTest < ActiveSupport::TestCase
+class ActiveHourTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

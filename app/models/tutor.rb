@@ -8,10 +8,13 @@ class Tutor < ApplicationRecord
   has_many :sub_categories, through: :tutors_categories
   has_many :documents
   has_one :company
-  has_many :available_hours
+  has_many :active_hours
   has_many :bookings
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }
+
+  accepts_nested_attributes_for :active_hours, allow_destroy: true
+  
   validates_presence_of :email, :first_name, :last_name, :job_title
   paginates_per 10
   extend FriendlyId

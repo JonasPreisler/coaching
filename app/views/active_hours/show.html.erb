@@ -1,0 +1,18 @@
+
+<p>
+  <strong>From:</strong>
+  <%= @active_hour.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @active_hour.to %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @active_hour.tutor_id %>
+</p>
+
+<%= link_to 'Edit', edit_active_hour_path(@active_hour) %> |
+<%= link_to 'Back', active_hours_path %>

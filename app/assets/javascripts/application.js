@@ -15,6 +15,8 @@
 //= require jquery-ui/widgets/datepicker
 //= require turbolinks
 
+//= require toastr
+
 //= require bootstrap
 //= require bootstrap.min
 //= require bootstrap-toggle
