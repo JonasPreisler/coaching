@@ -9,6 +9,7 @@ class TutorsController < ApplicationController
     else
       @tutors = Tutor.all
     end
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
   def edit

@@ -11,7 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
+//= require jquery-ui/widgets/datepicker
 //= require turbolinks
 
 //= require bootstrap
@@ -23,7 +24,6 @@
 //= require chartkick
 
 //= require moment 
-//= require fullcalendar
 
 //= require jquery.raty
 //= require modal

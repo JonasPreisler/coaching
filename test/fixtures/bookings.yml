@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_id: 1
+  tutor_id: 1
+  booking: 2019-03-25 22:12:30
+  offer_id: 1
+
+two:
+  account_id: 1
+  tutor_id: 1
+  booking: 2019-03-25 22:12:30
+  offer_id: 1

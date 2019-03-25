@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: message_development
+  database: snakkmed_development
 
 test:
   <<: *default
-  database: message_test
+  database: snakkmed_test
 
 production:
   <<: *default
-  database: message_production
+  database: snakkmed_production

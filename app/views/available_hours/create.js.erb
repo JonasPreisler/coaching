@@ -1,0 +1,6 @@
+$('.calendar').fullCalendar(
+  'renderAvailableHour', 
+  $.parseJSON("<%=j render(@available_hour, format: :json).html_safe %>"),
+  true
+);
+$('.modal').modal('hide');

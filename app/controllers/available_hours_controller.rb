@@ -4,7 +4,7 @@ class AvailableHoursController < ApplicationController
   # GET /available_hours
   # GET /available_hours.json
   def index
-    @available_hours = AvailableHour.all
+    @available_hours = AvailableHour.where(from: params[:from]..params[:to])
   end
 
   # GET /available_hours/1
