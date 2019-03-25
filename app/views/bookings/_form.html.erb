@@ -13,24 +13,20 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :account_id %>
-    <%= form.number_field :account_id %>
+    <%= form.label :datetime %>
+    <%= form.text_field :datetime %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date %>
-  </div>
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.text_field :time %>
+    <%= form.label :account_id %>
+    <%= form.number_field :account_id %> (run rails db:seed and type '1')
   </div>
 
   <div class="field">
     <%= form.label :offer_id %>
     <%= form.number_field :offer_id %>
   </div>
-  <%= form.hidden_field :tutor_id, value: @tutor %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

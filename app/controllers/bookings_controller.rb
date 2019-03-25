@@ -28,6 +28,8 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @tutor = Tutor.find(params[:id])
+    @booking.tutor = @tutor
 
     respond_to do |format|
       if @booking.save
@@ -72,6 +74,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:account_id, :tutor_id, :date, :time, :offer_id)
+      params.require(:booking).permit(:account_id, :tutor_id, :datetime, :time, :offer_id)
     end
 end

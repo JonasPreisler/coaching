@@ -33,9 +33,10 @@ Rails.application.routes.draw do
   get 'kontrakt', to: 'pages#contract'
   get 'download-kontrakt', to: 'pages#download_contract'
   get '/ring', to: 'pages#ring'
-  get 'raadgiver/:id/book', to: 'bookings#new', as: :tutor do
-    get '/:id', as: :offer
-  end
+  
+  get 'raadgiver/:id/book', to: 'bookings#new', as: :tutor
+  post 'raadgiver/:id/book', to: 'bookings#create'
+
   resources :tutors do
     resources :bookings
     resources :reviews

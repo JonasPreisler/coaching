@@ -1,3 +1,3 @@
 jQuery ->
-  $('#booking_date').datepicker
+  $('#booking_datetime').datepicker
     dateFormat: 'yy-mm-dd'

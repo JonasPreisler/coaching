@@ -43,8 +43,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_141229) do
   create_table "bookings", force: :cascade do |t|
     t.integer "account_id"
     t.integer "tutor_id"
-    t.date "date"
-    t.time "time"
+    t.datetime "datetime"
     t.integer "offer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

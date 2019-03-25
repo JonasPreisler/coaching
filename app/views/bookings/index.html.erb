@@ -28,8 +28,7 @@
     <tr>
       <th>Account</th>
       <th>Tutor</th>
-      <th>Dag</th>
-      <th>Tid</th>
+      <th>Datetime</th>
       <th>Offer</th>
       <th colspan="3"></th>
     </tr>
@@ -40,8 +39,7 @@
       <tr>
         <td><%= booking.account_id %></td>
         <td><%= booking.tutor_id %></td>
-        <td><%= booking.date %></td>
-        <td><%= booking.time %></td>
+        <td><%= booking.datetime %></td>
         <td><%= booking.offer_id %></td>
         <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
