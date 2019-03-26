@@ -30,6 +30,8 @@ class PagesController < ApplicationController
 	def thank_you_pending
 	end
 
+	def thank_you
+	end
 
 	def veiledere
 	end

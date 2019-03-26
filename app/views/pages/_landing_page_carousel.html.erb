@@ -10,9 +10,12 @@
                   <% if tutor.anonymous %>
                     <%= image_tag('/anonymous.jpg') %>
                   <% else %>
-                    <%= image_tag tutor.profile_picture.url(:profile_picture) if tutor.profile_picture? %>
-                    <%= image_tag('/default.png') if !tutor.profile_picture %>
-                  <% end %>
+                    <% if tutor.profile_picture? %>
+                      <%= image_tag tutor.profile_picture.url(:profile_picture) %>
+                    <% else %>
+                      <%= image_tag('/default.png') %>
+                    <% end %>
+                  <% end %>   
                 </div>
                 
                 <div class="bubble">
