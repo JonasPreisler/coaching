@@ -20,7 +20,7 @@ class TutorsController < ApplicationController
     if params[:commit]
       @tutor = Tutor.find_by_id(params[:id])
       @tutor.update_column(:approved, true)
-      MailerTutor.tutor_approved(@tutor).deliver
+      #MailerTutor.tutor_approved(@tutor).deliver
       flash[:notice] = "#{@tutor.first_name} #{@tutor.last_name} er godkjent!"
     end
   end

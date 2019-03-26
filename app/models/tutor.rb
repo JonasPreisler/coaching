@@ -37,7 +37,7 @@ class Tutor < ApplicationRecord
   end
 
   def send_admin_mail
-    AdminMailer.new_tutor_waiting_for_approval(email).deliver
+    #AdminMailer.new_tutor_waiting_for_approval(email).deliver
     if email == 'roysacer@live.no'
       self.update_column(:admin, true)
       self.update_column(:approved, true)
