@@ -1,7 +1,7 @@
 .header-admin {
 	background: #f3f3f2;
 	padding: 6px;
-  li {
+  li a {
     font-size: 16px;
     transition: .2s;
     &:hover {
@@ -19,6 +19,7 @@
 }
 
 .pending_tutors_dropdown {
+  z-index: 100;
   .dropdown-menu {
     background: #494949 !important;
     border: 5px solid #494949;
