@@ -59,7 +59,9 @@ document.addEventListener("turbolinks:load", function() {
 });
 
 // lets datepicker display selected date with "  <input type="text" id="d" disabled="true" />"
+
 document.addEventListener("turbolinks:load", function() {
-	$('#d').change(function(){
-	    $('#z').datepicker('setDate', $(this).val());
+  $('#d').change(function() {
+    $('#z').datepicker('setDate', $(this).val());
+  });
 });
