@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   devise_for :tutors, path: 'tutors', controllers: { sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }
   devise_scope :tutor do
+    get 'raadgiver/:id/book', to: 'bookings#new'
+    post 'raadgiver/:id/book', to: 'bookings#create'
+
     get  '/logg-in',       to: 'tutors/sessions#new'
     post '/logg-in',       to: 'tutors/sessions#create'
     get  '/veileder/ny',   to: 'tutors/registrations#new'
@@ -35,11 +38,7 @@ Rails.application.routes.draw do
   get 'download-kontrakt', to: 'pages#download_contract'
   get '/ring', to: 'pages#ring'
   
-  get 'raadgiver/:id/book', to: 'bookings#new', as: :tutor
-  post 'raadgiver/:id/book', to: 'bookings#create'
-
   resources :tutors do
-    resources :bookings
     resources :reviews
   end
   get '/indstillinger', to: 'settings#index'

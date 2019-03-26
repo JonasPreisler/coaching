@@ -1,0 +1,8 @@
+<div class="field">
+Velg antal minutter<br><br>
+  <%= form.number_field :offer_id, id: 'offer_id' %>
+</div>
+
+<% @offers.each do |offer| %>
+	<div class="offer"><%= offer.minutes %> min.</div>
+<% end %>

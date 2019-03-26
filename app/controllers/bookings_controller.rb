@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @tutor = Tutor.find(params[:id])
+    @offers = @tutor.offers.order('minutes DESC')
   end
 
   # GET /bookings/1/edit

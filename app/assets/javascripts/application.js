@@ -58,3 +58,8 @@ document.addEventListener("turbolinks:load", function() {
     $( ".select2-dropdown" ).select2();
 });
 
+// lets datepicker display selected date with "  <input type="text" id="d" disabled="true" />"
+document.addEventListener("turbolinks:load", function() {
+	$('#d').change(function(){
+	    $('#z').datepicker('setDate', $(this).val());
+});

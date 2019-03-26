@@ -9,6 +9,7 @@ class Tutor < ApplicationRecord
   has_many :documents
   has_one :company
   has_many :active_hours
+  has_many :offers
   has_many :bookings
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }

@@ -1,6 +1,3 @@
-Online raadgivere
-
-
 <div class="row">
 	<% @tutors.each do |tutor| %>
 		<div class="col-md-4 col-sm-4">
@@ -8,11 +5,13 @@ Online raadgivere
 			  <div class="card-body card">
 			    <%= image_tag('/veileder.jpg', style: 'width: 100%;') %>
 			    
-			    <div class="bubble">
-			      <span class="bubble-outer-dot">
-			      <span class="bubble-inner-dot"></span>
-			      </span>
-			    </div>
+			    <% if tutor.online? %>
+				    <div class="bubble">
+				      <span class="bubble-outer-dot">
+				      <span class="bubble-inner-dot"></span>
+				      </span>
+				    </div>
+				   <% end %>
 
 			    <%= tutor.first_name %> <%= tutor.last_name %>
 
