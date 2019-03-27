@@ -22,7 +22,7 @@ class Tutor < ApplicationRecord
   after_update_commit {AppearanceBroadcastJob.perform_later self}
 
   def full_name
-  	first_name + ('-') + last_name
+  	first_name + (' ') + last_name
   end
   
   friendly_id :full_name, use: :slugged
