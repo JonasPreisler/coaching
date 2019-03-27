@@ -1,8 +1,8 @@
 $( document ).on('turbolinks:load', function() {
 
   function setInitialModalState() {
-    $('#step1next').attr('disabled', 'disabled');
-    $('#step2next').attr('disabled', 'disabled');
+    $('#step1next').addClass('disabled')
+    $('#step2next').addClass('disabled')
     $('#step-2').addClass('not-active');
     $('#step-3').addClass('not-active');
   }
@@ -23,14 +23,14 @@ $( document ).on('turbolinks:load', function() {
 
       if(organisationNumber.length < 9) { return false; }
 
-      $('#step1next').attr('disabled', false);
+      $('#step1next').removeClass('disabled');
       $('#step-2').removeClass('not-active');
     });
   }
 
   function companyRadionListener() {
     $('.company_type_radio').on('click', function(){
-      $('#step2next').attr('disabled', false);
+      $('#step2next').removeClass('disabled');
       $('#step-3').removeClass('not-active');
     });
   }
@@ -59,21 +59,18 @@ $( document ).on('turbolinks:load', function() {
   }
 
   $('form#new_tutor').on('keyup', '#org-numbr', function() {
-
     var organisationNumber = $('#org-numbr').val();
 
     if( organisationNumber.length != 9) { return false; }
-
     validateOrganisationNumber(organisationNumber);
   })
 
   function validateOrganisationNumber(organisationNumber) {
     var brregApiUrl = 'https://data.brreg.no/enhetsregisteret/api/enheter/' + organisationNumber;
 
-    $.get(brregApiUrl, function(data) {
-      validOrganisationNumberEvent(data);
-    })
-      .error(function(error) {
+    $.get(brregApiUrl, function(data, status){
+       validOrganisationNumberEvent(data);
+    }).fail(function(error) {
         invalidOrganisationNumberEvent();
       })
   }
@@ -87,11 +84,17 @@ $( document ).on('turbolinks:load', function() {
 
     var companyName = data['navn'];
     $('input#company-name').val(companyName);
+
+    $('#step1next').removeClass('disabled')
+    $('#step-2').removeClass('not-active')
   }
 
   function invalidOrganisationNumberEvent() {
     $('#org-numbr').parent().removeClass('has-success');
     $('#org-numbr').parent().addClass('has-error');
+
+    $('#step1next').addClass('disabled')
+    $('#step-2').addClass('not-active')
   }
 
   companyButtonListener();
