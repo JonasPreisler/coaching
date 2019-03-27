@@ -65,3 +65,4 @@ document.addEventListener("turbolinks:load", function() {
     $('#z').datepicker('setDate', $(this).val());
   });
 });
+
