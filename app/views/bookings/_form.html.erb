@@ -41,11 +41,11 @@
                 <%= render :partial => "modal_step_1", :locals=>{:form=>form} %>
 
               </div>
-            <% if account_signed_in? %>
+            <%# if account_signed_in? %>
               <a class="next" id="step1next" >Fortsett</a>
-            <% else %>
-             <span class="disabled-button">LOGG INN <span class="desktop">FOR A FORTSETTE</span></span>
-            <% end %>
+            <%# else %>
+             <span class="disabled-button" style="display: none;">LOGG INN <span class="desktop">FOR A FORTSETTE</span></span>
+            <%# end %>
           </div>
           <div class="tab-pane fade" id="step2">
 
