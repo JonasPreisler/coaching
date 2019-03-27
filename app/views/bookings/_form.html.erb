@@ -67,15 +67,17 @@
     <div class="col-md-4 booking-details">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-4">
-          <% if @tutor.anonymous %>
-            <%= image_tag('/anonymous.jpg') %>
-          <% else %>
-            <% if @tutor.profile_picture? %>
-              <%= image_tag @tutor.profile_picture.url(:profile_picture) %>
+          <div class="booking-image">
+            <% if @tutor.anonymous %>
+              <%= image_tag('/anonymous.jpg') %>
             <% else %>
-              <%= image_tag('/default.png') %>
+              <% if @tutor.profile_picture? %>
+                <%= image_tag @tutor.profile_picture.url(:profile_picture) %>
+              <% else %>
+                <%= image_tag('/default.png') %>
+              <% end %>
             <% end %>
-          <% end %>    
+          </div> 
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8">  
           <%= @tutor.full_name %>

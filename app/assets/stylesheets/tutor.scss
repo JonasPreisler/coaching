@@ -18,8 +18,11 @@
 	padding: 15px;
 	border-radius: 10px;
 	.col-md-4, .col-sm-4 {
+	overflow: hidden;
+	height: 280px;
 		img {
 			width: 100%;
+			display: block;
 			border-radius: 5px;
 			border: 3px solid #f3f2f2;
 		}
