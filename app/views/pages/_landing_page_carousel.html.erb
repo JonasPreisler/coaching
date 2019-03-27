@@ -18,11 +18,13 @@
                   <% end %>   
                 </div>
                 
-                <div class="bubble">
-                  <span class="bubble-outer-dot">
-                  <span class="bubble-inner-dot"></span>
-                  </span>
-                </div>
+                <% if tutor.online? %>
+                  <div class="bubble">
+                    <span class="bubble-outer-dot">
+                    <span class="bubble-inner-dot"></span>
+                    </span>
+                  </div>
+                <% end %>
 
                 <%= tutor.first_name %> <%= tutor.last_name %>
 
