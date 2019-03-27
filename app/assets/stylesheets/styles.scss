@@ -153,3 +153,7 @@ a {
   text-decoration: none;
   color: black;
 }
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
