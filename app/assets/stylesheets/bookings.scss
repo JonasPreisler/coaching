@@ -142,3 +142,25 @@
 /* END OF DATEPICKER */
 
 
+
+.datetimepicker {
+	font-family: poppins;
+	width: 24em;
+	border: none !important;
+	table {
+		width: 100%;
+		  tr td span {
+			background: #bed0e9;
+			margin: 1.5%;
+			padding: 7px 11px 7px 11px;
+			font-size: 11px;
+			border-radius: 0 !important;
+			height: 38px !important;
+		}
+	}
+}
+
+.datetimepicker table tr td span.active, .datetimepicker table tr td span.active:hover {
+	background-color: #4c7ec3 !important;
+	background-image: none !important;
+}

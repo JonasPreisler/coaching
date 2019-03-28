@@ -66,3 +66,8 @@ document.addEventListener("turbolinks:load", function() {
   });
 });
 
+
+// bootstrap datetime picker
+document.addEventListener("turbolinks:load", function() {
+  $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+});
