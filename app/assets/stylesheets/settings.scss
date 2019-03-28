@@ -1,7 +1,33 @@
-.tab-content {
-	background: #f3f2f2;
-	padding: 50px;
-	border-radius: 10px;
+.statistics {
+	.box {
+		padding: 20px;
+		border-radius: 7px;
+		background: #fff;
+	}
+	font-family: poppins;
+	h1, h2, h3, h4, h5, h6 {
+		font-family: poppins !important;
+		margin-top: 0;
+	}
+	.col-md-4 .col-sm-4 {
+		padding-left: 0 !important;
+	}
+	.col-md-8 .col-sm-8 {
+		padding-right: 0;
+	}
+	.page-views {
+		.col-md-8, .col-sm-8 {
+			padding-right: 0;
+		}
+		p {
+		color: #999;
+		margin-bottom: 9px;
+		}
+		.stats {
+			font-size: 20px;
+			font-weight: 800;
+		}
+	}
 }
 
 .tutor-settings {

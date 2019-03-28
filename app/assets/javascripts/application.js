@@ -13,6 +13,9 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui/widgets/datepicker
+//= require jquery.timepicker
+//= require jquery.timepicker.min
+
 //= require turbolinks
 
 //= require toastr
@@ -70,4 +73,8 @@ document.addEventListener("turbolinks:load", function() {
 // bootstrap datetime picker
 document.addEventListener("turbolinks:load", function() {
   $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+});
+
+document.addEventListener("turbolinks:load", function() {
+  $('#scrollDefaultExample').timepicker({ 'scrollDefault': 'now' });
 });
