@@ -38,11 +38,13 @@
 
               <div class='form-group'>
 
+                <a class="next" id="step1next" >Fortsett</a>
+                
+
                 <%= render :partial => "modal_step_1", :locals=>{:form=>form} %>
 
               </div>
             <%# if account_signed_in? %>
-              <a class="next" id="step1next" >Fortsett</a>
             <%# else %>
              <span class="disabled-button" style="display: none;">LOGG INN <span class="desktop">FOR A FORTSETTE</span></span>
             <%# end %>
