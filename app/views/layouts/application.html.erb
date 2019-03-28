@@ -22,14 +22,14 @@
   </head>
 
   <body>
-    <div class="<%= 'background' if controller.action_name == 'mobil2' %> <%= 'booking-body' if controller.action_name == 'index' && controller_name ==  'settings' %>">
+    <div class="<%= 'background' if controller.action_name == 'mobil2' %>">
       <%= render('/layouts/header_admin') if tutor_signed_in? && current_tutor.admin? %>
       <%= render('/layouts/header_mobile', class: 'mobile') %>
       <%= render('/layouts/header', class: 'desktop') %>
       <%#= render('/layouts/sidebar') %>
       <%= custom_bootstrap_flash %>
 
-      <div class="<%= controller_name %> container <%= 'container' unless action_name == 'landing_page' || 'bookings' %>">
+      <div class="<%= 'bookings' if controller.action_name == 'index' && controller_name ==  'settings' %> <%= controller_name %> <%= 'container' unless action_name == 'landing_page' || 'bookings' %>">
         <%= yield %>
       </div>
 
