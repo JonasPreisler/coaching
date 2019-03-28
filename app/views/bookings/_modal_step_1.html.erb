@@ -13,55 +13,19 @@
 	</div>
 	<div class="col-md-6 col-sm-6">
 
+		<h2>Velg tid</h2>
+
+		<div class="time">
 			<div class="row">
 				<% @booking.time_slots.each do |t| %>
-					<div class="col-md-3 col-sm-3 col-xs-3">
-						<div id="ck-button">
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<div class="time-button">
 						   <label>
-						      <input type="checkbox" value="1"><span> <%= t %></span>
+						      <input type="checkbox" value="<%= t %>"><span> <%= t %></span>
 						   </label>
 						</div>
 					</div>
 				<% end %>
-			</div>
-				
-		<div class="time">
-			
-			<% (1..24).each do |i| %>
-				<div id="ck-button">
-				   <label>
-				      <input type="checkbox" value="1"><span> <%= i %></span>
-				   </label>
-				</div>
-			<% end %>
-		</div>
-
-		<h2>Velg tid</h2>
-		<div class="time">
-
-			<div class="ui-timepicker-wrapper ui-timepicker-positioned-top optional-custom-classname" tabindex="-1">
-			  <ul class="ui-timepicker-list">
-			    <li class="ui-timepicker-am">12:00</li>
-			    <li class="ui-timepicker-am">12:05</li>
-			    <li class="ui-timepicker-am">12:10</li>
-			    <li class="ui-timepicker-am">12:15</li>
-			    <li class="ui-timepicker-am">12:20</li>
-			    <li class="ui-timepicker-am">12:25</li>
-			    <li class="ui-timepicker-am">12:30</li>
-			    <li class="ui-timepicker-am">12:35</li>
-			    <li class="ui-timepicker-am">12:40</li>
-			    <li class="ui-timepicker-am">12:45</li>
-			    <li class="ui-timepicker-am">12:50</li>
-			    <li class="ui-timepicker-am">12:55</li>
-			    <li class="ui-timepicker-am">13:00</li>
-			    <li class="ui-timepicker-am">13:05</li>
-			    <li class="ui-timepicker-am">13:10</li>
-			    <li class="ui-timepicker-am">13:15</li>
-			    <li class="ui-timepicker-am">13:20</li>
-			    <li class="ui-timepicker-am">13:25</li>
-			    <li class="ui-timepicker-am">13:30</li>
-			    <li class="ui-timepicker-am">13:35</li>
-			  </ul>
 			</div>
 		</div>
 	</div>
