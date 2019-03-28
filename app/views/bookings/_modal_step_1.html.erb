@@ -13,12 +13,28 @@
 	</div>
 	<div class="col-md-6 col-sm-6">
 
-		<div class="timepicks">
-			<%# @timepicks.each do |t| %>
-			<%#= t. %>
-			<%# end %>
+			<div class="row">
+				<% @booking.time_slots.each do |t| %>
+					<div class="col-md-3 col-sm-3 col-xs-3">
+						<div id="ck-button">
+						   <label>
+						      <input type="checkbox" value="1"><span> <%= t %></span>
+						   </label>
+						</div>
+					</div>
+				<% end %>
+			</div>
+				
+		<div class="time">
+			
+			<% (1..24).each do |i| %>
+				<div id="ck-button">
+				   <label>
+				      <input type="checkbox" value="1"><span> <%= i %></span>
+				   </label>
+				</div>
+			<% end %>
 		</div>
-
 
 		<h2>Velg tid</h2>
 		<div class="time">
