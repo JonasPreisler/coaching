@@ -32,7 +32,7 @@
 
 		<%= @tutor.full_name %>'s available tutor time:<br><br>
 		<% @tutor.active_hours.each do |hours| %>
-			<%= hours.start.strftime('%m %b %y, %H:%M') %>-<%= hours.end.strftime('%H:%M') %><br>
+			<%= hours.start.strftime('%b %d..... %H:%M') %>-<%= hours.end.strftime('%H:%M') %><br>
 		<% end %>
 
 	</div>
