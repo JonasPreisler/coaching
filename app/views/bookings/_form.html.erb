@@ -1,3 +1,4 @@
+<div class="booking-body">
 <%= form_for @booking, :url => tutor_path do |form| %>
 <%#= form_for @booking do |form| %>
   <% if booking.errors.any? %>
@@ -39,7 +40,7 @@
               <div class='form-group'>
 
                 <a class="next" id="step1next" >Fortsett</a>
-                
+
 
                 <%= render :partial => "modal_step_1", :locals=>{:form=>form} %>
 
@@ -109,3 +110,4 @@
     </div>
   </div>
 <% end %>
+</div>

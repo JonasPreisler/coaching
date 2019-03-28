@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <div class="<%= 'background' if controller.action_name == 'mobil2' %> <%= 'booking-body' if controller.action_name == 'new' || 'index' && controller_name == 'bookings' || 'settings' %>">
+    <div class="<%= 'background' if controller.action_name == 'mobil2' %> <%= 'booking-body' if controller.action_name == 'index' && controller_name ==  'settings' %>">
       <%= render('/layouts/header_admin') if tutor_signed_in? && current_tutor.admin? %>
       <%= render('/layouts/header_mobile', class: 'mobile') %>
       <%= render('/layouts/header', class: 'desktop') %>
