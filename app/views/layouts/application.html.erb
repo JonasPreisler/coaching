@@ -29,7 +29,7 @@
       <%#= render('/layouts/sidebar') %>
       <%= custom_bootstrap_flash %>
 
-      <div class="<%= action_name %> <%= 'container' unless action_name == 'landing_page' || 'bookings' %>">
+      <div class="<%= controller_name %> container <%= 'container' unless action_name == 'landing_page' || 'bookings' %>">
         <%= yield %>
       </div>
 
