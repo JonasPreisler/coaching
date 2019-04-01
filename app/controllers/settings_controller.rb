@@ -3,5 +3,6 @@ class SettingsController < ApplicationController
 		@tutor = current_tutor
 		@documents = @tutor.documents
 		@tutors = Tutor.all
+    @sub_categories = SubCategory.all
 	end
 end
