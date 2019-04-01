@@ -1,0 +1,55 @@
+.tutors-pending {
+	padding-left: 15px;
+	padding-right: 15px;
+	.table-profile-pic {
+		overflow: hidden;
+		width: 80px;
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+	.styled-thead {
+		background: #1c1c1c;
+		color: #f3f2f2;
+		font-weight: 400;
+		font-size: 16px;
+	}
+	.table > tbody > tr > td {
+		white-space: nowrap;
+	}
+	.togglable-tr {
+		cursor: default;
+		background: #c3c2c2;
+		font-weight: 400;
+		font-size: 16px;
+		p {
+			white-space: pre;
+		}
+		td {
+			padding-top: none;
+		}
+	}
+}
+
+
+.approve-button {
+	background: #d0a872;
+	padding: 10px 50px 10px 50px;
+	color: #fff !important;
+	font-size: 15px;
+	border-radius: 3px;
+	border: none;
+	transition: .2s;
+  -moz-box-shadow:    0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+  box-shadow:         0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	&:hover {
+	  -moz-box-shadow:    0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+	  -webkit-box-shadow: 0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+	  box-shadow:         0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+		cursor: pointer;
+		text-decoration: none;
+		background: #dec39d;
+	}
+}

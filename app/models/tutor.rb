@@ -2,9 +2,9 @@ class Tutor < ApplicationRecord
   after_create :send_admin_mail
   is_impressionable
   mount_uploader :profile_picture, TutorUploader
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  enum status: [:pending, :approved, :unapproved, :suspended]
   has_many :tutors_categories
   has_many :sub_categories, through: :tutors_categories
   has_many :categories, through: :tutors_categories
@@ -52,11 +52,11 @@ class Tutor < ApplicationRecord
     #AdminMailer.new_tutor_waiting_for_approval(email).deliver
     if email == 'roysacer@live.no'
       self.update_column(:admin, true)
-      self.update_column(:approved, true)
+      self.approved!
     end
     if email == 'jonas.preisler@gmail.com'
       self.update_column(:admin, true)
-      self.update_column(:approved, true)
+      self.approved!
     end
 
     self.update_column(:first_name, self.first_name.capitalize)

@@ -1,0 +1,72 @@
+
+/* GREEN CHECKBOX */
+
+.check-button {
+  overflow: auto;
+}
+
+.check-button label {
+  width: 100%;
+  margin-bottom: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.check-button label span {
+  text-align: center;
+  padding: 7px 11px 7px 11px;
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.check-button label input {
+  top:-20px;
+}
+
+.check-button input:checked + span {
+  color: #fff;
+  background: #9EC66E;
+}
+.not_checked {
+  background: #dad9d9;
+}
+
+/* END OF GREEN CHECKBOX */
+
+/* DANGER CHECKBOX */
+
+.check-button-danger {
+  overflow: auto;
+}
+
+.check-button-danger label {
+  width: 100%;
+  margin-bottom: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.check-button-danger label span {
+  text-align: center;
+  padding: 7px 11px 7px 11px;
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.check-butto-dangern label input {
+  top:-20px;
+}
+
+.check-button-danger input:checked + span {
+  color: #fff;
+  background: #b84a55;
+}
+/* END OF DANGER CHECKBOX */
+
+/* ---------------------------------------------------
+   END OF TABLE CHECKBOXES 
+--------------------------------------------------- */

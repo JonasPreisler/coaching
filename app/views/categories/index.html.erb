@@ -4,23 +4,23 @@
     <div class="col-md-3 col-sm-3 search-box">
       <% @categories.each do |cat| %>
       <p><%= link_to cat.name, categories_path(category: cat.name) %>
-      (<%= TutorsCategory.where(category_id: cat.id).count %>)</p><br>
+      (<%= cat.tutors.approved.count %>)</p><br>
       <% end %>
     </div>
 
     <div class="col-md-9 col-sm-9 search-results">
-      <% if @sub_categories.try(:any?) %>
-        <% @sub_categories.each do |sub_cat| %>
-          <%= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
-        <% end %>
-      <% end %>
+      <%# if @sub_categories.try(:any?) %>
+        <%# @sub_categories.each do |sub_cat| %>
+          <%#= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
+        <%# end %>
+      <%# end %>
       <% if @tutors.try(:any?) %>
         <% @tutors.each do |tutor| %>
 
           <%= link_to tutor_path(tutor), target: :blank do %>
             <div class="search-results-single">
               <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="col-md-4 col-sm-4">
 
                   <% if tutor.anonymous %>
                     <%= image_tag('/anonymous.jpg') %>
@@ -32,7 +32,7 @@
                     <% end %>
                   <% end %>     
                 </div>
-                <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="col-md-8 col-sm-8">
 
                   <% if tutor.online? %>
                     <div class="bubble">

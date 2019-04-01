@@ -78,3 +78,11 @@ document.addEventListener("turbolinks:load", function() {
 document.addEventListener("turbolinks:load", function() {
   $('#scrollDefaultExample').timepicker({ 'scrollDefault': 'now' });
 });
+
+
+
+function myFunction(id) {
+  var x = document.getElementById(id);
+  $(x).slideToggle();
+  $(x).siblings('.togglable-tr').hide();
+}

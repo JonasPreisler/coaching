@@ -5,25 +5,36 @@ class TutorsController < ApplicationController
   impressionist :actions=>[:show]
 
 	def index
-		if params[:approved] == "false"
-      @tutors = Tutor.where('approved = ? AND online = ?', false, true)
-    else
-      @tutors = Tutor.where(approved: true)
-    end
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+		#f params[:approved] == "false"
+    # @tutors = Tutor.where('approved = ? AND online = ?', false, true)
+    #lse
+    # @tutors = Tutor.where(approved: true)
+    #nd
+    #date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
   def edit
   end
 
   def tutors_pending_approval
-    @unapproved_tutors = Tutor.where(approved: false)
-    if params[:commit]
-      @tutor = Tutor.find_by_id(params[:id])
-      @tutor.update_column(:approved, true)
-      #MailerTutor.tutor_approved(@tutor).deliver
-      flash[:notice] = "#{@tutor.first_name} #{@tutor.last_name} er godkjent!"
+    @pending_tutors = Tutor.pending.page(params[:page])
+
+
+    if params[:unapproved_tutors].present?
+      @unapproved_tutors = Tutor.find(params[:unapproved_tutors])
+      @unapproved_tutors.each do |unapproved_tutor|
+        unapproved_tutor.unapproved!       
+      end
     end
+    if params[:approved_tutors].present?
+      @approved_tutors = Tutor.find(params[:approved_tutors])
+      @approved_tutors.each do |approved_tutor|
+        approved_tutor.approved!
+        #MailerTutor.tutor_approved(@tutor).deliver
+      end
+    end
+
+    render layout: 'home'
   end
 
 	def show
@@ -39,7 +50,7 @@ class TutorsController < ApplicationController
 	private
 
     def check_if_approved
-      if @tutor.approved == false
+      unless @tutor.approved?
         redirect_to root_path
       end
     end

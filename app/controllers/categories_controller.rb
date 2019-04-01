@@ -5,8 +5,9 @@ class CategoriesController < ApplicationController
 
     if params.has_key?(:category)
       @category = Category.find_by_name(params[:category])
-      @tutors_categories = TutorsCategory.where(category_id: @category)
-      @tutors = Tutor.where(id: @tutors_categories).page(params[:page])
+      #@tutors_categories = TutorsCategory.where(category_id: @category)
+      @tutors = @category.tutors.approved.page(params[:page])
+      #@tutors = Tutor.approved.where(id: @tutors_categories).page(params[:page])
     else
       @categories = Category.all.left_joins(:tutors)
                       .group(:id)

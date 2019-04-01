@@ -24,7 +24,7 @@ class PagesController < ApplicationController
 	end
 	def landing_page
 		@sub_categories = SubCategory.all.limit(6)
-    @tutors = Tutor.where(approved: true).limit(15)
+    @tutors = Tutor.approved.limit(15)
     render layout: 'home'
 	end
 

@@ -29,6 +29,7 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
   def create_company
     @tutor.create_company(organization_number:       params[:organization_number],
                           name:                      params[:company_name],
+                          company_type:              params[:company_type],
                           address:                   params[:company_address],
                           contact_person_first_name: params[:contact_person_first_name],
                           contact_person_last_name:  params[:contact_person_last_name])
