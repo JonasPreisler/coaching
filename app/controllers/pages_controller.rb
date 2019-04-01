@@ -25,6 +25,7 @@ class PagesController < ApplicationController
 	def landing_page
 		@sub_categories = SubCategory.all.limit(6)
     @tutors = Tutor.where(approved: true).limit(15)
+    render layout: 'home'
 	end
 
 	def thank_you_pending

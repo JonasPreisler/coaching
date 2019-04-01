@@ -69,6 +69,6 @@ class TutorsCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutors_category_params
-      params.require(:tutors_category).permit(:tutor_id, :sub_category_id)
+      params.require(:tutors_category).permit(:tutor_id, :sub_category_id, :category_id)
     end
 end

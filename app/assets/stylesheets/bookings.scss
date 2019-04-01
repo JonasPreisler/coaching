@@ -6,6 +6,9 @@
 		font-family: poppins !important;
 		margin-top: 0;
 	}
+	.booked-date {
+		width: 100%;
+	}
 }
 
 .booking-steps {
@@ -66,20 +69,24 @@
 			cursor: pointer;
 		}
 	}
-	.next {
+	.booking-button {
 		background: #d0a872;
 		padding: 10px 50px 10px 50px;
 		color: #fff !important;
+		font-size: 15px;
 		float: right;
 		border-radius: 3px;
 		transition: .2s;
+	  -moz-box-shadow:    0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  box-shadow:         0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
 		&:hover {
+		  -moz-box-shadow:    0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+		  -webkit-box-shadow: 0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+		  box-shadow:         0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
 			cursor: pointer;
 			text-decoration: none;
 			background: #dec39d;
-			&:after {
-				content: ' ⇛';
-			}
 		}
 	}
 }
@@ -221,7 +228,7 @@ div label input {
 	background: #d1deef;
 }
 
-.disabled {
+.time-button-disabled {
   text-align: center;
   padding: 7px 11px 7px 11px;
   display: block;

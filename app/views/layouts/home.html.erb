@@ -22,23 +22,18 @@
   </head>
 
   <body>
-    <div class="<%= 'background' if controller.action_name == 'mobil2' %>">
-      <%= render('/layouts/header_admin') if tutor_signed_in? && current_tutor.admin? %>
-      <%= render('/layouts/header_mobile', class: 'mobile') %>
-      <%= render('/layouts/header', class: 'desktop') %>
-      <%#= render('/layouts/sidebar') %>
-      <%= custom_bootstrap_flash %>
+    <%= render('/layouts/header_admin') if tutor_signed_in? && current_tutor.admin? %>
+    <%= render('/layouts/header_mobile', class: 'mobile') %>
+    <%= render('/layouts/header', class: 'desktop') %>
+    <%= custom_bootstrap_flash %>
 
-      <div class="<%= controller_name %> <%= 'container' unless controller_name == 'categories' %>">
-        <%= yield %>
-      </div>
+    <%= yield %>
 
-      <footer class="footer">
-        <%= link_to 'Rådgiver logg inn', new_tutor_session_path unless tutor_signed_in? %>
-        <hr>
-        © 2019 SnakkMed.no | Viachat
-      </footer>
-    </div>
+    <footer class="footer">
+      <%= link_to 'Rådgiver logg inn', new_tutor_session_path unless tutor_signed_in? %>
+      <hr>
+      © 2019 SnakkMed.no | Viachat
+    </footer>
   </body>
 </html>
 

@@ -28,11 +28,17 @@
 
                 <%= tutor.first_name %> <%= tutor.last_name %>
 
-                
                 <br>
-                <% if tutor.reviews.any? %><span style="display: inline-flex;"> <div class="average-review-rating" data-score="<%= tutor.reviews.average(:rating).round(2) %>"></div></span>
-                <span class="text-muted" style="font-size: 12px;">(<%= tutor.reviews.count %>)</span>
-                <% else %><span class="text-muted">Ingen anmeldelser endnu.</span><% end %>
+                  <div style="display: inline-flex;" class="average-review-rating" data-score="<% if tutor.reviews.blank? %>0<% else %><%= tutor.reviews.average(:rating).round(2) %><% end %>"></div><br>
+                  
+                  <% if tutor.reviews.any? %>
+                    <span class="text-muted" style="font-size: 12px;">
+                      (<%= tutor.reviews.count %>)
+                    </span>
+                  <% else %>
+                    <span class="text-muted">
+                    </span>
+                  <% end %>
               </div>
             </div>
           <% end %>

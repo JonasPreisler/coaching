@@ -2,13 +2,26 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
-    @accounts = Account.all
-    #@online_tutors = Tutor.where('approved = ? AND online = ?', true, true)
-    #@sub_categories = SubCategory.joins(:tutor).group("sub_categories.tutor_id").order("count(sub_categories.tutor_id) desc")
-    @sub_categories = SubCategory.left_joins(:tutors)
+
+    if params.has_key?(:category)
+      @category = Category.find_by_name(params[:category])
+      @tutors_categories = TutorsCategory.where(category_id: @category)
+      @tutors = Tutor.where(id: @tutors_categories).page(params[:page])
+    else
+      @categories = Category.all.left_joins(:tutors)
                       .group(:id)
                       .order('COUNT(tutors.id) DESC')
+    end
+
+    if params.has_key?(:sub_category)
+      @sub_category = SubCategory.find_by_name(params[:sub_category])
+      @tutors_categories = TutorsCategory.where(sub_category_id: @sub_category)
+    end
+    #@online_tutors = Tutor.where('approved = ? AND online = ?', true, true)
+    #@sub_categories = SubCategory.joins(:tutor).group("sub_categories.tutor_id").order("count(sub_categories.tutor_id) desc")
+    #@sub_categories = SubCategory.left_joins(:tutors)
+    #                  .group(:id)
+    #                  .order('COUNT(tutors.id) DESC')
   end
 
   def new

@@ -2,12 +2,15 @@
 	background: #e3e2e2;
 	padding: 15px;
 	border-radius: 5px;
-	input, .bootstrap-select, .button-blue {
+	input, textarea, .bootstrap-select, .button-blue {
 		width: 100% !important;
 		border: none;
 		border-radius: 5px;
 		padding: 7px;
 		font-size: 16px;
+	}
+	textarea {
+		height: 100px !important;
 	}
 	input[type="checkbox"] {
 		width: 3% !important;

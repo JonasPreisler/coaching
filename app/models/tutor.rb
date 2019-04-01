@@ -7,23 +7,34 @@ class Tutor < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tutors_categories
   has_many :sub_categories, through: :tutors_categories
+  has_many :categories, through: :tutors_categories
   has_many :documents
   has_one :company
   has_many :active_hours
   has_many :offers
   has_many :bookings
+  has_many :reviews
+  
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }
 
   accepts_nested_attributes_for :active_hours, allow_destroy: true
-  
+
+  def next_active_hours
+    ActiveHour.where(tutor_id: self.id).limit(1).each do |hour|
+      if hour.start.future?
+        hour
+      end
+    end
+  end
+
   validates_presence_of :email, :first_name, :last_name, :job_title
-  paginates_per 10
+  paginates_per 12
   extend FriendlyId
   after_update_commit {AppearanceBroadcastJob.perform_later self}
 
   def full_name
-  	first_name + (' ') + last_name
+    first_name + ' ' + last_name
   end
   
   friendly_id :full_name, use: :slugged
@@ -47,6 +58,9 @@ class Tutor < ApplicationRecord
       self.update_column(:admin, true)
       self.update_column(:approved, true)
     end
+
+    self.update_column(:first_name, self.first_name.capitalize)
+    self.update_column(:last_name, self.last_name.capitalize)
   end
 
   def self.send_reset_password_instructions(attributes={})
@@ -58,5 +72,6 @@ class Tutor < ApplicationRecord
     end
     recoverable
   end
+
 
 end
