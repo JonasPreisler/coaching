@@ -32,6 +32,28 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @tutor = Tutor.find(params[:id])
     @booking.tutor = @tutor
+    @account = current_account
+
+    unless @account.customer?
+      @account.update_column(:customer, true)
+    end
+
+    begin
+      customer = Stripe::Customer.create(
+        :email => @account.email, 
+        :source  => params[:stripeToken]
+      )
+
+      @charge = Stripe::Charge.create(
+        :customer  => customer.id,
+        :amount => (@booking.sub_total.to_f * 100).to_i ,
+        :description => @booking.token,
+        :currency =>  'nok'
+      )
+    rescue Exception => e
+      redirect_to checkout_path, notice:  e.message
+    end
+
 
     respond_to do |format|
       if @booking.save

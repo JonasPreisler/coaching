@@ -66,7 +66,4 @@ class TutorsController < ApplicationController
       @tutor = Tutor.friendly.find(params[:id])
     end
 
-    def category_params
-      params.require(:category).permit(:sub_category_id, :category_id, :first_name, :last_name, :current_password, :description, :phone, :email, :anonymous, :gdpr, :approved, :sub_category_id, :nickname, :job_title, :profile_picture, :business_type, :private, :company, documents_attributes: [:id, :file, :_destroy, :tutor_id], active_hours_attributes: [:id, :_destroy, :start, :end, :tutor_id])
-    end
 end

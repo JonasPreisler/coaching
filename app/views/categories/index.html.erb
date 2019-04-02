@@ -1,11 +1,30 @@
 <div class="categories">
   <div class="row">
 
-    <div class="col-md-3 col-sm-3 search-box">
+    <div class="col-md-3 col-sm-3">
+
       <% @categories.each do |cat| %>
-      <p><%= link_to cat.name, categories_path(category: cat.name) %>
-      (<%= cat.tutors.approved.count %>)</p><br>
+        <%= link_to categories_path(category: cat.name) do %>
+          <div class="list-2">
+            <%= cat.name %>
+            (<%= cat.tutors.approved.count %>)
+          </div>
+        <% end %>
       <% end %>
+
+      <hr>
+
+      <div class="search-box">
+        <% @categories.each do |cat| %>
+          <p>
+            <%= link_to categories_path(category: cat.name) do %>
+              <%= cat.name %>
+              (<%= cat.tutors.approved.count %>)
+            <% end %>
+          </p><br>
+        <% end %>
+      </div>
+
     </div>
 
     <div class="col-md-9 col-sm-9 search-results">
@@ -34,15 +53,19 @@
                 </div>
                 <div class="col-md-8 col-sm-8">
 
-                  <% if tutor.online? %>
-                    <div class="bubble">
-                      <span class="bubble-outer-dot">
-                      <span class="bubble-inner-dot"></span>
-                      </span>
-                    </div>
-                   <% end %>
+                  <div style="display: inline-flex;">
 
-                  <h2><%= tutor.full_name %></h2>
+                    <h2><%= tutor.full_name %></h2>
+
+                    <% if tutor.online? %>
+                      <div class="bubble">
+                        <span class="bubble-outer-dot">
+                          <span class="bubble-inner-dot"></span>
+                        </span>
+                      </div>
+                    <% end %>
+
+                  </div><br>
 
                   <div style="display: inline-flex;" class="average-review-rating" data-score="<% if tutor.reviews.blank? %>0<% else %><%= tutor..reviews.average(:rating).round(2) %><% end %>"></div><br>
                   
@@ -58,7 +81,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-6 first">
                       <div class="inner">
                         <% tutor.sub_categories.limit(6).each do |sub_cat| %>
-                          <span class="tag"><%= sub_cat.name %></span>, 
+                          <span class="tag"><%= sub_cat.name %></span> 
                         <% end %>
                       </div>
                     </div>

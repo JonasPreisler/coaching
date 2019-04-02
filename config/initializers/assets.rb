@@ -14,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'icons
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( application.css application.js jquery.raty.js stripe-payment.js )
+Rails.application.config.assets.precompile += %w( jquery.raty.js stripe-payment.js )

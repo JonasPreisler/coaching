@@ -14,6 +14,7 @@ class Tutor < ApplicationRecord
   has_many :offers
   has_many :bookings
   has_many :reviews
+  paginates_per 12
   
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }
@@ -29,7 +30,6 @@ class Tutor < ApplicationRecord
   end
 
   validates_presence_of :email, :first_name, :last_name, :job_title
-  paginates_per 12
   extend FriendlyId
   after_update_commit {AppearanceBroadcastJob.perform_later self}
 

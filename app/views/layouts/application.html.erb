@@ -11,6 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//db.onlinewebfonts.com/c/596e78c7d8f0d85090a9af4e8e19076c?family=Agency+FB" rel="stylesheet" type="text/css"/>
     <%= action_cable_meta_tag %>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+    </script>
+
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/fav.png">
     <title>SnakkMed</title>

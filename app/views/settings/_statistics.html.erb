@@ -5,15 +5,15 @@
 					
 					
 			<div class="row page-views">
-				<div class="col-md-8 col-sm-8">
-					<p>I dag:</p>
-					<p>Denne uke:</p>
-					<p>Denne måned:</p>
-				</div>
 				<div class="col-md-4 col-sm-4 stats">
-					<%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today, end_date: Time.now) %><br>
-					<%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today-7.days, end_date: Time.now) %><br>
-					<%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today-1.month, end_date: Time.now) %>
+					<i class="fa fa-eye" aria-hidden="true"></i> <%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today, end_date: Time.now) %><br>
+					<i class="fa fa-eye" aria-hidden="true"></i> <%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today-7.days, end_date: Time.now) %><br>
+					<i class="fa fa-eye" aria-hidden="true"></i> <%= @tutor.impressionist_count(:filter=>:ip_address, start_date: Date.today-1.month, end_date: Time.now) %>
+				</div>
+				<div class="col-md-8 col-sm-8">
+					<p>i dag</p>
+					<p>denne uke</p>
+					<p>denne måned</p>
 				</div>
 			</div>
 	 </div>
@@ -21,7 +21,7 @@
 	<div class="col-md-8 col-sm-8">
 		<div class="box">
 
-			<%= column_chart @tutors.group_by_month(:created_at, format: "%b %y", range: 1.year.ago..Time.now).count, height: '180px', colors: ["#00a85b"], prefix: 'Rådgivere ' %>
+			<%= column_chart @bookings.group_by_month(:created_at, format: "%b %y", range: 1.year.ago..Time.now).count, height: '180px', colors: ["#00a85b"], prefix: 'Rådgivere ' %>
 
 			<%#= @tutor.tutors_categories.count %>
 		</div>
