@@ -1,0 +1,20 @@
+<h2>Dine ordrer:</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Ordre #</th>
+			<th>Rådgiver</th>
+			<th>Dato & tid</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @bookings.each do |booking| %>
+			<tr>
+				<td><%= booking.id %></td>
+				<td><%= booking.tutor.full_name %></td>
+				<td><%= booking.booking_time if booking.start? %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

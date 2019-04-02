@@ -53,18 +53,8 @@
             <% end %>
           </li> 
         <% else %>
-          <li>
-            <%= link_to destroy_tutor_session_path, method: :delete do %>
-              <div>LOGG UT</div>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to raadgiver_path(current_tutor) do %>
-              <div>
-                DIN PROFIL
-              </div>
-            <% end %>
-          </li>
+          <%= render('/layouts/header_links_tutor') %>
+          <%= render('/layouts/header_links_account') %>
         <% end %>
         <li>
           <%#= link_to ring_path do %>

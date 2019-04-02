@@ -15,7 +15,7 @@ class Tutors::RegistrationsController < Devise::RegistrationsController
       if @tutor.persisted?
         asign_sub_categories if params[:sub_category_ids]
 
-        create_company
+        create_company if params[:company_type]
       end
     end
   end

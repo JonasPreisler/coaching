@@ -3,10 +3,9 @@
 
 	  <div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li style="font-size: 16px;">ADMIN</li>
+				<li style="font-size: 16px;letter-spacing: .1em">ADMIN</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to 'Booking side', 'https://veiledning.herokuapp.com/raadgiver/1/book' %></li>
 				<li><%= link_to 'I påvente av', venter_pa_godkjenning_path %></li>
 			  <li class="dropdown pending_tutors_dropdown">
 			    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"><% if @tutors_pending.any? %><div class="pending-notification"><%= @tutors_pending.count %></div><% end %></a>

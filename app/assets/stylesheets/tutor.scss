@@ -21,6 +21,25 @@
 	background: #e7e6e6;
 	padding: 15px;
 	border-radius: 10px;
+	.booking-button {
+		background: #d0a872;
+		padding: 10px 50px 10px 50px;
+		color: #fff !important;
+		font-size: 15px;
+		border-radius: 3px;
+		transition: .2s;
+	  -moz-box-shadow:    0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  -webkit-box-shadow: 0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+	  box-shadow:         0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08);
+		&:hover {
+		  -moz-box-shadow:    0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+		  -webkit-box-shadow: 0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+		  box-shadow:         0 20px 40px 0 rgba(0,0,0,.21),0 10px 20px 0 rgba(0,0,0,.18);
+			cursor: pointer;
+			text-decoration: none;
+			background: #dec39d;
+		}
+	}
 	.col-md-4, .col-sm-4 {
 	overflow: hidden;
 		img {

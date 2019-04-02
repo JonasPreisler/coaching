@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   resources :tutors_categories
   resources :products
   get 'rooms/show'
-	get '/accounts', to: 'accounts#index'
-  devise_for :accounts, path: 'accounts', controllers: { sessions: "accounts/sessions", registrations: "accounts/registrations", confirmations: "accounts/confirmations", passwords: "accounts/passwords", unlocks: "accounts/unlocks" }
   resources :sub_categories
   resources :categories
   get '/home', to: 'pages#home'
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
   get '/mobil', to: 'pages#mobil'
   get '/mobil2', to: 'pages#mobil2'
   root to: 'pages#landing_page'
-  get '/accounts/online', to: 'accounts#online'
+  devise_for :accounts, path: 'accounts', controllers: { sessions: "accounts/sessions", registrations: "accounts/registrations", confirmations: "accounts/confirmations", passwords: "accounts/passwords", unlocks: "accounts/unlocks" }
   mount ActionCable.server => '/cable'
 
   devise_for :tutors, path: 'tutors', controllers: { tutors: "tutors", sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }

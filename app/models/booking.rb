@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
 	belongs_to :account
 	belongs_to :tutor
+  validates :tutor_id, :account_id, :start, :end, presence: true
 
 
 	def time_slots
@@ -16,6 +17,10 @@ class Booking < ApplicationRecord
 
 	  times
 
+	end
+
+	def booking_time
+		start.strftime('%a %d.%m.%Y') + ' - ' + self.end.strftime('%a %d.%m.%Y')
 	end
 
 end

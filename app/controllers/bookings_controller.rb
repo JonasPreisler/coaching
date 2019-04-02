@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     #@order = Order.new
     @id = params[:tutor_id]
     @tutor = Tutor.friendly.find(@id)
-    @offers = @tutor.offers.order('minutes DESC')
+    #@offers = @tutor.offers.order('minutes DESC')
   end
 
   # GET /bookings/1/edit
@@ -32,8 +32,8 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-    @tutor = Tutor.find(params[:id])
-    @booking.tutor = @tutor
+    #@tutor = Tutor.find(params[:id])
+    #@booking.tutor = @tutor
     @account = current_account
 
     unless @account.customer?

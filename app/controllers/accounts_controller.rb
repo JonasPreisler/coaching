@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show]
+  before_action :authenticate_account!, only: [:show, :edit, :update]
 
 	def index
 		@accounts = Account.all
@@ -7,6 +8,12 @@ class AccountsController < ApplicationController
 
 	def show
 		@bookings = @account.bookings
+	end
+
+	def edit
+	end
+
+	def update
 	end
 
 	def create
