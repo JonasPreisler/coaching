@@ -36,12 +36,7 @@
       <div class="<%= controller_name %> <%= 'container' unless controller_name == 'categories' %>">
         <%= yield %>
       </div>
-
-      <footer class="footer">
-        <%= link_to 'Rådgiver logg inn', new_tutor_session_path unless tutor_signed_in? %>
-        <hr>
-        © 2019 SnakkMed.no | Viachat
-      </footer>
+      <%= render('/layouts/footer') %>
     </div>
   </body>
 </html>

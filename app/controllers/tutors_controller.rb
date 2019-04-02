@@ -1,8 +1,12 @@
 class TutorsController < ApplicationController
-  before_action :set_tutor, only: [:show, :edit, :update, :destroy]
+  before_action :set_tutor, only: [:show, :edit, :update, :destroy, :book]
   before_action :check_if_approved, only: [:show]
   before_action :check_admin, only: :tutors_pending_approval
   impressionist :actions=>[:show]
+
+  def book
+    @booking = Booking.new
+  end
 
 	def index
 		#f params[:approved] == "false"

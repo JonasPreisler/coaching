@@ -42,37 +42,8 @@
             <%# end %>
           </li>
         <% else %>
-          <% if tutor_signed_in? %>
-            <li>
-              <%= link_to indstillinger_path do %>
-                <div>INDSTILLINGER</div>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to rooms_show_path do %>
-                <div>SUPPORT</div>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to raadgiver_path(current_tutor) do %>
-                <div>
-                  DIN PROFIL
-                </div>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_tutor_session_path, method: :delete do %>
-                <div>LOGG UT</div>
-              <% end %>
-            </li>
-          <% end %>
-          <% if account_signed_in? %>
-            <li>
-              <%= link_to destroy_account_session_path, method: :delete do %>
-                <div>LOGG UT</div>
-              <% end %>
-            </li>
-          <% end %>
+          <%= render('/layouts/header_links_tutor') %>
+          <%= render('/layouts/header_links_account') %>
         <% end %>
       </ul>
     </div>

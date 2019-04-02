@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :active_hours
   resources :companies
   resources :tutors_documents
-  resources :bookings
   resources :documents
   resources :reviews
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -23,16 +22,21 @@ Rails.application.routes.draw do
   get '/accounts/online', to: 'accounts#online'
   mount ActionCable.server => '/cable'
 
-  devise_for :tutors, path: 'tutors', controllers: { sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }
+  devise_for :tutors, path: 'tutors', controllers: { tutors: "tutors", sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }
+  resources :tutors, path: 'raadgiver' do
+    get '/book', to: 'bookings#new'
+    post '/book', to: 'bookings#create'
+  end
+  resources :accounts, path: 'konto'
   devise_scope :tutor do
-    get 'raadgiver/:id/book', to: 'bookings#new'
-    post 'raadgiver/:id/book', to: 'bookings#create'
+#    get '/:id/book', to: 'bookings#new'
+#    post '/:id/book', to: 'bookings#create'
 
     get  '/logg-in',       to: 'tutors/sessions#new'
     post '/logg-in',       to: 'tutors/sessions#create'
     get  '/veileder/ny',   to: 'tutors/registrations#new'
     post '/veileder/ny',   to: 'tutors/registrations#create'
-    get  '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
+    #get  '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
   get 'kontrakt', to: 'pages#contract'
   get 'download-kontrakt', to: 'pages#download_contract'

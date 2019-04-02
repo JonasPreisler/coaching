@@ -1,0 +1,12 @@
+<% if account_signed_in? %>
+  <li>
+    <%= link_to account_path(current_account) do %>
+      <div>KONTO</div>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_account_session_path, method: :delete do %>
+      <div>LOGG UT</div>
+    <% end %>
+  </li>
+<% end %>

@@ -1,7 +1,7 @@
 
 <div class="forms">
   <div class="row">
-    <%= form_for @order, url: cart_checkout_path, html: {id: 'payment-form', class: "strip-form"} do |f| %>
+    <%= form_for @order, html: {id: 'payment-form', class: "strip-form"} do |f| %>
       <div class="col-md-6 col-sm-6">
         <h4>Payment details:</h4>
           <div class="form-row">

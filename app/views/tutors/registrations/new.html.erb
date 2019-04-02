@@ -107,6 +107,11 @@
     <%#= f.check_box :anonymous, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Offentlig", 'data-off': "<i class='fa fa-user-secret'></i> Anonym", 'data-width': "120", 'data-style': 'slow' %><br>
 
     <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR
+    <div class="check-button">
+       <label>
+          <%= check_box_tag "approved_tutors[]", tutor.id, nil %><span><i class="fa fa-check" aria-hidden="true"></i></span>
+       </label>
+    </div>
     <%#= f.check_box :gdpr, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Accepter", 'data-off': "<i class='fa fa-user-secret'></i> Nei takk", 'data-width': "120", 'data-style': 'slow' %><br><br>
 
     <%#= f.check_box :business_type, required: true, 'data-toggle': 'toggle', 'data-on': "<i class='fa fa-user-circle-o'></i> Bedrift", 'data-off': "<i class='fa fa-user-secret'></i> Privat", 'data-width': "120", 'data-style': 'slow' %><br><br>

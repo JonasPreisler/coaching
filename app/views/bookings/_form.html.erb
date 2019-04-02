@@ -1,6 +1,5 @@
 <div class="bookings">
-  <%= form_for @booking, :url => tutor_path do |form| %>
-  <%#= form_for @booking do |form| %>
+  <%= form_for @booking, :url => tutor_book_path do |form| %>
     <% if booking.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -118,4 +117,4 @@
   <% end %>
 </div>
 
-<%= render('/bookings/credit_card_form') %>
+<%#= render('/bookings/credit_card_form') %>

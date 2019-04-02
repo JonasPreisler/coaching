@@ -111,9 +111,6 @@
 			}
 		}
 		.tutor-card-footer {
-			height: 60px;
-			margin-right: 5px;
-			border-radius: 3px;
 			.first {
 		    border-right: 1px solid #c3c2c2;
 		    height: 100%;
@@ -142,7 +139,8 @@
 	    border-bottom: 1px solid #ddd;
 	    font-size: 18px;
 			&:hover {
-				margin-right: 20px;
+				margin-left: 20px;
+				z-index: 2;
 			}
 		}
 	}

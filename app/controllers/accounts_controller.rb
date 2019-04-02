@@ -1,6 +1,12 @@
 class AccountsController < ApplicationController
+  before_action :set_account, only: [:show]
+
 	def index
 		@accounts = Account.all
+	end
+
+	def show
+		@bookings = @account.bookings
 	end
 
 	def create
@@ -12,4 +18,11 @@ class AccountsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	private
+
+
+    def set_account
+      @account = Account.find(params[:id])
+    end
 end
