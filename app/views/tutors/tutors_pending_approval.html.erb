@@ -98,50 +98,50 @@
                           <td><%= tutor.nickname %></td>
                           <td><%= tutor.job_title %></td>
                           <td><%= simple_format(tutor.description) %></td>
-                          <td>
-                          	<div class="row">
-                          		<div class="col-xs-6">
-		                          	<strong>Navn:</strong>
-		                          </div>
-                          		<div class="col-xs-6">
-                          			<%= tutor.company.name %>
-                          		</div>
-                          	</div>
-                          	<div class="row">
-                          		<div class="col-xs-6">
-                          			<strong>Org. nummer:</strong>
-                          		</div>
-                          		<div class="col-xs-6">
-                          			<%= tutor.company.organization_number %>
-                          		</div>
-                          	</div>
-                          	<div class="row">
-                          		<div class="col-xs-6">
-                          			<strong>Selskapsform:</strong>
-                          		</div>
-                          		<div class="col-xs-6">
-                          			<%= tutor.company.company_type %>
-                          		</div>
-                          	</div>
-                          	<div class="row">
-                          		<div class="col-xs-6">
-                          			<strong>Fakturaadresse:</strong>
-                          		</div>
-                          		<div class="col-xs-6">
-                          			<%= tutor.company.address %>
-                          		</div>
-                          	</div>
-                          	<div class="row">
-                          		<div class="col-xs-6">
-                          			<strong>Kontaktperson:</strong>
-                          		</div>
-                          		<div class="col-xs-6">
-                          			<%= tutor.company.contact_person_first_name %> <%= tutor.company.contact_person_last_name %>
-                          		</div>
-                          	</div>
-                          	
-                          	                          
-                          </td>
+                          <% if tutor.company? %>
+	                          <td>
+	                          	<div class="row">
+	                          		<div class="col-xs-6">
+			                          	<strong>Navn:</strong>
+			                          </div>
+	                          		<div class="col-xs-6">
+	                          			<%= tutor.company.name %>
+	                          		</div>
+	                          	</div>
+	                          	<div class="row">
+	                          		<div class="col-xs-6">
+	                          			<strong>Org. nummer:</strong>
+	                          		</div>
+	                          		<div class="col-xs-6">
+	                          			<%= tutor.company.organization_number %>
+	                          		</div>
+	                          	</div>
+	                          	<div class="row">
+	                          		<div class="col-xs-6">
+	                          			<strong>Selskapsform:</strong>
+	                          		</div>
+	                          		<div class="col-xs-6">
+	                          			<%= tutor.company.company_type %>
+	                          		</div>
+	                          	</div>
+	                          	<div class="row">
+	                          		<div class="col-xs-6">
+	                          			<strong>Fakturaadresse:</strong>
+	                          		</div>
+	                          		<div class="col-xs-6">
+	                          			<%= tutor.company.address %>
+	                          		</div>
+	                          	</div>
+	                          	<div class="row">
+	                          		<div class="col-xs-6">
+	                          			<strong>Kontaktperson:</strong>
+	                          		</div>
+	                          		<div class="col-xs-6">
+	                          			<%= tutor.company.contact_person_first_name %> <%= tutor.company.contact_person_last_name %>
+	                          		</div>
+	                          	</div>
+	                          </td>
+	                        <% end %>
                         </tr>
                       </tbody>
                     </table>
