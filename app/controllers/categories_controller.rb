@@ -8,10 +8,12 @@ class CategoriesController < ApplicationController
       #@tutors_categories = TutorsCategory.where(category_id: @category)
       @tutors = @category.tutors.approved.page(params[:page])
       #@tutors = Tutor.approved.where(id: @tutors_categories).page(params[:page])
+      @categories = Category.all.order('name ASC')
     else
-      @categories = Category.all.left_joins(:tutors)
-                      .group(:id)
-                      .order('COUNT(tutors.id) DESC')
+      #@categories = Category.all.left_joins(:tutors)
+                      #.group(:id)
+                      #.order('COUNT(tutors.id) DESC')
+      @categories = Category.all.order('name ASC')
       @tutors = Tutor.approved.page(params[:page])
     end
 

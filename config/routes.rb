@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :products
   get 'rooms/show'
   resources :sub_categories
-  resources :categories
+  resources :categories, path: 'kategorier'
   get '/home', to: 'pages#home'
   get '/contact1', to: 'pages#contact1'
   get '/contact2', to: 'pages#contact2'

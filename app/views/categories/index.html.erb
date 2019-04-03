@@ -2,29 +2,17 @@
   <div class="row">
 
     <div class="col-md-3 col-sm-3">
-
+      <br>
+      <div class="list-2">
       <% @categories.each do |cat| %>
         <%= link_to categories_path(category: cat.name) do %>
-          <div class="list-2">
+          <div class="list-category">
             <%= cat.name %>
             (<%= cat.tutors.approved.count %>)
           </div>
         <% end %>
       <% end %>
-
-      <hr>
-
-      <div class="search-box">
-        <% @categories.each do |cat| %>
-          <p>
-            <%= link_to categories_path(category: cat.name) do %>
-              <%= cat.name %>
-              (<%= cat.tutors.approved.count %>)
-            <% end %>
-          </p><br>
-        <% end %>
-      </div>
-
+    </div>
     </div>
 
     <div class="col-md-9 col-sm-9 search-results">
@@ -33,6 +21,8 @@
           <%#= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
         <%# end %>
       <%# end %>
+      <% if params[:category].present? %><h2><%= @category.name %></h2><br><% end %>
+
         <% @tutors.each do |tutor| %>
 
           <%= link_to tutor_path(tutor), target: :blank do %>

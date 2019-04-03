@@ -54,30 +54,11 @@
 }
 
 .categories {
-	padding-left: 15px;
+	background: #f3f2f2;
 	padding-right: 15px;
-	.search-box {
-		background: #f3f2f2;
-		padding: 20px;
-		border-radius: 5px;
-		margin-bottom: 30px;
-		p {
-			line-height: 0.1em;
-			font-size: 16px;
-			&:hover {
-				&:after {
-					font-family: "FontAwesome";
-					content: '\f060';
-					position: absolute;
-					margin: 0 6px 0 5px;
-					font-size: 10px;
-					color: #888;
-				}
-			}
-		}
-	}
 	.search-results {
 		.search-results-single {
+			background: #fff;
 			.col-md-6, .col-sm-6, .col-xs-6, .col-md-4, .col-sm-4 {
 				padding-right: 5px !important;
 			}
@@ -128,19 +109,19 @@
 	p:hover {
 		text-decoration: none;
 	}
-	a {
-	&:hover {
-		text-decoration: none;
-		}
-		.list-2 {
-	    background: #f3f2f2;
-	    padding: 10px;
+	.list-2 {
+    background: linear-gradient(to right, #85a7d6, #85d0d6);
+    border-radius: 0 20px 20px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 20px;
+    .list-category {
 	    transition: .2s;
-	    border-bottom: 1px solid #ddd;
-	    font-size: 18px;
+	    padding: 7px;
 			&:hover {
-				margin-left: 20px;
+				margin-left: 10px;
 				z-index: 2;
+				text-decoration: none !important;
+				background: linear-gradient(to right, rgba(255, 255, 255, .01), rgba(255, 255, 255, 1));
 			}
 		}
 	}
