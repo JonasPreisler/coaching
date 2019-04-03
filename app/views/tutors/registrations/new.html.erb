@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-6">
-        <%= f.label :Kategorier %><br />
+        <%= f.label :kategorier %><br />
         <%= select_tag "sub_category_ids", options_from_collection_for_select(@sub_categories, "id", "long_name" ), prompt: 'Velg kategori*', multiple: true, class: 'select2-dropdown', 'multiple data-live-search': "true" %>
       </div>
     </div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :active_hours
+  resources :active_hours, path: 'aktivitet' do
+  end
+  get '/indstillinger/aktivitet', to: 'active_hours#index'
+  get '/indstillinger/aktivitet/ny', to: 'active_hours#new'
+  post '/indstillinger/aktivitet/ny', to: 'active_hours#create'
   resources :companies
   resources :tutors_documents
   resources :documents
@@ -27,6 +31,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   devise_for :tutors, path: 'tutors', controllers: { tutors: "tutors", sessions: "tutors/sessions", registrations: "tutors/registrations", confirmations: "tutors/confirmations", passwords: "tutors/passwords", unlocks: "tutors/unlocks" }
+
   resources :tutors, path: 'raadgiver' do
     get '/book', to: 'bookings#new'
     post '/book', to: 'bookings#create'
@@ -44,8 +49,6 @@ Rails.application.routes.draw do
     post '/indstillinger/:id/rediger', to: 'tutors/registrations#update'
     #get  '/raadgiver/:id', to: 'tutors#show', as: :raadgiver
   end
-
-  get '/indstillinger/aktivitet', to: 'active_hours#index', as: :aktivitet
 
   get 'kontrakt', to: 'pages#contract'
   get 'download-kontrakt', to: 'pages#download_contract'

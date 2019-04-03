@@ -35,8 +35,8 @@ class ActiveHoursController < ApplicationController
 
     respond_to do |format|
       if @active_hour.save
-        format.html { redirect_to active_hours_path, notice: 'Aktivitet ble lagret.' }
-        format.json { render :show, status: :created, location: active_hours_path }
+        format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble lagret.' }
+        format.json { render :show, status: :created, location: indstillinger_aktivitet_path }
       else
         format.html { render :new }
         format.json { render json: @active_hour.errors, status: :unprocessable_entity }
@@ -49,8 +49,8 @@ class ActiveHoursController < ApplicationController
   def update
     respond_to do |format|
       if @active_hour.update(active_hour_params)
-        format.html { redirect_to active_hours_path, notice: 'Aktivitet ble oppdatteret.' }
-        format.json { render :show, status: :ok, location: active_hours_path }
+        format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble oppdatteret.' }
+        format.json { render :show, status: :ok, location: indstillinger_aktivitet_path }
       else
         format.html { render :edit }
         format.json { render json: @active_hour.errors, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class ActiveHoursController < ApplicationController
   def destroy
     @active_hour.destroy
     respond_to do |format|
-      format.html { redirect_to active_hours_path, notice: 'Aktivitet ble slettet.' }
+      format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble slettet.' }
       format.json { head :no_content }
     end
   end
