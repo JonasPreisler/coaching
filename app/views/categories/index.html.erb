@@ -33,7 +33,6 @@
           <%#= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
         <%# end %>
       <%# end %>
-      <% if @tutors.try(:any?) %>
         <% @tutors.each do |tutor| %>
 
           <%= link_to tutor_path(tutor), target: :blank do %>
@@ -106,9 +105,8 @@
               </div>
             </div>
           <% end %>
-        <% end %>
       <% end %>
-      <%= paginate @tutors if @tutors.try(:any?) %>
+      <%= paginate @tutors %>
     </div>
   </div>
 

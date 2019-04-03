@@ -22,6 +22,25 @@ Tutor.create!([{first_name: 'Bjørn', last_name: 'Karlsen', email: 'bjørn@gmail
 							 {first_name: 'Emma', last_name: 'Nilsen', email: 'emma@gmail.com', password: 'testtest', password_confirmation: 'testtest', admin: true, job_title: 'CEO'},
 							 ])
 
+TutorsCategory.create!([{tutor_id: 1, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 2, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 3, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 4, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 5, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 6, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 7, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 8, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 9, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 10, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 11, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 12, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 13, category_id: 1, sub_category_id: 3 },
+													{tutor_id: 14, category_id: 1, sub_category_id: 2 },
+													{tutor_id: 11, category_id: 1, sub_category_id: 2 },
+													{tutor_id: 6, category_id: 1, sub_category_id: 2 },
+													{tutor_id: 7, category_id: 1, sub_category_id: 2 }
+												])
+
 #sub_categories4 = SubCategory.create([{ name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }, { name: '', category_id: 4 }])
 #sub_categories5 = SubCategory.create([{ name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }, { name: '', category_id: 5 }])
 #sub_categories6 = SubCategory.create([{ name: '', category_id: 6 }, { name: '', category_id: 6 }, { name: '', category_id: 6 }, { name: '', category_id: 6 }, { name: '', category_id: 6 }])

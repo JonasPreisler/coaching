@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
       @categories = Category.all.left_joins(:tutors)
                       .group(:id)
                       .order('COUNT(tutors.id) DESC')
+      @tutors = Tutor.approved.page(params[:page])
     end
 
     if params.has_key?(:sub_category)
