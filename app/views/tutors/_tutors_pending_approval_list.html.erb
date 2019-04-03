@@ -1,0 +1,126 @@
+<% tutors_pendings.each do |tutor| %>
+  <tr id="tutor_<%= tutor.id %>" style="cursor: pointer">
+    <td style="padding: 0;">
+      <div class="check-button">
+         <label>
+            <%= check_box_tag "approved_tutors[]", tutor.id, nil, class: "tutors_pending_approval_list#{tutor.id}", onchange:"checkOne(#{tutor.id})" %><span><i class="fa fa-check" aria-hidden="true"></i></span>
+         </label>
+      </div>
+    </td>
+    <td style="padding: 0;">
+      <div class="check-button-danger">
+         <label>
+            <%= check_box_tag "unapproved_tutors[]", tutor.id, nil, class: "tutors_pending_approval_list#{tutor.id}", onchange:"checkOne(#{tutor.id})" %><span><i class="fa fa-trash" aria-hidden="true"></i></span>
+         </label>
+      </div>
+    </td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');" class="table-profile-pic">
+      <% if tutor.anonymous %>
+        <%= image_tag('/anonymous.jpg') %>
+      <% else %>
+        <% if tutor.profile_picture? %>
+          <%= image_tag tutor.profile_picture.url(:profile_picture) %>
+        <% else %>
+          <%= image_tag('/default.png') %>
+        <% end %>
+      <% end %> 
+    </td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');"><%= tutor.full_name %></td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');"><%= tutor.nickname %></td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');"><%= tutor.email %></td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');"><%= tutor.phone %></td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');" style="padding: 5px;">
+      <% tutor.sub_categories.each do |sub| %>
+        <%= sub.name %>
+      <% end %>
+    </td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');"><%= tutor.anonymous %></td>
+    <td onclick="myFunction('tutor<%= tutor.id %>');">
+    	<% if Company.where(tutor_id: tutor.id).any? %>
+      	<%= tutor.company.name %>
+  		<% else %>
+    		Privat
+  		<% end %>
+  	</td>
+  </tr>
+  <tr class="togglable-tr" id="tutor<%= tutor.id %>"? style="display: none;border-left:4px solid #009C4D;background: #f7f7f7">
+    <td colspan="10">
+      <div class="subtable">
+        <table class="table table-hover" style="background: #f3f2f2">
+          <thead>
+            <tr>
+              <th>Bilde</th>
+              <th>Kaldenavn</th>
+              <th>Stillingstittel</th>
+              <th>Beskrivelse</th>
+              <% if Company.where(tutor_id: tutor.id).any? %>
+                <th>Bedrift</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+					      <% if tutor.anonymous %>
+					        <%= image_tag('/anonymous.jpg') %>
+					      <% else %>
+					        <% if tutor.profile_picture? %>
+					          <%= image_tag tutor.profile_picture.url(:profile_picture) %>
+					        <% else %>
+					          <%= image_tag('/default.png') %>
+					        <% end %>
+					      <% end %> </td>
+              <td><%= tutor.nickname %></td>
+              <td><%= tutor.job_title %></td>
+              <td><%= simple_format(tutor.description) %></td>
+              <% if tutor.company? %>
+                <td>
+                	<div class="row">
+                		<div class="col-xs-6">
+                    	<strong>Navn:</strong>
+                    </div>
+                		<div class="col-xs-6">
+                			<%= tutor.company.name %>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-6">
+                			<strong>Org. nummer:</strong>
+                		</div>
+                		<div class="col-xs-6">
+                			<%= tutor.company.organization_number %>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-6">
+                			<strong>Selskapsform:</strong>
+                		</div>
+                		<div class="col-xs-6">
+                			<%= tutor.company.company_type %>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-6">
+                			<strong>Fakturaadresse:</strong>
+                		</div>
+                		<div class="col-xs-6">
+                			<%= tutor.company.address %>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-6">
+                			<strong>Kontaktperson:</strong>
+                		</div>
+                		<div class="col-xs-6">
+                			<%= tutor.company.contact_person_first_name %> <%= tutor.company.contact_person_last_name %>
+                		</div>
+                	</div>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+<% end %>

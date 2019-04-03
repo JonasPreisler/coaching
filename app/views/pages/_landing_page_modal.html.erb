@@ -4,7 +4,7 @@
     }
 </script>
 
-<span class="row categories">
+<span class="row categories" style="margin-left: 15px !important;margin-right: 15px !important;">
 		<% Category.all.order('name ASC').each do |cat| %>
 			<div class="col-md-4 col-sm-4">
 					<div class="box" data-id="<%= cat.id %>" onclick= "openModal(this);">

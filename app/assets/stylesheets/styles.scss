@@ -1,5 +1,11 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
   font-family: 'Agency FB' !important;
+    margin: 0 0 100px !important;
 }
 
 h1, h2, h3, h5, h6 {

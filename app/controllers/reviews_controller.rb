@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        #MailerTutor.review_received(@review,@tutor).deliver
         format.html { redirect_to tutor_path(@tutor), notice: 'Anmeldelse ble opprettet.' }
         format.json { render :show, status: :created, location: @review }
       else

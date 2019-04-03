@@ -1,4 +1,9 @@
 
+/* ---------------------------------------------------
+   TABLE CHECKBOXES 
+--------------------------------------------------- */
+
+
 /* GREEN CHECKBOX */
 
 .check-button {
@@ -69,4 +74,55 @@
 
 /* ---------------------------------------------------
    END OF TABLE CHECKBOXES 
+--------------------------------------------------- */
+
+
+/* ---------------------------------------------------
+   TEXT CHECKBOXES 
+--------------------------------------------------- */
+
+
+/* REGISTRATION CHECKBOX */
+
+.check-button-registration {
+  overflow: auto;
+}
+
+.check-button-registration label {
+  margin-bottom: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.check-button-registration label span {
+  display: block;
+  font-weight: 300;
+  font-size: 20px;
+  transition: .2s;
+  &:hover {
+    color: #777;
+  }
+}
+
+.check-button-registration label input {
+  top:-20px;
+}
+
+.check-button-registration input:checked + span {
+  color: #777;
+  &:after {
+  font-family: 'FontAwesome';
+    content: '\f00c';
+    color: #9EC66E;
+  }
+}
+.not_checked {
+  background: #dad9d9;
+}
+
+/* END OF REGISTRATION CHECKBOX */
+
+/* ---------------------------------------------------
+   END OF TEXT CHECKBOXES 
 --------------------------------------------------- */

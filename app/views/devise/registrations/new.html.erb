@@ -37,7 +37,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div><br>
 
-  <%= f.check_box :gdpr, required: true %>Jeg godtar vilkårene som er sammenhengende med GDPR<br><br>
+  <div class="check-button-registration">
+     <label>
+        <%= f.check_box :gdpr, required: true %><span>Jeg godtar vilkårene som er sammenhengende med GDPR </span>
+     </label>
+  </div><br>
 
 
 

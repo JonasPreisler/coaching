@@ -1,4 +1,7 @@
 .home {
+.row {
+		margin: 0 !important;
+}
 	.col-sm-4, .col-md-4 {
 		.box {
 			height: 100px;
@@ -52,10 +55,12 @@
 	hr {
 		border-color: #ccc
 	}
-		.col-md-6, .col-sm-6 {
-			padding-left: 0 !important;
-			padding-right: 0 !important;
-		}
+	.col-md-6, .col-sm-6 {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
 	.header {
 		h2 {
 			position: absolute;

@@ -38,6 +38,10 @@ class TutorsController < ApplicationController
       end
     end
 
+    respond_to do |format|
+      format.js
+      format.html
+    end
     render layout: 'home'
   end
 

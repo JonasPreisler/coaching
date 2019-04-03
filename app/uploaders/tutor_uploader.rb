@@ -11,7 +11,8 @@ class TutorUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   version :profile_picture do
-    process resize_to_fit: [300, 311]
+    process resize_to_fit: [600, 600]
+    process resize_to_fill: [600, 600]
   end
 
   def extension_whitelist
