@@ -19,14 +19,11 @@
   <div class="field">
     <%= form.label :end %>
     <%= form.datetime_select :end %>
-  </div>
+  </div><br>
 
-  <div class="field">
-    <%= form.label :tutor_id %>
-    <%= form.number_field :tutor_id %>
-  </div>
+  <%= form.hidden_field :tutor_id, value: current_tutor.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Opprett aktivitet', class: 'btn btn-primary' %>
   </div>
 <% end %>

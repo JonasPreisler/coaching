@@ -6,4 +6,5 @@ class SettingsController < ApplicationController
     @sub_categories = SubCategory.all
     @bookings = Booking.where(tutor_id: @tutor)
 	end
+
 end

@@ -17,9 +17,6 @@ class TutorsController < ApplicationController
     #date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
-  def edit
-  end
-
   def tutors_pending_approval
     @pending_tutors = Tutor.pending.page(params[:page])
 
@@ -74,4 +71,7 @@ class TutorsController < ApplicationController
       @tutor = Tutor.friendly.find(params[:id])
     end
 
+    def tutor_params
+      params.require(:tutor).permit(:sub_category_id, :category_id, :first_name, :last_name, :password, :password_confirmation, :description, :phone, :email, :anonymous, :gdpr, :approved, :sub_category_id, :nickname, :job_title, :profile_picture, :business_type, :private, :company, documents_attributes: [:id, :file, :_destroy, :tutor_id], active_hours_attributes: [:id, :_destroy, :start, :end, :tutor_id])
+    end
 end

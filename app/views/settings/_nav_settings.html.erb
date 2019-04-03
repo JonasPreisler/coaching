@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default desktop">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-desktop" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-desktop">
+      <ul class="nav navbar-nav navbar-right main-navbar">
+        <li>
+          <%= link_to indstillinger_path do %>
+            <div>INDSTILLINGER</div>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to aktivitet_path do %>
+            <div>AKTIVITET</div>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to rediger_path(current_tutor) do %>
+            <div>REDIGER KONTO</div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
