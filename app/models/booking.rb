@@ -1,8 +1,8 @@
 class Booking < ApplicationRecord
 	belongs_to :account
 	belongs_to :tutor
-  validates :tutor_id, :account_id, :start, :end, presence: true
-
+  validates :tutor_id, :account_id, :start_date, :start_time, :end_time, presence: true
+  attr_accessor :times
 
 	def time_slots
 

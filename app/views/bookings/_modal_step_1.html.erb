@@ -5,9 +5,7 @@
 		<h2>Velg dato</h2>
 		<div class="date">
 			<div class="field">
-
-			  <%= form.text_field :start, style: 'width: 100%;' %><br><br>
-				<%# <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime"> %>
+			  <%= form.text_field :start_date, class: "datepicker" %><br><br>
 			</div>
 		</div>
 	</div>
@@ -21,7 +19,8 @@
 					<div class="col-md-2 col-sm-2 col-xs-2">
 						<div class="time-button">
 						   <label>
-						      <input type="checkbox" value="<%= t %>"><span> <%= t %></span>
+                  <%= check_box_tag "times[]", t, nil %><span> <%= t %></span> 
+
 						   </label>
 						</div>
 					</div>

@@ -1,5 +1,5 @@
 jQuery ->
-  $('#booking_start').datepicker
+  $('.datepicker').datepicker
     dateFormat: 'yy-mm-dd',
     altField: '#d',
     language: 'nb'

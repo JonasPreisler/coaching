@@ -31,33 +31,36 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+    start_time = params[:times].max
+    end_time = params[:times].min
+    @booking = Booking.new(booking_params.merge(start_time: start_time, end_time: end_time).permit!)
     #@tutor = Tutor.find(params[:id])
     #@booking.tutor = @tutor
     @account = current_account
+    
+    # begin
+    #   customer = Stripe::Customer.create(
+    #     :email => @account.email, 
+    #     :source  => params[:stripeToken]
+    #   )
+
+    #   @charge = Stripe::Charge.create(
+    #     :customer  => customer.id,
+    #     :amount => (@booking.sub_total.to_f * 100).to_i ,
+    #     :description => @booking.token,
+    #     :currency =>  'nok'
+    #   )
+    # rescue Exception => e
+    #   redirect_to checkout_path, notice:  e.message
+    # end
+
 
     unless @account.customer?
       @account.update_column(:customer, true)
     end
 
-    begin
-      customer = Stripe::Customer.create(
-        :email => @account.email, 
-        :source  => params[:stripeToken]
-      )
-
-      @charge = Stripe::Charge.create(
-        :customer  => customer.id,
-        :amount => (@booking.sub_total.to_f * 100).to_i ,
-        :description => @booking.token,
-        :currency =>  'nok'
-      )
-    rescue Exception => e
-      redirect_to checkout_path, notice:  e.message
-    end
-
-
     respond_to do |format|
+      
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
@@ -100,6 +103,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:account_id, :tutor_id, :start, :end, :time, :offer_id)
+      params.require(:booking).permit(:account_id, :start, :tutor_id, :start_time, :end_time, :start_date, :offer_id)
     end
 end
