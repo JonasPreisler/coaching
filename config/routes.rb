@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'rooms/show'
   resources :sub_categories
   resources :categories, path: 'kategorier'
+  get '/kategorier2', to: 'categories#index2'
   get '/home', to: 'pages#home'
   get '/contact1', to: 'pages#contact1'
   get '/contact2', to: 'pages#contact2'

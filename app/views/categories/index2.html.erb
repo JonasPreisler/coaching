@@ -1,13 +1,12 @@
-  <div class="search-bar">
-
-  <% @categories.each do |cat| %>
-    <%= link_to categories_path(category: cat.name) do %>
-        <%= cat.name %>
-    <% end %>
+<div style="font-family: poppins !important">
+<% @categories.each do |cat| %>
+  <%= link_to categories_path(category: cat.name) do %>
+      <%= cat.name %>
   <% end %>
+<% end %>
 
-  <% if params[:category].present? %><h2><%= @category.name %></h2><% end %><br>
-</div>
+<% if params[:category].present? %><h2><%= @category.name %></h2><% end %><br>
+
 <div class="row">
   <% @tutors.each do |tutor| %>
     <div class="col-md-3 col-sm-4">
@@ -65,4 +64,5 @@
       </div>
     </div>
   <% end %>
+</div>
 </div>
