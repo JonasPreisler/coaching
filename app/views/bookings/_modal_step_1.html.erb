@@ -19,7 +19,7 @@
 					<div class="col-md-2 col-sm-2 col-xs-2">
 						<div class="time-button">
 						   <label>
-                  <%= check_box_tag "times[]", t, nil %><span> <%= t %></span> 
+                  <%= check_box_tag "times[]", t, nil, class: "booking-active-hours" %><span> <%= t %></span> 
 
 						   </label>
 						</div>
@@ -47,5 +47,12 @@
       return [ array.indexOf(string) == -1 ]
     }
   });    
-  
+
+  $('.booking-active-hours').on('change', function(evt) {
+   if($('.booking-active-hours:checked').length > 2) {
+       this.checked = false;
+    }
+  });
+
+
 </script>
