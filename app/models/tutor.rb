@@ -14,7 +14,7 @@ class Tutor < ApplicationRecord
   has_many :offers
   has_many :bookings
   has_many :reviews
-  paginates_per 12
+  paginates_per 8
   
   accepts_nested_attributes_for :documents, allow_destroy: true,
                                  reject_if: ->(attrs) { attrs['file'].blank? }

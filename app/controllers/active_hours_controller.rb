@@ -4,7 +4,14 @@ class ActiveHoursController < ApplicationController
   # GET /active_hours
   # GET /active_hours.json
   def index
-    @active_hours = ActiveHour.where(from: params[:from]..params[:to])
+    @active_hours = ActiveHour.where(tutor_id: current_tutor.id).order('start DESC')
+    #@active_hours.each do |ah|
+    #  if ah.start.future?
+    #    @activity_future = ActiveHour.where(tutor_id: current_tutor.id).order('start ASC')
+    #  elsif 
+    #    @activity_past = ActiveHour.where(tutor_id: current_tutor.id).order('start ASC')
+    #  end
+    #end
   end
 
   # GET /active_hours/1
@@ -28,8 +35,8 @@ class ActiveHoursController < ApplicationController
 
     respond_to do |format|
       if @active_hour.save
-        format.html { redirect_to @active_hour, notice: 'active hour was successfully created.' }
-        format.json { render :show, status: :created, location: @active_hour }
+        format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble lagret.' }
+        format.json { render :show, status: :created, location: indstillinger_aktivitet_path }
       else
         format.html { render :new }
         format.json { render json: @active_hour.errors, status: :unprocessable_entity }
@@ -42,8 +49,8 @@ class ActiveHoursController < ApplicationController
   def update
     respond_to do |format|
       if @active_hour.update(active_hour_params)
-        format.html { redirect_to @active_hour, notice: 'active hour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @active_hour }
+        format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble oppdatteret.' }
+        format.json { render :show, status: :ok, location: indstillinger_aktivitet_path }
       else
         format.html { render :edit }
         format.json { render json: @active_hour.errors, status: :unprocessable_entity }
@@ -56,7 +63,7 @@ class ActiveHoursController < ApplicationController
   def destroy
     @active_hour.destroy
     respond_to do |format|
-      format.html { redirect_to active_hours_url, notice: 'active hour was successfully destroyed.' }
+      format.html { redirect_to indstillinger_aktivitet_path, notice: 'Aktivitet ble slettet.' }
       format.json { head :no_content }
     end
   end

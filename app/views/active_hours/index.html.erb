@@ -1,30 +1,53 @@
+<%= render('/settings/nav_settings') %>
 
-<h1>Active Hours</h1>
+<div class="active-hours">
+  <%= link_to 'Legg til aktive timer', indstillinger_aktivitet_ny_path, class: 'approve-button', style: 'float: right;' %>
+  <h2>Aktivitet</h2>
+  <br>
+  <table class="table">
+    <tbody>
+      <% @active_hours.each do |active_hour| %>
+        <% if active_hour.start.future? %>
+          <tr style="cursor: pointer;">
+            <td onclick="myFunction('active_hour<%= active_hour.id %>');"><%= active_hour.active_time %></td>
+          </tr>
+        <% elsif %>
+          <tr style="background: #f3f2f2;">
+            <td><%= active_hour.active_time %></td>
+          </tr>
+        <% end %>
+        <tr class="togglable-tr" id="active_hour<%= active_hour.id %>" style="display: none;border-left:4px solid #009C4D;background: #f7f7f7">
+          <td colspan="3">
+            <%= form_for active_hour do |f| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>From</th>
-      <th>To</th>
-      <th>Tutor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <div class="row">
+              <div class="col-md-8 col-sm-8">
 
-  <tbody>
-    <% @active_hours.each do |active_hour| %>
-      <tr>
-        <td><%= active_hour.from %></td>
-        <td><%= active_hour.to %></td>
-        <td><%= active_hour.tutor_id %></td>
-        <td><%= link_to 'Show', active_hour %></td>
-        <td><%= link_to 'Edit', edit_active_hour_path(active_hour) %></td>
-        <td><%= link_to 'Destroy', active_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <div class="field">
+                  <%= f.label :start %>
+                  <%= f.datetime_select :start %>
+                </div>
 
-<br>
+                <div class="field">
+                  <%= f.label :slut %>
+                  <%= f.datetime_select :end %>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-2">
 
-<%= link_to 'New active Hour', new_active_hour_path %>
+                <%= f.submit 'Oppdatter', class: 'btn btn-default' %>
+              </div>
+              <div class="col-md-2 col-sm-2">
+                <%= link_to active_hour_path(active_hour), method: :delete, data: { confirm: "Er du sikker?" } do %>
+                  <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                <% end %>
+              </div>
+            </div>
+
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

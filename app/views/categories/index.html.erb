@@ -1,39 +1,176 @@
-<div class="categories">
+<div class="desktop">
   <div class="row">
 
-    <div class="col-md-3 col-sm-3">
-
-      <% @categories.each do |cat| %>
-        <%= link_to categories_path(category: cat.name) do %>
-          <div class="list-2">
-            <%= cat.name %>
-            (<%= cat.tutors.approved.count %>)
-          </div>
-        <% end %>
-      <% end %>
-
-      <hr>
-
-      <div class="search-box">
-        <% @categories.each do |cat| %>
-          <p>
+    <div class="col-md-3 col-sm-3 categories-list-container">
+      <div class="categories-list">
+        <div class="list-2">
+          <input placeholder="Søkeboks" style="background: none; border: 1px solid #b5e2e6; color: #1c1c1c; width: 100%; padding: 10px;">
+          <% @categories.each do |cat| %>
             <%= link_to categories_path(category: cat.name) do %>
-              <%= cat.name %>
-              (<%= cat.tutors.approved.count %>)
+              <div class="list-category">
+                <%= cat.name %>
+                <span class="count"><%= cat.tutors.approved.count %></span>
+              </div>
             <% end %>
-          </p><br>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-
     </div>
 
-    <div class="col-md-9 col-sm-9 search-results">
+    <div class="categories-results">
+
+      <div class="col-md-9 col-sm-9 search-results">
+        <%# if @sub_categories.try(:any?) %>
+          <%# @sub_categories.each do |sub_cat| %>
+            <%#= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
+          <%# end %>
+        <%# end %>
+        <% if params[:category].present? %><h2><%= @category.name %></h2><% end %><br>
+
+          <% @tutors.each do |tutor| %>
+
+            <%= link_to tutor_path(tutor), target: :blank do %>
+              <div class="search-results-single">
+                <div class="row">
+                  <div class="col-md-3 col-sm-3">
+
+                    <% if tutor.anonymous %>
+                      <%= image_tag('/anonymous.jpg') %>
+                    <% else %>
+                      <% if tutor.profile_picture? %>
+                        <%= image_tag tutor.profile_picture.url(:profile_picture) %>
+                      <% else %>
+                        <%= image_tag('/default.png') %>
+                      <% end %>
+                    <% end %>     
+                  </div>
+                  <div class="col-md-9 col-sm-9">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-8">
+
+                        <div style="display: inline-flex;">
+
+                          <h2><%= tutor.full_name %></h2>
+
+                          <% if tutor.online? %>
+                            <div class="bubble">
+                              <span class="bubble-outer-dot">
+                                <span class="bubble-inner-dot"></span>
+                              </span>
+                            </div>
+                          <% end %>
+
+                        </div><br>
+
+                        <div style="display: inline-flex;" class="average-review-rating" data-score="<% if tutor.reviews.blank? %>0<% else %><%= tutor..reviews.average(:rating).round(2) %><% end %>"></div><br>
+                        
+                        <% if tutor.reviews.any? %>
+                          <span class="text-muted" style="font-size: 12px;">
+                            (<%= tutor.reviews.count %>)
+                          </span>
+                        <% end %>
+
+                        <p><%= truncate(tutor.description, length: 150) %> <%= 'Les mere' if tutor.description? && tutor.description.length > 150 %></p>
+                      </div>
+
+                      <div class="col-md-4 col-sm-4">
+                        <div class="tutor-card-footer">
+                          <div class="first">
+                            <div class="inner">
+                              <% tutor.sub_categories.limit(6).each do |sub_cat| %>
+                                <span class="tag"><%= sub_cat.name %></span> 
+                              <% end %>
+                            </div>
+                          </div>
+                          <div class="inner">
+                            <strong>Online igen:</strong>
+                            <span class="online-again">
+                              <% tutor.active_hours.where(tutor_id: tutor.id).limit(1).each do |hour| %>
+                                <% if hour.start.future? %>
+                                  <%= hour.start.strftime('%b %M %Y') %>
+                                <% end %>
+                              <% end %>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+        <% end %>
+        <%= paginate @tutors %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card" style="display: none;">
+  <div class="card-body">
+      <center><h4 class="card-title">Kategorier</h4></center>
+      <!-- Nav tabs -->
+      <div class="vtabs">
+        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+          <% @categories.each do |cat| %>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#<%= cat.id %>" role="tab">
+                <span class="hidden-sm-up">
+                  <i class="ti-home"></i>
+                </span>
+                <span class="hidden-xs-down">
+                  <%= cat.name %>
+                </span>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="tab-content">
+          <% @categories.each do |cat| %>
+            <div class="tab-pane active" id="<%= cat.id %>" role="tabpanel">
+              <% SubCategory.where(category_id: cat.id).each do |sub_cat| %>
+                <h3><%= link_to sub_cat.name, sub_category_path(sub_cat) %></h3>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+<div class="mobile">
+  <div class="row">
+    <div class="categories-list">
+      <div class="list-2">
+        <input placeholder="Søkeboks" style="background: none; border: 1px solid #b5e2e6; color: #1c1c1c; width: 100%; padding: 10px;">
+        <% @categories.each do |cat| %>
+          <%= link_to categories_path(category: cat.name) do %>
+            <div class="list-category">
+              <%= cat.name %>
+              <span class="count"><%= cat.tutors.approved.count %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="categories-results">
+
       <%# if @sub_categories.try(:any?) %>
         <%# @sub_categories.each do |sub_cat| %>
           <%#= link_to sub_cat.name, sub_categories_path(sub_category: sub_cat.name) %>
         <%# end %>
       <%# end %>
-      <% if @tutors.try(:any?) %>
+      <% if params[:category].present? %><h2><%= @category.name %></h2><% end %><br>
+
         <% @tutors.each do |tutor| %>
 
           <%= link_to tutor_path(tutor), target: :blank do %>
@@ -106,47 +243,42 @@
               </div>
             </div>
           <% end %>
-        <% end %>
       <% end %>
-      <%= paginate @tutors if @tutors.try(:any?) %>
+      <%= paginate @tutors %>
     </div>
   </div>
+</div>
 
 
-  <div class="card" style="display: none;">
-    <div class="card-body">
-        <center><h4 class="card-title">Kategorier</h4></center>
-        <!-- Nav tabs -->
-        <div class="vtabs">
-          <ul class="nav nav-tabs tabs-vertical" role="tablist">
-            <% @categories.each do |cat| %>
-              <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#<%= cat.id %>" role="tab">
-                  <span class="hidden-sm-up">
-                    <i class="ti-home"></i>
-                  </span>
-                  <span class="hidden-xs-down">
-                    <%= cat.name %>
-                  </span>
-                </a>
-              </li>
-            <% end %>
-          </ul>
+<div class="card" style="display: none;">
+  <div class="card-body">
+      <center><h4 class="card-title">Kategorier</h4></center>
+      <!-- Nav tabs -->
+      <div class="vtabs">
+        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+          <% @categories.each do |cat| %>
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#<%= cat.id %>" role="tab">
+                <span class="hidden-sm-up">
+                  <i class="ti-home"></i>
+                </span>
+                <span class="hidden-xs-down">
+                  <%= cat.name %>
+                </span>
+              </a>
+            </li>
+          <% end %>
+        </ul>
 
-          <div class="tab-content">
-            <% @categories.each do |cat| %>
-              <div class="tab-pane active" id="<%= cat.id %>" role="tabpanel">
-                <% SubCategory.where(category_id: cat.id).each do |sub_cat| %>
-                  <h3><%= link_to sub_cat.name, sub_category_path(sub_cat) %></h3>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-
-
-
-
+        <div class="tab-content">
+          <% @categories.each do |cat| %>
+            <div class="tab-pane active" id="<%= cat.id %>" role="tabpanel">
+              <% SubCategory.where(category_id: cat.id).each do |sub_cat| %>
+                <h3><%= link_to sub_cat.name, sub_category_path(sub_cat) %></h3>
+              <% end %>
+            </div>
+          <% end %>
         </div>
-    </div>
+      </div>
   </div>
 </div>
