@@ -207,41 +207,33 @@ div label input {
  display: none;
 }
 
-.time-button {
+.time-picker {
   overflow: auto;
 }
 
-.time-button label {
+.time-picker {
   width: 90%;
   margin-bottom: 5px;
+  padding: 7px 11px 7px 11px;
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+  display: block;
+  background: #d1deef;
   &:hover {
 	  cursor: pointer;
   }
 }
 
-.time-button label span {
-  text-align: center;
-  padding: 7px 11px 7px 11px;
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
-	background: #d1deef;
-}
-
-.time-button-disabled {
-  text-align: center;
-  padding: 7px 11px 7px 11px;
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
+.time-disabled {
 	background: #f3f2f2;
 }
 
-.time-button label input {
+.time-picker {
   top:-20px;
 }
 
-.time-button input:checked + span {
+.time-checked {
   background-color: #7299d0;
   color: #fff;
 }

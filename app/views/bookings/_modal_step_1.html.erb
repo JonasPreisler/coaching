@@ -6,7 +6,7 @@
 		<div class="date">
 			<div class="field">
 
-			  <%= form.text_field :start, style: 'width: 100%;' %><br><br>
+			  <%= form.text_field :date, style: 'width: 100%;' %><br><br>
 				<%# <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime"> %>
 			</div>
 		</div>
@@ -19,10 +19,8 @@
 			<div class="row">
 				<% times_in_seconds_since_midnight_for_select.each do |t| %>
 					<div class="col-md-2 col-sm-2 col-xs-2">
-						<div class="time-button">
-						   <label>
-						      <input type="checkbox" value="<%= t %>"><span> <%= t %></span>
-						   </label>
+						<div class="time-picker">
+							<span class='time-slots' id=time-slot-<%= t %> ><%= t %></span>
 						</div>
 					</div>
 				<% end %>
