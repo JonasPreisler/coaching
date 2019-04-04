@@ -27,6 +27,27 @@ class CategoriesController < ApplicationController
     #                  .group(:id)
     #                  .order('COUNT(tutors.id) DESC')
   end
+  def index2
+
+    if params.has_key?(:category)
+      @category = Category.find_by_name(params[:category])
+      #@tutors_categories = TutorsCategory.where(category_id: @category)
+      @tutors = @category.tutors.approved.page(params[:page])
+      #@tutors = Tutor.approved.where(id: @tutors_categories).page(params[:page])
+      @categories = Category.all.order('name ASC')
+    else
+      #@categories = Category.all.left_joins(:tutors)
+                      #.group(:id)
+                      #.order('COUNT(tutors.id) DESC')
+      @categories = Category.all.order('name ASC')
+      @tutors = Tutor.approved.page(params[:page])
+    end
+
+    if params.has_key?(:sub_category)
+      @sub_category = SubCategory.find_by_name(params[:sub_category])
+      @tutors_categories = TutorsCategory.where(sub_category_id: @sub_category)
+    end
+  end
 
   def new
     @category = Category.new
